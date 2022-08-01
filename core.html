@@ -874,10 +874,12 @@ super class</p></li>
 </ul>
 </dd>
 </dl>
-<p>This class allows for easily picking specific laps from all laps in a session. It implements some additional
-functionality on top off the usual <cite>pandas.DataFrame</cite> functionality. Among others, the laps’ associated telemetry
-data can be accessed.</p>
-<p>If for example you want to get the fastest lap of Bottas you can narrow it down like this:</p>
+<p>This class allows for easily picking specific laps from all laps in a
+session. It implements some additional functionality on top off the usual
+<cite>pandas.DataFrame</cite> functionality. Among others, the laps’ associated
+telemetry data can be accessed.</p>
+<p>If for example you want to get the fastest lap of Bottas you can narrow
+it down like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fastf1</span>
 
 <span class="n">session</span> <span class="o">=</span> <span class="n">fastf1</span><span class="o">.</span><span class="n">get_session</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="s1">&#39;Bahrain&#39;</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">)</span>
@@ -888,11 +890,14 @@ data can be accessed.</p>
 <span class="c1"># Timedelta(&#39;0 days 00:01:28.256000&#39;)</span>
 </pre></div>
 </div>
-<p>Slicing this class will return <a class="reference internal" href="#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">Laps</span></code></a> again for slices containing multiple rows. Single rows will be
-returned as <a class="reference internal" href="#fastf1.core.Lap" title="fastf1.core.Lap"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lap</span></code></a>.</p>
-<dl>
-<dt>The following information is available per lap (one DataFrame column for each):</dt><dd><ul>
-<li><p><strong>Time</strong> (pandas.Timedelta): Session time when the lap time was set (end of lap)</p></li>
+<p>Slicing this class will return <a class="reference internal" href="#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">Laps</span></code></a> again for slices containing
+multiple rows. Single rows will be returned as <a class="reference internal" href="#fastf1.core.Lap" title="fastf1.core.Lap"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lap</span></code></a>.</p>
+<p>The following information is available per lap (one DataFrame column
+for each):</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Time</strong> (pandas.Timedelta): Session time when the lap time was
+set (end of lap)</p></li>
 <li><p><strong>Driver</strong> (string): Three letter driver identifier</p></li>
 <li><p><strong>DriverNumber</strong> (str): Driver number</p></li>
 <li><p><strong>LapTime</strong> (pandas.Timedelta): Recorded lap time.
@@ -900,40 +905,54 @@ Officially deleted lap times will <em>not</em> be deleted here.
 Deleting laps is currently not supported.</p></li>
 <li><p><strong>LapNumber</strong> (int): Recorded lap number</p></li>
 <li><p><strong>Stint</strong> (int): Stint number</p></li>
-<li><p><strong>PitOutTime</strong> (pandas.Timedelta): Session time when car exited the pit</p></li>
-<li><p><strong>PitInTime</strong> (pandas.Timedelta): Session time when car entered the pit</p></li>
+<li><p><strong>PitOutTime</strong> (pandas.Timedelta): Session time when car exited
+the pit</p></li>
+<li><p><strong>PitInTime</strong> (pandas.Timedelta): Session time when car entered
+the pit</p></li>
 <li><p><strong>Sector1Time</strong> (pandas.Timedelta): Sector 1 recorded time</p></li>
 <li><p><strong>Sector2Time</strong> (pandas.Timedelta): Sector 2 recorded time</p></li>
 <li><p><strong>Sector3Time</strong> (pandas.Timedelta): Sector 3 recorded time</p></li>
-<li><p><strong>Sector1SessionTime</strong> (pandas.Timedelta): Session time when the Sector 1 time was set</p></li>
-<li><p><strong>Sector2SessionTime</strong> (pandas.Timedelta): Session time when the Sector 2 time was set</p></li>
-<li><p><strong>Sector3SessionTime</strong> (pandas.Timedelta): Session time when the Sector 3 time was set</p></li>
-<li><p><strong>SpeedI1</strong> (float): Speedtrap sector 1</p></li>
-<li><p><strong>SpeedI2</strong> (float): Speedtrap sector 2</p></li>
-<li><p><strong>SpeedFL</strong> (float): Speedtrap at finish line</p></li>
-<li><p><strong>SpeedST</strong> (float): Speedtrap on longest straight (Not sure)</p></li>
-<li><dl class="simple">
-<dt><strong>IsPersonalBest</strong> (bool): Flag that indicates whether this lap is</dt><dd><p>the official personal best lap of a driver. If any lap of a driver
+<li><p><strong>Sector1SessionTime</strong> (pandas.Timedelta): Session time when the
+Sector 1 time was set</p></li>
+<li><p><strong>Sector2SessionTime</strong> (pandas.Timedelta): Session time when the
+Sector 2 time was set</p></li>
+<li><p><strong>Sector3SessionTime</strong> (pandas.Timedelta): Session time when the
+Sector 3 time was set</p></li>
+<li><p><strong>SpeedI1</strong> (float): Speedtrap sector 1 [km/h]</p></li>
+<li><p><strong>SpeedI2</strong> (float): Speedtrap sector 2 [km/h]</p></li>
+<li><p><strong>SpeedFL</strong> (float): Speedtrap at finish line [km/h]</p></li>
+<li><p><strong>SpeedST</strong> (float): Speedtrap on longest straight (Not sure) [km/h]</p></li>
+<li><p><strong>IsPersonalBest</strong> (bool): Flag that indicates whether this lap is
+the official personal best lap of a driver. If any lap of a driver
 is quicker than their respective personal best lap, this means that
 the quicker lap is invalid and not counted. This can happen it the
-track limits were execeeded, for example.</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>Compound</strong> (str): Tyre compound name: SOFT, MEDIUM ..</p></li>
-<li><p><strong>TyreLife</strong> (float): Laps driven on this tire (includes laps in other sessions for used sets of tires)</p></li>
-<li><p><strong>FreshTyre</strong> (bool): Tyre had TyreLife=0 at stint start, i.e. was a new tire</p></li>
+track limits were execeeded, for example.</p></li>
+<li><p><strong>Compound</strong> (str): Tyres event specific compound name: SOFT, MEDIUM,
+HARD, INTERMEDIATE, WET (the actual underlying compounds C1 to C5 are
+not differentiated).</p></li>
+<li><p><strong>TyreLife</strong> (float): Laps driven on this tire (includes laps in
+other sessions for used sets of tires)</p></li>
+<li><p><strong>FreshTyre</strong> (bool): Tyre had TyreLife=0 at stint start, i.e.
+was a new tire</p></li>
 <li><p><strong>Team</strong> (str): Team name</p></li>
-<li><p><strong>LapStartTime</strong> (pandas.Timedelta): Session time at the start of the lap</p></li>
-<li><p><strong>LapStartDate</strong> (pandas.Timestamp): Timestamp at the start of the lap</p></li>
-<li><p><strong>TrackStatus</strong> (str): A string that contains track status numbers for all track status that occurred
-during this lap. The meaning of the track status numbers is explained in
-<a class="reference internal" href="api.html#fastf1.api.track_status_data" title="fastf1.api.track_status_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.api.track_status_data()</span></code></a>. (Currently, track status data is only implemented per lap.
-If a finer resolution is desired, you need to directly use the data returned by
-<a class="reference internal" href="api.html#fastf1.api.track_status_data" title="fastf1.api.track_status_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.api.track_status_data()</span></code></a>)  # TODO updated when implemented</p></li>
-<li><p><strong>IsAccurate</strong> (bool): If True, the lap has passed a basic accuracy check for timing data.
-This does not guarantee accuracy but laps marked as inaccurate need to be handled with
-caution. They might contain errors which can not be spotted easily.
+<li><p><strong>LapStartTime</strong> (pandas.Timedelta): Session time at the start of
+the lap</p></li>
+<li><p><strong>LapStartDate</strong> (pandas.Timestamp): Timestamp at the start of
+the lap</p></li>
+<li><p><strong>TrackStatus</strong> (str): A string that contains track status numbers
+for all track status that occurred
+during this lap. The meaning of the track status numbers is
+explained in <a class="reference internal" href="api.html#fastf1.api.track_status_data" title="fastf1.api.track_status_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.api.track_status_data()</span></code></a>.
+For filtering laps by track status, you may want to use
+<a class="reference internal" href="#fastf1.core.Laps.pick_track_status" title="fastf1.core.Laps.pick_track_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">Laps.pick_track_status()</span></code></a>.</p></li>
+<li><p><strong>IsAccurate</strong> (bool): Indicates that the lap start and end time are
+synced correctly with other laps. Do not confuse this with the
+accuracy of the lap time or sector times. They are always considered
+to be accurate if they exist!
+If this value is True, the lap has passed as basic accuracy check
+for timing data. This does not guarantee accuracy but laps marked
+as inaccurate need to be handled with caution. They might contain
+errors which can not be spotted easily.
 Laps need to satisfy the following criteria to be marked
 as accurate:</p>
 <blockquote>
@@ -942,17 +961,18 @@ as accurate:</p>
 <li><p>set under green or yellow flag (the api sometimes has issues
 with data from SC/VSC laps)</p></li>
 <li><p>is not the first lap after a safety car period
-(issues with SC/VSC might still apear on the first lap
+(issues with SC/VSC might still appear on the first lap
 after it has ended)</p></li>
 <li><p>has a value for lap time and all sector times</p></li>
 <li><p>the sum of the sector times matches the lap time
-(will be additionally logged as integrity error if not)</p></li>
+(If this were to ever occur, it would also be logged separately
+as a data integrity error. You usually don’t need to worry about
+this.)</p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <p><strong>Attributes:</strong></p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -1565,30 +1585,32 @@ weather data directly in <a class="reference internal" href="#fastf1.core.Sessio
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastf1.core.</span></span><span class="sig-name descname"><span class="pre">Telemetry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_unknown_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/core.html#Telemetry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.core.Telemetry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></p>
 <p>Multi-channel time series telemetry data</p>
-<p>The object can contain multiple telemetry channels. Multiple telemetry objects with different channels
-can be merged on time. Each telemetry channel is one dataframe column.
-Partial telemetry (e.g. for one lap only) can be obtained through various methods for slicing the data.
-Additionally, methods for adding common computed data channels are available.</p>
+<p>The object can contain multiple telemetry channels. Multiple telemetry
+objects with different channels can be merged on time. Each telemetry
+channel is one dataframe column. Partial telemetry (e.g. for one lap only)
+can be obtained through various methods for slicing the data. Additionally,
+methods for adding common computed data channels are available.</p>
 <p>The following telemetry channels existed in the original API data:</p>
 <blockquote>
 <div><ul>
 <li><dl class="simple">
 <dt><strong>Car data</strong>:</dt><dd><ul class="simple">
-<li><p><cite>Speed</cite> (float): Car speed</p></li>
+<li><p><cite>Speed</cite> (float): Car speed [km/h]</p></li>
 <li><p><cite>RPM</cite> (int): Car RPM</p></li>
 <li><p><cite>nGear</cite> (int): Car gear number</p></li>
-<li><p><cite>Throttle</cite> (float): 0-100 Throttle pedal pressure</p></li>
-<li><p><cite>Brake</cite> (float): 0-100 Brake pedal pressure</p></li>
-<li><p><cite>DRS</cite> (int): DRS indicator (See <code class="xref py py-meth docutils literal notranslate"><span class="pre">car_data()</span></code> for more info)</p></li>
+<li><p><cite>Throttle</cite> (float): 0-100 Throttle pedal pressure [%]</p></li>
+<li><p><cite>Brake</cite> (bool): Brakes are applied or not.</p></li>
+<li><p><cite>DRS</cite> (int): DRS indicator (See <a class="reference internal" href="api.html#fastf1.api.car_data" title="fastf1.api.car_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.api.car_data()</span></code></a>
+for more info)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><strong>Position data</strong>:</dt><dd><ul class="simple">
-<li><p><cite>X</cite> (float): X position</p></li>
-<li><p><cite>Y</cite> (float): Y position</p></li>
-<li><p><cite>Z</cite> (float): Z position</p></li>
+<li><p><cite>X</cite> (float): X position [1/10 m]</p></li>
+<li><p><cite>Y</cite> (float): Y position [1/10 m]</p></li>
+<li><p><cite>Z</cite> (float): Z position [1/10 m]</p></li>
 <li><p><cite>Status</cite> (string): Flag - OffTrack/OnTrack</p></li>
 </ul>
 </dd>
@@ -1597,14 +1619,17 @@ Additionally, methods for adding common computed data channels are available.</p
 <li><dl>
 <dt><strong>For both of the above</strong>:</dt><dd><ul>
 <li><p><cite>Time</cite> (timedelta): Time (0 is start of the data slice)</p></li>
-<li><p><cite>SessionTime</cite> (timedelta): Time elapsed since the start of the session</p></li>
-<li><p><cite>Date</cite> (datetime): The full date + time at which this sample was created</p></li>
+<li><p><cite>SessionTime</cite> (timedelta): Time elapsed since the start of the
+session</p></li>
+<li><p><cite>Date</cite> (datetime): The full date + time at which this sample
+was created</p></li>
 <li><p><cite>Source</cite> (str): Flag indicating how this sample was created:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>‘car’: sample from original api car data</p></li>
 <li><p>‘pos’: sample from original api position data</p></li>
-<li><p>‘interpolated’: this sample was artificially created; all values are computed/interpolated</p></li>
+<li><p>‘interpolated’: this sample was artificially created; all
+values are computed/interpolated</p></li>
 </ul>
 <dl>
 <dt>Example:</dt><dd><p>A sample’s source is indicated as ‘car’. It contains
@@ -1626,7 +1651,8 @@ correctly when modifying data.</p>
 </dl>
 </li>
 </ul>
-<p>Through merging/slicing it is possible to obtain any combination of telemetry channels!
+<p>Through merging/slicing it is possible to obtain any combination of
+telemetry channels!
 The following additional computed data channels can be added:</p>
 <blockquote>
 <div><ul class="simple">
@@ -1642,17 +1668,20 @@ The following additional computed data channels can be added:</p>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See the separate explanation concerning the various definitions of ‘Time’ for more information on the
-three date and time related channels: <a class="reference internal" href="time_explanation.html#time-explanation"><span class="std std-ref">Time, Date and Timing - Explanation</span></a></p>
+<p>See the separate explanation concerning the various
+definitions of ‘Time’ for more information on the three date and
+time related channels: <a class="reference internal" href="time_explanation.html#time-explanation"><span class="std std-ref">Time, Date and Timing - Explanation</span></a></p>
 </div>
 </div></blockquote>
-<p>Slicing this class will return <a class="reference internal" href="#fastf1.core.Telemetry" title="fastf1.core.Telemetry"><code class="xref py py-class docutils literal notranslate"><span class="pre">Telemetry</span></code></a> again for slices containing multiple rows. Single rows will be
-returned as <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
+<p>Slicing this class will return <a class="reference internal" href="#fastf1.core.Telemetry" title="fastf1.core.Telemetry"><code class="xref py py-class docutils literal notranslate"><span class="pre">Telemetry</span></code></a> again for slices
+containing multiple rows. Single rows will be returned as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>*args</strong> (<em>any</em>) – passed through to <cite>pandas.DataFrame</cite> superclass</p></li>
-<li><p><strong>session</strong> (<a class="reference internal" href="#fastf1.core.Session" title="fastf1.core.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – Instance of associated session object. Required for full functionality!</p></li>
+<li><p><strong>session</strong> (<a class="reference internal" href="#fastf1.core.Session" title="fastf1.core.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>) – Instance of associated session object.
+Required for full functionality!</p></li>
 <li><p><strong>driver</strong> (<em>str</em>) – Driver number as string. Required for full functionality!</p></li>
 <li><p><strong>**kwargs</strong> (<em>any</em>) – passed through to <cite>pandas.DataFrame</cite> superclass</p></li>
 </ul>

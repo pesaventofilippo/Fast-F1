@@ -1,9 +1,5 @@
 :orphan:
 
-
-
-.. _sphx_glr_examples_gallery:
-
 Examples Gallery
 ================
 
@@ -12,14 +8,76 @@ Examples Gallery
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Compare two fastest laps by overlaying their speed traces.">
 
 .. only:: html
 
- .. figure:: /examples_gallery/images/thumb/sphx_glr_plot_speed_traces_thumb.png
-     :alt: Overlaying speed traces of two laps
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_speed_traces_thumb.png
+    :alt: Overlaying speed traces of two laps
 
-     :ref:`sphx_glr_examples_gallery_plot_speed_traces.py`
+  :ref:`sphx_glr_examples_gallery_plot_speed_traces.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Overlaying speed traces of two laps</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot which gear is being used at which point of the track">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_gear_shifts_on_track_thumb.png
+    :alt: Gear shifts on track
+
+  :ref:`sphx_glr_examples_gallery_plot_gear_shifts_on_track.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gear shifts on track</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot the qualifying result with visualization the fastest times.">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_qualifying_results_thumb.png
+    :alt: Qualifying results overview
+
+  :ref:`sphx_glr_examples_gallery_plot_qualifying_results.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Qualifying results overview</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="(Example provided by @JSEHV on Github)">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_speed_on_track_thumb.png
+    :alt: Speed visualization on track map
+
+  :ref:`sphx_glr_examples_gallery_plot_speed_on_track.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Speed visualization on track map</div>
+    </div>
+
 
 .. raw:: html
 
@@ -30,72 +88,9 @@ Examples Gallery
    :hidden:
 
    /examples_gallery/plot_speed_traces
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot which gear is being used at which point of the track">
-
-.. only:: html
-
- .. figure:: /examples_gallery/images/thumb/sphx_glr_plot_gear_shifts_on_track_thumb.png
-     :alt: Gear shifts on track
-
-     :ref:`sphx_glr_examples_gallery_plot_gear_shifts_on_track.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /examples_gallery/plot_gear_shifts_on_track
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot the qualifying result with visualization the fastest times.">
-
-.. only:: html
-
- .. figure:: /examples_gallery/images/thumb/sphx_glr_plot_qualifying_results_thumb.png
-     :alt: Qualifying results overview
-
-     :ref:`sphx_glr_examples_gallery_plot_qualifying_results.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /examples_gallery/plot_qualifying_results
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="(Example provided by @JSEHV on Github)">
-
-.. only:: html
-
- .. figure:: /examples_gallery/images/thumb/sphx_glr_plot_speed_on_track_thumb.png
-     :alt: Speed visualization on track map
-
-     :ref:`sphx_glr_examples_gallery_plot_speed_on_track.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /examples_gallery/plot_speed_on_track
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
 
 
 

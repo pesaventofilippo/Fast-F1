@@ -728,8 +728,8 @@ frequently (for example ‘Compound’ only after tire changes).</p>
 <dt class="sig sig-object py" id="fastf1.api.car_data">
 <span class="sig-prename descclassname"><span class="pre">fastf1.api.</span></span><span class="sig-name descname"><span class="pre">car_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">livedata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/api.html#car_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.api.car_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch and parse car data.</p>
-<dl>
-<dt>Car data provides the following data channels per sample:</dt><dd><ul>
+<dl class="simple">
+<dt>Car data provides the following data channels per sample:</dt><dd><ul class="simple">
 <li><p>Time (pandas.Timedelta): session timestamp (time only); inaccurate, has duplicate values; use Date instead</p></li>
 <li><p>Date (pandas.Timestamp): timestamp for this sample as Date + Time; more or less exact</p></li>
 <li><p>Speed (int): Km/h</p></li>
@@ -737,19 +737,18 @@ frequently (for example ‘Compound’ only after tire changes).</p>
 <li><p>Gear (int): [called ‘nGear’ in the data!]</p></li>
 <li><p>Throttle (int): 0-100%</p></li>
 <li><p>Brake (bool)</p></li>
-<li><dl>
-<dt>DRS (int): 0-14 (Odd DRS is Disabled, Even DRS is Enabled) (More Research Needed)</dt><dd><div class="line-block">
-<div class="line">0 =  Off</div>
-<div class="line">1 =  Off</div>
-<div class="line">2 =  (?)</div>
-<div class="line">3 =  (?)</div>
-<div class="line">8 =  Detected, Eligible once in Activation Zone (Noted Sometimes)</div>
-<div class="line">10 = On (Unknown Distinction)</div>
-<div class="line">12 = On (Unknown Distinction)</div>
-<div class="line">14 = On (Unknown Distinction)</div>
-</div>
-</dd>
-</dl>
+<li><p>DRS (int): 0-14 (Odd DRS is Disabled, Even DRS is Enabled?)
+(More Research Needed?)</p>
+<ul>
+<li><p>0 =  Off</p></li>
+<li><p>1 =  Off</p></li>
+<li><p>2 =  (?)</p></li>
+<li><p>3 =  (?)</p></li>
+<li><p>8 =  Detected, Eligible once in Activation Zone (Noted Sometimes)</p></li>
+<li><p>10 = On (Unknown Distinction)</p></li>
+<li><p>12 = On (Unknown Distinction)</p></li>
+<li><p>14 = On (Unknown Distinction)</p></li>
+</ul>
 </li>
 <li><p>Source (str): Indicates the source of a sample; ‘car’ for all values here</p></li>
 </ul>

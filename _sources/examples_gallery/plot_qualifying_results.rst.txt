@@ -71,8 +71,6 @@ First, we need to get an array of all drivers.
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
     ['HAM' 'VER' 'BOT' 'LEC' 'OCO' 'SAI' 'RIC' 'PER' 'NOR' 'ALO' 'STR' 'GAS'
@@ -147,8 +145,6 @@ and 'LapTimeDelta' columns.
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -257,28 +253,23 @@ Finally, give the plot a meaningful title
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.436 seconds)
+   **Total running time of the script:** ( 0 minutes  2.294 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_qualifying_results.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_qualifying_results.py <plot_qualifying_results.py>`
 
-     :download:`Download Python source code: plot_qualifying_results.py <plot_qualifying_results.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_qualifying_results.ipynb <plot_qualifying_results.ipynb>`
+      :download:`Download Jupyter notebook: plot_qualifying_results.ipynb <plot_qualifying_results.ipynb>`
 
 
 .. only:: html

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Changelog &mdash; Fast F1 2.2.9 documentation</title>
+  <title>Changelog &mdash; Fast F1 2.3.0 documentation</title>
   
 
   
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                2.2.9
+                2.3.0
               </div>
             
           
@@ -117,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
 </ul>
 </li>
@@ -261,6 +262,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v2-3-0">v2.3.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v2-2-9">v2.2.9</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v2-2-8">v2.2.8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v2-2-7">v2.2.7</a></li>
@@ -360,6 +362,62 @@
             
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v2-3-0">
+<h2>v2.3.0<a class="headerlink" href="#v2-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Bug Fixes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The matplotlib dependency version is now required to be &gt;= 3.3.3 to prevent
+incompatibility. (#210)</p></li>
+<li><p>Fixed: NaT values for ‘Time’ or ‘LapStartTime’ may cause a crash
+in <a class="reference internal" href="core.html#fastf1.core.Telemetry.calculate_driver_ahead" title="fastf1.core.Telemetry.calculate_driver_ahead"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Telemetry.calculate_driver_ahead()</span></code></a> (#151)</p></li>
+<li><p>Fixed: Data for speed trap ‘SpeedST’ is added to the wrong lap.
+This additionally caused empty laps to exist for some drivers at the
+beginning of some sessions.</p></li>
+<li><p>Fixed: <a class="reference internal" href="core.html#fastf1.core.Telemetry.add_driver_ahead" title="fastf1.core.Telemetry.add_driver_ahead"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Telemetry.add_driver_ahead()</span></code></a> could not
+be called on previously resampled telemetry data. (#178)</p></li>
+<li><p>Added: Better error handling for sessions that did not take place.</p></li>
+<li><p>Fixed: Tyre compound shown for some laps was incorrect in some special
+cases. (#204)</p></li>
+<li><p>Fixed: Incorrect first and last name for Hulkenberg in fallback driver list
+(by &#64;niallmcevoy)</p></li>
+<li><p>Fixed: metadata for <a class="reference internal" href="core.html#fastf1.core.Telemetry" title="fastf1.core.Telemetry"><code class="xref py py-class docutils literal notranslate"><span class="pre">Telemetry</span></code></a> was not propagated
+correctly in <a class="reference internal" href="core.html#fastf1.core.Telemetry.merge_channels" title="fastf1.core.Telemetry.merge_channels"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Telemetry.merge_channels()</span></code></a> and
+<a class="reference internal" href="core.html#fastf1.core.Telemetry.resample_channels" title="fastf1.core.Telemetry.resample_channels"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Telemetry.resample_channels()</span></code></a>.</p></li>
+<li><p>Fixed: incorrect call of scipy method in
+<a class="reference internal" href="legacy.html#fastf1.legacy.inject_driver_ahead" title="fastf1.legacy.inject_driver_ahead"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.legacy.inject_driver_ahead()</span></code></a></p></li>
+<li><p>Fixed: Error handling regression in <a class="reference internal" href="core.html#fastf1.core.Session.load" title="fastf1.core.Session.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Session.load()</span></code></a></p></li>
+<li><p>Fixed: <code class="xref py py-exc docutils literal notranslate"><span class="pre">DataNotLoadedError</span></code> not raised for <cite>car_data</cite> and
+<cite>pos_data</cite>.</p></li>
+</ul>
+</div></blockquote>
+<p>New Features:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Added: Function <a class="reference internal" href="fastf1.html#fastf1.get_events_remaining" title="fastf1.get_events_remaining"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_events_remaining()</span></code></a> (by &#64;oscr)</p></li>
+<li><p>Added: Support for shorthand paths (e.g. ‘~/cache’) in
+<a class="reference internal" href="fastf1.html#fastf1.Cache.enable_cache" title="fastf1.Cache.enable_cache"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.Cache.enable_cache()</span></code></a> (by &#64;oscr)</p></li>
+</ul>
+</div></blockquote>
+<p>Changes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The default base url scheme for Ergast is changed from http to https.</p></li>
+</ul>
+</div></blockquote>
+<p>Deprecations and Notices for Upcoming Changes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Deprecation: Undocumented function <code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.ergast.fetch_weekend()</span></code>
+will be removed without a direct replacement in a future version
+(target: v3.0.0).</p></li>
+<li><p>Change: <a class="reference internal" href="utils.html#fastf1.utils.to_timedelta" title="fastf1.utils.to_timedelta"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.utils.to_timedelta()</span></code></a> and
+<a class="reference internal" href="utils.html#fastf1.utils.to_datetime" title="fastf1.utils.to_datetime"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.utils.to_datetime()</span></code></a> will return <cite>NaT</cite> instead of raising and
+exception if a valued cannot be parsed in a future version
+(target: v3.0.0).</p></li>
+</ul>
+</div></blockquote>
+</div>
 <div class="section" id="v2-2-9">
 <h2>v2.2.9<a class="headerlink" href="#v2-2-9" title="Permalink to this headline">¶</a></h2>
 <p>Bug Fixes:</p>
@@ -573,9 +631,12 @@ misleading.</p></li>
 </div></blockquote>
 <p>Deprecations:</p>
 <blockquote>
-<div><p><strong>Objects, methods and attributes deprecated in v2.2 will be removed
-in v2.3.</strong> Until then, accessing them will still work but a FutureWarning
-is shown, reminding you of the deprecation.</p>
+<div><p>(Objects, methods and attributes deprecated in v2.2 will be removed
+in v2.3. Until then, accessing them will still work but a FutureWarning
+is shown, reminding you of the deprecation.)
+<strong>Removal has been delayed for user convenience and because
+there exist no problems currently which make a removal immediately necessary.
+The new removal target is v3.0.0</strong></p>
 <ul>
 <li><p><a class="reference internal" href="core.html#fastf1.core.Weekend" title="fastf1.core.Weekend"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Weekend</span></code></a> has been replaced with
 <a class="reference internal" href="events.html#fastf1.events.Event" title="fastf1.events.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.events.Event</span></code></a>. All previously available methods and

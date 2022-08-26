@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>General Functions - fastf1 &mdash; Fast F1 2.2.9 documentation</title>
+  <title>General Functions - fastf1 &mdash; Fast F1 2.3.0 documentation</title>
   
 
   
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                2.2.9
+                2.3.0
               </div>
             
           
@@ -118,6 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
 </ul>
 </li>
@@ -262,6 +263,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-3-0">v2.3.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-2-9">v2.2.9</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-2-8">v2.2.8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-2-7">v2.2.7</a></li>
@@ -380,10 +382,13 @@ session. This can be done with one of the following functions:</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#fastf1.get_event" title="fastf1.get_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastf1.get_event</span></code></a>(year, gp, *[, force_ergast])</p></td>
 <td><p>Create an <a class="reference internal" href="events.html#fastf1.events.Event" title="fastf1.events.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a> object for a specific season and gp.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#fastf1.get_testing_session" title="fastf1.get_testing_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastf1.get_testing_session</span></code></a>(year, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#fastf1.get_events_remaining" title="fastf1.get_events_remaining"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastf1.get_events_remaining</span></code></a>([dt, ...])</p></td>
+<td><p>Create an <a class="reference internal" href="events.html#fastf1.events.EventSchedule" title="fastf1.events.EventSchedule"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSchedule</span></code></a> object for remaining season.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fastf1.get_testing_session" title="fastf1.get_testing_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastf1.get_testing_session</span></code></a>(year, ...)</p></td>
 <td><p>Create a <a class="reference internal" href="core.html#fastf1.core.Session" title="fastf1.core.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a> object for testing sessions based on year, test  event number and session number.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fastf1.get_event_schedule" title="fastf1.get_event_schedule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastf1.get_event_schedule</span></code></a>(year, *[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#fastf1.get_event_schedule" title="fastf1.get_event_schedule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastf1.get_event_schedule</span></code></a>(year, *[, ...])</p></td>
 <td><p>Create an <a class="reference internal" href="events.html#fastf1.events.EventSchedule" title="fastf1.events.EventSchedule"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSchedule</span></code></a> object for a specific season.</p></td>
 </tr>
 </tbody>
@@ -544,6 +549,29 @@ create the event schedule</p></li>
 </dl>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2.2.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fastf1.get_events_remaining">
+<span class="sig-prename descclassname"><span class="pre">fastf1.</span></span><span class="sig-name descname"><span class="pre">get_events_remaining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_testing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_ergast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="events.html#fastf1.events.EventSchedule" title="fastf1.events.EventSchedule"><span class="pre">fastf1.events.EventSchedule</span></a></span></span><a class="reference internal" href="_modules/fastf1/events.html#get_events_remaining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.get_events_remaining" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an <a class="reference internal" href="events.html#fastf1.events.EventSchedule" title="fastf1.events.EventSchedule"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSchedule</span></code></a> object for remaining season.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dt</strong> (<em>datetime</em>) – Optional DateTime to get events after.</p></li>
+<li><p><strong>include_testing</strong> (<em>bool</em>) – Include or exclude testing sessions from the
+event schedule.</p></li>
+<li><p><strong>force_ergast</strong> (<em>bool</em>) – Always use data from the ergast database to
+create the event schedule</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="events.html#fastf1.events.EventSchedule" title="fastf1.events.EventSchedule"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSchedule</span></code></a></p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2.3.</span></p>
 </div>
 </dd></dl>
 

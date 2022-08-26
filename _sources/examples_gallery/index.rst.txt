@@ -64,6 +64,23 @@ Examples Gallery
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Calculates which drivers still has chance to win the WDC. Simplified since it doesn&#x27;t compare p...">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_who_can_still_win_wdc_thumb.png
+    :alt: Who can still win the drivers WDC?
+
+  :ref:`sphx_glr_examples_gallery_plot_who_can_still_win_wdc.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Who can still win the drivers WDC?</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="(Example provided by @JSEHV on Github)">
 
 .. only:: html
@@ -90,6 +107,7 @@ Examples Gallery
    /examples_gallery/plot_speed_traces
    /examples_gallery/plot_gear_shifts_on_track
    /examples_gallery/plot_qualifying_results
+   /examples_gallery/plot_who_can_still_win_wdc
    /examples_gallery/plot_speed_on_track
 
 

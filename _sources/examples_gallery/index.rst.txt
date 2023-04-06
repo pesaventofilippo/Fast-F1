@@ -18,7 +18,7 @@ Examples Gallery
 .. only:: html
 
   .. image:: /examples_gallery/images/thumb/sphx_glr_plot_speed_traces_thumb.png
-    :alt: Overlaying speed traces of two laps
+    :alt:
 
   :ref:`sphx_glr_examples_gallery_plot_speed_traces.py`
 
@@ -35,7 +35,7 @@ Examples Gallery
 .. only:: html
 
   .. image:: /examples_gallery/images/thumb/sphx_glr_plot_gear_shifts_on_track_thumb.png
-    :alt: Gear shifts on track
+    :alt:
 
   :ref:`sphx_glr_examples_gallery_plot_gear_shifts_on_track.py`
 
@@ -52,7 +52,7 @@ Examples Gallery
 .. only:: html
 
   .. image:: /examples_gallery/images/thumb/sphx_glr_plot_qualifying_results_thumb.png
-    :alt: Qualifying results overview
+    :alt:
 
   :ref:`sphx_glr_examples_gallery_plot_qualifying_results.py`
 
@@ -69,7 +69,7 @@ Examples Gallery
 .. only:: html
 
   .. image:: /examples_gallery/images/thumb/sphx_glr_plot_who_can_still_win_wdc_thumb.png
-    :alt: Who can still win the drivers WDC?
+    :alt:
 
   :ref:`sphx_glr_examples_gallery_plot_who_can_still_win_wdc.py`
 
@@ -86,7 +86,7 @@ Examples Gallery
 .. only:: html
 
   .. image:: /examples_gallery/images/thumb/sphx_glr_plot_speed_on_track_thumb.png
-    :alt: Speed visualization on track map
+    :alt:
 
   :ref:`sphx_glr_examples_gallery_plot_speed_on_track.py`
 

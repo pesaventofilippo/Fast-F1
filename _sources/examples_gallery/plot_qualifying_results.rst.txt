@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_examples_gallery_plot_qualifying_results.py>`
+        :ref:`Go to the end <sphx_glr_download_examples_gallery_plot_qualifying_results.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -48,6 +48,59 @@ Plot the qualifying result with visualization the fastest times.
 
 
 
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+      for key, value in row.iteritems():
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+      for key, value in row.iteritems():
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+      for key, value in row.iteritems():
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+      for key, value in row.iteritems():
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+      for key, value in row.iteritems():
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
+      df = pd.concat([df, result], sort=False)
 
 
 
@@ -253,7 +306,7 @@ Finally, give the plot a meaningful title
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.839 seconds)
+   **Total running time of the script:** ( 0 minutes  3.464 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_qualifying_results.py:
@@ -261,6 +314,8 @@ Finally, give the plot a meaningful title
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

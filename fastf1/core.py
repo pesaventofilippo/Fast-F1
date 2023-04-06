@@ -77,20 +77,20 @@ class Flags(enum.Enum):
 class _ApiData:
     NOT_SET = 1
 
-    def __init__(self, loader: str):
-        self._loader_name = loader
+    def __init__(self, loader: callable):
+        self._loader_name = loader.__name__
 
     def __set_name__(self, owner, name):
         self.public_name = name
         self.private_name = '_' + name
 
     def __set__(self, instance, value):
-        instance._data = value
+        setattr(instance, self.private_name, value)
 
     def __get__(self, instance, owner):
         data = getattr(instance, self.private_name, _ApiData.NOT_SET)
         if data is _ApiData.NOT_SET:
-            if instance.auto_load:
+            if instance.on_demand_loading:
                 loader = getattr(instance, self._loader_name)
                 data = loader()
                 setattr(instance, self.private_name, data)
@@ -1047,23 +1047,12 @@ class Session:
         )
         """str: API base path for this session"""
 
-        self._race_control_messages: pd.DataFrame
-
-        self._track_status: pd.DataFrame
-
-        self._total_laps: Optional[int]
-        self._laps: Laps
-
         self._t0_date: Optional[pd.Timestamp]
-        self._session_start_time: Optional[pd.Timedelta]
 
         self._car_data: dict
         self._pos_data: dict
 
-        self._weather_data: pd.DataFrame
-        self._results: SessionResults
-
-        self.auto_load = True
+        self.on_demand_loading = True
 
     def __repr__(self):
         return (f"{self.event.year} Season Round {self.event.RoundNumber}: "
@@ -1086,42 +1075,6 @@ class Session:
         return list(self.results['DriverNumber'].unique())
 
     @property
-    def results(self) -> "SessionResults":
-        """:class:`SessionResults`: Session result with driver information.
-
-        Data is available after calling `Session.load`
-        """
-        return self._get_property_warn_not_loaded('_results')
-
-    @property
-    def laps(self) -> "Laps":
-        """:class:`Laps`: All laps from all drivers driven in this session.
-
-        Data is available after calling `Session.load` with ``laps=True``
-        """
-        return self._get_property_warn_not_loaded('_laps')
-
-    @property
-    def total_laps(self) -> int:
-        """:class:`int`: Originally scheduled number of laps for race-like
-        sessions such as Race and Sprint. It takes None as a default value
-        for other types of sessions or if data is unavailable
-
-        Data is available after calling `Session.load` with ``laps=True``
-        """
-        return self._get_property_warn_not_loaded('_total_laps')
-
-    @property
-    def weather_data(self):
-        """Dataframe containing weather data for this session as received
-        from the api. See :func:`fastf1.api.weather_data` for available data
-        channels. Each data channel is one row of the dataframe.
-
-        Data is available after calling `Session.load` with ``weather=True``
-        """
-        return self._get_property_warn_not_loaded('_weather_data')
-
-    @property
     def car_data(self) -> "Telemetry":
         """Dictionary of car telemetry (Speed, RPM, etc.) as received from
         the api by car number (where car number is a string and the telemetry
@@ -1140,41 +1093,6 @@ class Session:
         Data is available after calling `Session.load` with ``telemetry=True``
         """
         return self._get_property_warn_not_loaded('_pos_data')
-
-    session_status = _ApiData('_load_session_status_data')
-    """:class:`pandas.Dataframe`: Session status data as returned by
-    :func:`fastf1.api.session_status_data`
-
-    Data is available after calling `Session.load` with ``laps=True``
-    """
-
-    @property
-    def track_status(self):
-        """:class:`pandas.Dataframe`: Track status data as returned by
-        :func:`fastf1.api.track_status_data`
-
-        Data is available after calling `Session.load` with ``laps=True``
-        """
-        return self._get_property_warn_not_loaded('_track_status')
-
-    @property
-    def race_control_messages(self):
-        """:class:`pandas.Dataframe`: Race Control messages as returned by
-        :func:`fastf1.api.race_control_messages`
-
-        Data is available after calling `Session.load` with ``messages=True``
-        """
-        return self._get_property_warn_not_loaded('_race_control_messages')
-
-    @property
-    def session_start_time(self) -> pd.Timedelta:
-        """:class:`pandas.Timedelta`: Session time at which the session was
-        started according to the session status data. This is not the
-        time at which the session is scheduled to be started!
-
-        Data is available after calling `Session.load` with ``laps=True``
-        """
-        return self._get_property_warn_not_loaded('_session_start_time')
 
     @property
     def t0_date(self):
@@ -1268,164 +1186,6 @@ class Session:
 
         _logger.info(f"Finished loading data for {len(self.drivers)} "
                      f"drivers: {self.drivers}")
-
-    @soft_exceptions("lap timing data", _logger)
-    def _load_laps_data(self, livedata=None):
-        data, _ = api.timing_data(self.api_path, livedata=livedata)
-        app_data = api.timing_app_data(self.api_path, livedata=livedata)
-        _logger.info("Processing timing data...")
-        # Matching data and app_data. Not super straightforward
-        # Sometimes a car may enter the pit without changing tyres, so
-        # new compound is associated with the help of logging time.
-        data.drop(columns=['NumberOfPitStops'], inplace=True)
-        useful = app_data[['Driver', 'Time', 'Compound', 'StartLaps', 'New',
-                           'Stint']]
-        useful = useful[~useful['Compound'].isnull()]
-
-        drivers = self.drivers
-        if not drivers:
-            # TODO: refactor into a separate method once ergast is implemented
-            # no driver list, generate from lap data
-            drivers = set(data['Driver'].unique()) \
-                .intersection(set(useful['Driver'].unique()))
-
-            _nums_df = pd.DataFrame({'DriverNumber': list(drivers)},
-                                    index=list(drivers))
-            _info_df = pd.DataFrame(fastf1._DRIVER_TEAM_MAPPING).T
-
-            self._results = SessionResults(_nums_df.join(_info_df),
-                                           force_default_cols=True)
-
-            _logger.warning("Generating minimal driver "
-                            "list from timing data.")
-
-        df = None
-        for i, driver in enumerate(drivers):
-            d1 = data[data['Driver'] == driver]
-            d2 = useful[useful['Driver'] == driver]
-            if d2.shape[0] != len(d2['Stint'].unique()):
-                # tyre info includes correction messages that need to be
-                # applied before continuing
-                d2 = self.__fix_tyre_info(d2)
-
-            is_generated = False
-            if not len(d1):
-                if ((self.name in ('Race', 'Sprint', 'Sprint Qualifying'))
-                        and len(d2)):
-                    # add data for drivers who crashed on the very first lap
-                    # as a downside, this potentially adds a nonexistent lap
-                    # for drivers who could not start the race
-                    is_generated = True
-                    result = d1.copy()
-                    result['Driver'] = [driver, ]
-                    result['NumberOfLaps'] = 0
-                    result['Time'] = data['Time'].min()
-                    result['IsPersonalBest'] = False
-                    result['Compound'] = d2['Compound'].iloc[0]
-                    result['TyreLife'] = d2['StartLaps'].iloc[0]
-                    result['Stint'] = 0
-                    result['New'] = d2['New'].iloc[0]
-                else:
-                    _logger.warning(f"No lap data for driver {driver}")
-                    continue  # no data for this driver; skip
-
-            elif not len(d2):
-                result = d1.copy()
-                result['Compound'] = str()
-                result['TyreLife'] = np.nan
-                result['Stint'] = 0
-                result['New'] = False
-                _logger.warning(f"No tyre data for driver {driver}")
-
-            else:
-                result = pd.merge_asof(d1, d2, on='Time', by='Driver') \
-                    .rename(columns={'StartLaps': 'TyreLife'})
-
-            # add flag that indicates if the data for this lap was generated
-            # by FastF1
-            result['FastF1Generated'] = is_generated
-
-            # calculate lap start time by setting it to the 'Time' of the
-            # previous lap
-            laps_start_time = list(result['Time'])[:-1]
-            if self.name in ('Race', 'Sprint', 'Sprint Qualifying'):
-                # assumption that the first lap started when the session was
-                # started can only be made for the race
-                laps_start_time.insert(0, self.session_start_time)
-            else:
-                laps_start_time.insert(0, pd.NaT)
-            laps_start_time = pd.Series(laps_start_time)
-
-            # don't set lap start times after red flag restart to the time
-            # at which the previous lap was set
-            # only run this correction if the session was ever aborted
-            if (self.session_status['Status'] == 'Aborted').any():
-                _is_aborted = False
-                # first, find the point at which the session was aborted, then
-                # the following restart and the lap that starts immediately
-                # after; correct its pit out time
-                for _, row in self.session_status.iterrows():
-                    if _is_aborted and row['Status'] == 'Started':  # restart
-                        _is_aborted = False
-                        try:
-                            restart_index = result.loc[
-                                result['PitOutTime'] > row['Time'],
-                                'PitOutTime'
-                            ].index[0]
-                        except IndexError:
-                            continue  # no pit out, car did not restart
-                        if self.name in ('Sprint Qualifying', 'Sprint',
-                                         'Race'):
-                            # if this is a race-like session, we can assume the
-                            # session restart time as lap start time
-                            laps_start_time[restart_index] = row['Time']
-                        else:
-                            # for other sessions, we cannot make this
-                            # assumption set to NaT here, it will be set to
-                            # PitOutTime later if possible
-                            laps_start_time[restart_index] = pd.NaT
-                    elif row['Status'] == 'Aborted':  # red flag
-                        _is_aborted = True
-
-            result.loc[:, 'LapStartTime'] = pd.Series(
-                laps_start_time, dtype='timedelta64[ns]'
-            )
-
-            # set missing lap start times to pit out time where possible
-            mask = pd.isna(result['LapStartTime']) & (~pd.isna(result['PitOutTime']))
-            result.loc[mask, 'LapStartTime'] = result.loc[mask, 'PitOutTime']
-
-            # create total laps counter for each tyre used
-            for npit in result['Stint'].unique():
-                sel = result['Stint'] == npit
-                result.loc[sel, 'TyreLife'] += np.arange(0, sel.sum()) + 1
-
-            df = pd.concat([df, result], sort=False)
-
-        if df is None:
-            raise NoLapDataError
-
-        laps = df.reset_index(drop=True)  # noqa: F821
-
-        # rename some columns
-        laps.rename(columns={'Driver': 'DriverNumber',
-                             'NumberOfLaps': 'LapNumber',
-                             'New': 'FreshTyre'}, inplace=True)
-
-        laps['Stint'] += 1  # counting stints from 1
-
-        # add team names and driver names based on driver number
-        t_map = {r['DriverNumber']: r['TeamName']
-                 for _, r in self.results.iterrows()}
-        laps['Team'] = laps['DriverNumber'].map(t_map)
-        d_map = {r['DriverNumber']: r['Abbreviation']
-                 for _, r in self.results.iterrows()}
-        laps['Driver'] = laps['DriverNumber'].map(d_map)
-
-        self._add_track_status_to_laps(laps)
-
-        self._laps = Laps(laps, session=self, force_default_cols=True)
-        self._check_lap_accuracy()
 
     def _fix_missing_laps_retired_on_track(self):
         # generate a last lap entry with assumed end time for cars that
@@ -1566,10 +1326,175 @@ class Session:
                     ('Deleted', 'IsPersonalBest', 'DeletedReason')
                 ] = (True, False, reason)
 
+    @soft_exceptions("lap timing data", _logger)
+    def _load_laps_data(self, livedata=None):
+        data, _ = api.timing_data(self.api_path, livedata=livedata)
+        app_data = api.timing_app_data(self.api_path, livedata=livedata)
+        _logger.info("Processing timing data...")
+        # Matching data and app_data. Not super straightforward
+        # Sometimes a car may enter the pit without changing tyres, so
+        # new compound is associated with the help of logging time.
+        data.drop(columns=['NumberOfPitStops'], inplace=True)
+        useful = app_data[['Driver', 'Time', 'Compound', 'StartLaps', 'New',
+                           'Stint']]
+        useful = useful[~useful['Compound'].isnull()]
+
+        drivers = self.drivers
+        if not drivers:
+            # TODO: refactor into a separate method once ergast is implemented
+            # no driver list, generate from lap data
+            drivers = set(data['Driver'].unique()) \
+                .intersection(set(useful['Driver'].unique()))
+
+            _nums_df = pd.DataFrame({'DriverNumber': list(drivers)},
+                                    index=list(drivers))
+            _info_df = pd.DataFrame(fastf1._DRIVER_TEAM_MAPPING).T
+
+            self._results = SessionResults(_nums_df.join(_info_df),
+                                           force_default_cols=True)
+
+            _logger.warning("Generating minimal driver "
+                            "list from timing data.")
+
+        df = None
+        for i, driver in enumerate(drivers):
+            d1 = data[data['Driver'] == driver]
+            d2 = useful[useful['Driver'] == driver]
+            if d2.shape[0] != len(d2['Stint'].unique()):
+                # tyre info includes correction messages that need to be
+                # applied before continuing
+                d2 = self._fix_tyre_info(d2)
+
+            is_generated = False
+            if not len(d1):
+                if ((self.name in ('Race', 'Sprint', 'Sprint Qualifying'))
+                        and len(d2)):
+                    # add data for drivers who crashed on the very first lap
+                    # as a downside, this potentially adds a nonexistent lap
+                    # for drivers who could not start the race
+                    is_generated = True
+                    result = d1.copy()
+                    result['Driver'] = [driver, ]
+                    result['NumberOfLaps'] = 0
+                    result['Time'] = data['Time'].min()
+                    result['IsPersonalBest'] = False
+                    result['Compound'] = d2['Compound'].iloc[0]
+                    result['TyreLife'] = d2['StartLaps'].iloc[0]
+                    result['Stint'] = 0
+                    result['New'] = d2['New'].iloc[0]
+                else:
+                    _logger.warning(f"No lap data for driver {driver}")
+                    continue  # no data for this driver; skip
+
+            elif not len(d2):
+                result = d1.copy()
+                result['Compound'] = str()
+                result['TyreLife'] = np.nan
+                result['Stint'] = 0
+                result['New'] = False
+                _logger.warning(f"No tyre data for driver {driver}")
+
+            else:
+                result = pd.merge_asof(d1, d2, on='Time', by='Driver') \
+                    .rename(columns={'StartLaps': 'TyreLife'})
+
+            # add flag that indicates if the data for this lap was generated
+            # by FastF1
+            result['FastF1Generated'] = is_generated
+
+            # calculate lap start time by setting it to the 'Time' of the
+            # previous lap
+            laps_start_time = list(result['Time'])[:-1]
+            if self.name in ('Race', 'Sprint', 'Sprint Qualifying'):
+                # assumption that the first lap started when the session was
+                # started can only be made for the race
+                laps_start_time.insert(0, self.session_start_time)
+            else:
+                laps_start_time.insert(0, pd.NaT)
+            laps_start_time = pd.Series(laps_start_time)
+
+            # don't set lap start times after red flag restart to the time
+            # at which the previous lap was set
+            # only run this correction if the session was ever aborted
+            if (self.session_status['Status'] == 'Aborted').any():
+                _is_aborted = False
+                # first, find the point at which the session was aborted, then
+                # the following restart and the lap that starts immediately
+                # after; correct its pit out time
+                for _, row in self.session_status.iterrows():
+                    if _is_aborted and row['Status'] == 'Started':  # restart
+                        _is_aborted = False
+                        try:
+                            restart_index = result.loc[
+                                result['PitOutTime'] > row['Time'],
+                                'PitOutTime'
+                            ].index[0]
+                        except IndexError:
+                            continue  # no pit out, car did not restart
+                        if self.name in ('Sprint Qualifying', 'Sprint',
+                                         'Race'):
+                            # if this is a race-like session, we can assume the
+                            # session restart time as lap start time
+                            laps_start_time[restart_index] = row['Time']
+                        else:
+                            # for other sessions, we cannot make this
+                            # assumption set to NaT here, it will be set to
+                            # PitOutTime later if possible
+                            laps_start_time[restart_index] = pd.NaT
+                    elif row['Status'] == 'Aborted':  # red flag
+                        _is_aborted = True
+
+            result.loc[:, 'LapStartTime'] = pd.Series(
+                laps_start_time, dtype='timedelta64[ns]'
+            )
+
+            # set missing lap start times to pit out time where possible
+            mask = pd.isna(result['LapStartTime']) & (~pd.isna(result['PitOutTime']))
+            result.loc[mask, 'LapStartTime'] = result.loc[mask, 'PitOutTime']
+
+            # create total laps counter for each tyre used
+            for npit in result['Stint'].unique():
+                sel = result['Stint'] == npit
+                result.loc[sel, 'TyreLife'] += np.arange(0, sel.sum()) + 1
+
+            df = pd.concat([df, result], sort=False)
+
+        if df is None:
+            raise NoLapDataError
+
+        laps = df.reset_index(drop=True)  # noqa: F821
+
+        # rename some columns
+        laps.rename(columns={'Driver': 'DriverNumber',
+                             'NumberOfLaps': 'LapNumber',
+                             'New': 'FreshTyre'}, inplace=True)
+
+        laps['Stint'] += 1  # counting stints from 1
+
+        # add team names and driver names based on driver number
+        t_map = {r['DriverNumber']: r['TeamName']
+                 for _, r in self.results.iterrows()}
+        laps['Team'] = laps['DriverNumber'].map(t_map)
+        d_map = {r['DriverNumber']: r['Abbreviation']
+                 for _, r in self.results.iterrows()}
+        laps['Driver'] = laps['DriverNumber'].map(d_map)
+
+        self._add_track_status_to_laps(laps)
+
+        laps = Laps(laps, session=self, force_default_cols=True)
+        # laps = self._check_lap_accuracy(laps)
+        return laps
+
+    laps: 'Laps' = _ApiData(_load_laps_data)
+    """:class:`Laps`: All laps from all drivers driven in this session.
+
+    Data is available after calling `Session.load` with ``laps=True``
+    """
+
     def _add_track_status_to_laps(self, laps):
         # add track status information to each lap
 
-        track_status = getattr(self, '_track_status')
+        track_status = self.track_status
         if track_status is None:
             return
 
@@ -1617,46 +1542,7 @@ class Session:
                 lambda curr: applicator(status, curr)
             )
 
-    @soft_exceptions("track status data", _logger)
-    def _load_track_status_data(self, livedata=None):
-        track_status = api.track_status_data(self.api_path, livedata=livedata)
-        self._track_status = pd.DataFrame(track_status)
-        if not self._track_status.size:
-            _logger.warning("Could not load any valid session status "
-                            "information!")
-
-    @soft_exceptions("total lap count", _logger)
-    def _load_total_lap_count(self, livedata=None):
-        # Get the number of originally scheduled laps
-        # Lap count data only exists for race-like sessions.
-        if self.name in ('Race', 'Sprint', 'Sprint Qualifying'):
-            try:
-                lap_count = api.lap_count(self.api_path, livedata=livedata)
-                # A race-like session can have multiple intended total laps,
-                # the first one being the original schedule
-                self._total_laps = lap_count['TotalLaps'][0]
-            except IndexError:
-                self._total_laps = None
-                _logger.warning("No lap count data for this session.")
-        else:
-            self._total_laps = None
-
-    @soft_exceptions("session status data", _logger)
-    def _load_session_status_data(self, livedata=None):
-        # check when a session was started; for a race this indicates the
-        # start of the race
-        session_status = api.session_status_data(self.api_path,
-                                                 livedata=livedata)
-        for i in range(len(session_status['Status'])):
-            if session_status['Status'][i] == 'Started':
-                self._session_start_time = session_status['Time'][i]
-                break
-        else:
-            _logger.warning("Failed to determine `Session.session_start_time`")
-            self._session_start_time = None
-        self._session_status = pd.DataFrame(session_status)
-
-    def __fix_tyre_info(self, df):
+    def _fix_tyre_info(self, df):
         # Sometimes later corrections of tyre info are sent through the api.
         # These updates only set values that need to be changed and all other
         # values are none-like. Therefore, if correction updates exist, for
@@ -1693,7 +1579,7 @@ class Session:
 
         return corrected
 
-    def _check_lap_accuracy(self):
+    def _check_lap_accuracy(self, laps):
         """Accuracy validation; simples yes/no validation
         Currently only relies on provided information which can't catch all problems"""
         # TODO: check for outliers in lap start position
@@ -1701,7 +1587,7 @@ class Session:
             is_accurate = list()
             prev_lap = None
             integrity_errors = 0
-            for _, lap in self.laps[self.laps['DriverNumber'] == drv].iterrows():
+            for _, lap in laps[laps['DriverNumber'] == drv].iterrows():
                 # require existence, non-existence and specific values for some variables
                 check_1 = (pd.isnull(lap['PitInTime'])
                            & pd.isnull(lap['PitOutTime'])
@@ -1734,20 +1620,97 @@ class Session:
                 prev_lap = lap
 
             if len(is_accurate) > 0:
-                self._laps.loc[self.laps['DriverNumber'] == drv, 'IsAccurate'] = is_accurate
+                laps.loc[laps['DriverNumber'] == drv, 'IsAccurate'] = \
+                    is_accurate
             else:
                 _logger.warning("Failed to perform lap accuracy check - all "
                                 "laps marked as inaccurate.")
-                self.laps['IsAccurate'] = False  # default should be inaccurate
+                laps['IsAccurate'] = False  # default should be inaccurate
 
             # necessary to explicitly cast to bool
-            self._laps[['IsAccurate']] \
-                = self._laps[['IsAccurate']].astype(bool)
+            laps[['IsAccurate']] \
+                = laps[['IsAccurate']].astype(bool)
 
             if integrity_errors > 0:
                 _logger.warning(
                     f"Driver {drv: >2}: Lap timing integrity check "
                     f"failed for {integrity_errors} lap(s)")
+
+        return laps
+
+    @soft_exceptions("track status data", _logger)
+    def _load_track_status_data(self, livedata=None):
+        track_status = api.track_status_data(self.api_path, livedata=livedata)
+        track_status_df = pd.DataFrame(track_status)
+        if not track_status_df.size:
+            _logger.warning("Could not load any valid track status "
+                            "information!")
+        return track_status_df
+
+    track_status: pd.DataFrame = _ApiData(_load_track_status_data)
+    """:class:`pandas.Dataframe`: Track status data as returned by
+    :func:`fastf1.api.track_status_data`
+
+    Data is available after calling `Session.load` with ``laps=True``
+    """
+
+    @soft_exceptions("total lap count", _logger)
+    def _load_total_lap_count(self, livedata=None):
+        # Get the number of originally scheduled laps
+        # Lap count data only exists for race-like sessions.
+        if self.name in ('Race', 'Sprint', 'Sprint Qualifying'):
+            try:
+                lap_count = api.lap_count(self.api_path, livedata=livedata)
+                # A race-like session can have multiple intended total laps,
+                # the first one being the original schedule
+                total_laps = lap_count['TotalLaps'][0]
+            except IndexError:
+                total_laps = None
+                _logger.warning("No lap count data for this session.")
+        else:
+            total_laps = None
+        return total_laps
+
+    total_laps: Optional[int] = _ApiData(_load_total_lap_count)
+    """:class:`int`: Originally scheduled number of laps for race-like
+    sessions such as Race and Sprint. It takes None as a default value
+    for other types of sessions or if data is unavailable
+
+    Data is available after calling `Session.load` with ``laps=True``
+    """
+
+    @soft_exceptions("session status data", _logger)
+    def _load_session_status_data(self, livedata=None):
+        # check when a session was started; for a race this indicates the
+        # start of the race
+        session_status = api.session_status_data(self.api_path,
+                                                 livedata=livedata)
+        return pd.DataFrame(session_status)
+
+    session_status: pd.DataFrame = _ApiData(_load_session_status_data)
+    """:class:`pandas.Dataframe`: Session status data as returned by
+    :func:`fastf1.api.session_status_data`
+
+    Data is available after calling `Session.load` with ``laps=True``
+    """
+
+    @soft_exceptions("session start time", _logger)
+    def _load_session_start_time(self, livedata=None):
+        for i in range(len(self.session_status['Status'])):
+            if self.session_status['Status'][i] == 'Started':
+                session_start_time = self.session_status['Time'][i]
+                break
+        else:
+            _logger.warning("Failed to determine `Session.session_start_time`")
+            session_start_time = None
+        return session_start_time
+
+    session_start_time: Optional[pd.Timedelta] = \
+        _ApiData(_load_session_start_time)
+    """Session time at which the session was started according to the session
+    status data. This is not the time at which the session is scheduled to be
+    started! Data is available after calling `Session.load` with ``laps=True``
+    """
 
     @soft_exceptions("driver results", _logger)
     def _load_drivers_results(self, *, livedata=None):
@@ -1764,14 +1727,14 @@ class Session:
                 driver_info = self._drivers_results_from_ergast(
                     load_drivers=True, load_results=True
                 )
-                self._results = SessionResults(
+                results = SessionResults(
                     driver_info, index=driver_info['DriverNumber'],
                     force_default_cols=True
                 )
             else:
                 _logger.warning("Failed to load driver list and "
                                 "session results!")
-                self._results = SessionResults(force_default_cols=True)
+                results = SessionResults(force_default_cols=True)
 
         else:
             # extend existing driver info (f1 api) with results from ergast
@@ -1785,22 +1748,29 @@ class Session:
             if r:
                 # join driver info and session results
                 results = pd.DataFrame(r).set_index('DriverNumber')
-                self._results = SessionResults(
+                results = SessionResults(
                     drivers.join(results, how='outer'), force_default_cols=True
                 )
-                self._results['DriverNumber'] = self._results.index
+                results['DriverNumber'] = results.index
             else:
                 # return driver info without session results
-                self._results = SessionResults(drivers,
-                                               force_default_cols=True)
+                results = SessionResults(drivers, force_default_cols=True)
 
-        if (dupl_mask := self._results.index.duplicated()).any():
-            dupl_drv = list(self._results.index[dupl_mask])
+        if (dupl_mask := results.index.duplicated()).any():
+            dupl_drv = list(results.index[dupl_mask])
             _logger.warning(f"Session results contain duplicate entries for "
                             f"driver(s) {dupl_drv}")
 
-        if 'Position' in self._results:
-            self._results = self._results.sort_values('Position')
+        if 'Position' in results:
+            results = results.sort_values('Position')
+
+        return results
+
+    results: 'SessionResults' = _ApiData(_load_drivers_results)
+    """:class:`SessionResults`: Session result with driver information.
+
+    Data is available after calling `Session.load`
+    """
 
     def _drivers_from_f1_api(self, *, livedata=None):
         try:
@@ -1896,14 +1866,29 @@ class Session:
     def _load_weather_data(self, livedata=None):
         weather_data = api.weather_data(self.api_path, livedata=livedata)
         weather_df = pd.DataFrame(weather_data)
-        self._weather_data = weather_df
+        return weather_df
+
+    weather_data: pd.DataFrame = _ApiData(_load_weather_data)
+    """Dataframe containing weather data for this session as received
+    from the api. See :func:`fastf1.api.weather_data` for available data
+    channels. Each data channel is one row of the dataframe.
+
+    Data is available after calling `Session.load` with ``weather=True``
+    """
 
     @soft_exceptions("race control messages", _logger)
     def _load_race_control_messages(self, livedata=None):
         race_control_messages = api.race_control_messages(self.api_path,
                                                           livedata=livedata)
         race_control_df = pd.DataFrame(race_control_messages)
-        self._race_control_messages = race_control_df
+        return race_control_df
+
+    race_control_messages: pd.DataFrame = _ApiData(_load_race_control_messages)
+    """:class:`pandas.Dataframe`: Race Control messages as returned by
+    :func:`fastf1.api.race_control_messages`
+
+    Data is available after calling `Session.load` with ``messages=True``
+    """
 
     @soft_exceptions("telemetry data", _logger)
     def _load_telemetry(self, livedata=None):
@@ -1963,7 +1948,7 @@ class Session:
             self._car_data[drv] = drv_car
             self._pos_data[drv] = drv_pos
 
-        self._laps['LapStartDate'] = self._laps['LapStartTime'] + self.t0_date
+        self.laps['LapStartDate'] = self.laps['LapStartTime'] + self.t0_date
 
     def get_driver(self, identifier) -> "DriverResult":
         """

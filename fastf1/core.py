@@ -40,6 +40,7 @@ Apart from only providing data, the :class:`Laps`, :class:`Lap` and
 analyzing specific parts of the data.
 """
 import collections
+import enum
 import re
 from functools import cached_property
 import warnings
@@ -67,6 +68,35 @@ D_LOOKUP: List[List] = \
      [47, 'MSC', 'Haas F1 Team'], [9, 'MAZ', 'Haas F1 Team'],
      [7, 'RAI', 'Alfa Romeo'], [99, 'GIO', 'Alfa Romeo'],
      [6, 'LAT', 'Williams'], [63, 'RUS', 'Williams']]
+
+
+class Flags(enum.Enum):
+    NOT_LOADED = 1
+
+
+class _ApiData:
+    NOT_SET = 1
+
+    def __init__(self, loader: str):
+        self._loader_name = loader
+
+    def __set_name__(self, owner, name):
+        self.public_name = name
+        self.private_name = '_' + name
+
+    def __set__(self, instance, value):
+        instance._data = value
+
+    def __get__(self, instance, owner):
+        data = getattr(instance, self.private_name, _ApiData.NOT_SET)
+        if data is _ApiData.NOT_SET:
+            if instance.auto_load:
+                loader = getattr(instance, self._loader_name)
+                data = loader()
+                setattr(instance, self.private_name, data)
+            else:
+                raise ValueError("Not loaded")
+        return data
 
 
 class Telemetry(pd.DataFrame):
@@ -1017,7 +1047,6 @@ class Session:
         )
         """str: API base path for this session"""
 
-        self._session_status: pd.DataFrame
         self._race_control_messages: pd.DataFrame
 
         self._track_status: pd.DataFrame
@@ -1034,12 +1063,15 @@ class Session:
         self._weather_data: pd.DataFrame
         self._results: SessionResults
 
+        self.auto_load = True
+
     def __repr__(self):
         return (f"{self.event.year} Season Round {self.event.RoundNumber}: "
                 f"{self.event.EventName} - {self.name}")
 
     def _get_property_warn_not_loaded(self, name):
-        if not hasattr(self, name):
+        data = getattr(self, name)
+        if data is Flags.NOT_LOADED:
             raise DataNotLoadedError("The data you are trying to access has not "
                                      "been loaded yet. See `Session.load`")
         return getattr(self, name, None)
@@ -1109,14 +1141,12 @@ class Session:
         """
         return self._get_property_warn_not_loaded('_pos_data')
 
-    @property
-    def session_status(self):
-        """:class:`pandas.Dataframe`: Session status data as returned by
-        :func:`fastf1.api.session_status_data`
+    session_status = _ApiData('_load_session_status_data')
+    """:class:`pandas.Dataframe`: Session status data as returned by
+    :func:`fastf1.api.session_status_data`
 
-        Data is available after calling `Session.load` with ``laps=True``
-        """
-        return self._get_property_warn_not_loaded('_session_status')
+    Data is available after calling `Session.load` with ``laps=True``
+    """
 
     @property
     def track_status(self):

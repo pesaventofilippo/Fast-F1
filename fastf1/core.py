@@ -1052,7 +1052,7 @@ class Session:
         self._car_data: dict
         self._pos_data: dict
 
-        self.on_demand_loading = True
+        self.on_demand_loading = False
 
     def __repr__(self):
         return (f"{self.event.year} Season Round {self.event.RoundNumber}: "
@@ -1155,23 +1155,29 @@ class Session:
                      f"{self.event['EventName']} - {self.name}"
                      f" [v{fastf1.__version__}]")
 
-        self._load_drivers_results(livedata=livedata)
+        self.on_demand_loading = True
+        # with on-demand loading enabled, data will be auto-loaded when the
+        # corresponding properties are accessed
+        # but this is flagged as statement that seems to have no effect,
+        # therefore noqa everywhere
+
+        self.results  # noqa
 
         if self.f1_api_support:
-            if laps:
-                self._load_session_status_data(livedata=livedata)
-                self._load_total_lap_count(livedata=livedata)
-                self._load_track_status_data(livedata=livedata)
-                self._load_laps_data(livedata=livedata)
-
             if telemetry:
                 self._load_telemetry(livedata=livedata)
 
             if weather:
-                self._load_weather_data(livedata=livedata)
+                self.weather_data  # noqa
 
             if messages:
-                self._load_race_control_messages(livedata=livedata)
+                self.race_control_messages  # noqa
+
+            if laps:
+                self.session_status  # noqa
+                self.total_laps  # noqa
+                self.track_status  # noqa
+                self.laps  # noqa
 
         else:
             if any((laps, telemetry, weather, messages)):
@@ -1181,150 +1187,10 @@ class Session:
                     "session."
                 )
 
-        self._fix_missing_laps_retired_on_track()
-        self._set_laps_deleted_from_rcm()
+        self.on_demand_loading = False
 
         _logger.info(f"Finished loading data for {len(self.drivers)} "
                      f"drivers: {self.drivers}")
-
-    def _fix_missing_laps_retired_on_track(self):
-        # generate a last lap entry with assumed end time for cars that
-        # retired on track
-
-        if not hasattr(self, '_laps'):
-            return
-
-        any_new = False
-        for drv in self.laps['DriverNumber'].unique():
-            drv_laps = self._laps[self.laps['DriverNumber'] == drv]
-
-            if (len(drv_laps) == 1) and drv_laps['FastF1Generated'].iloc[0]:
-                # there is only one lap which was added by FastF1, don't
-                # generate a followup lap based on that
-                continue
-
-            # try to get a valid last timestamp for the last lap
-            ref_time = drv_laps['Time'].iloc[-1]
-            if pd.isna(ref_time):
-                ref_time = drv_laps['LapStartTime'].iloc[-1]
-            # split session status at reference timestamp
-            # if ref_time is still NaT, next/prev_statuses will be empty
-            # after comparison
-            next_statuses = self.session_status[
-                self.session_status['Time'] > ref_time
-                ]
-            prev_statuses = self.session_status[
-                self.session_status['Time'] <= ref_time
-                ]
-
-            if ((not prev_statuses.empty)
-                    and (prev_statuses['Status'] == 'Finished').any()):
-                # driver finished session correctly, nothing to do
-                continue
-
-            if (next_statuses.empty
-                    or (not (next_statuses['Status'] == 'Finished').any())):
-                # there are no next statuses or no status message indicates
-                # that the session finished after the current timestamp
-                # -> the data is inconclusive
-                continue
-
-            if not pd.isna(drv_laps['PitInTime'].iloc[-1]):
-                # last lap was an inlap
-                continue
-
-            if ((len(drv_laps) >= 2)
-                    and (not pd.isna(drv_laps['PitInTime'].iloc[-2]))
-                    and pd.isna(drv_laps['PitOutTime'].iloc[-1])):
-                # last lap was an inlap and a new lap was started in the pit
-                # lane but the car did not leave the pits again (happens if
-                # box comes after timing line in pits)
-                continue
-
-            next_status = next_statuses.iloc[0]
-
-            if next_status['Status'] == 'Aborted':
-                # the session was aborted, use the time when the session was
-                # aborted as the end time of the lap
-                assumed_end_time = next_status['Time']
-
-            else:
-                assumed_end_time = pd.NaT
-                if drv in (car_data := getattr(self, '_car_data', {})):
-                    # when car_data is available, get the first time at which
-                    # the car's speed becomes zero after the reference time and
-                    # add 5 seconds of margin
-                    try:
-                        next_zero_speed_time = car_data[drv].loc[
-                            ((car_data[drv]['SessionTime'] > ref_time)
-                             & (car_data[drv]['Speed'] == 0.0))
-                        ].iloc[0]['SessionTime']
-                    except (IndexError, KeyError):
-                        pass
-                    else:
-                        assumed_end_time = next_zero_speed_time
-
-                if pd.isna(assumed_end_time):
-                    # still no valid timestamp extracted
-                    # fallback: use an assumed lap time of 150 seconds;
-                    # this should cover all situations but most of the time
-                    # it will be much too long
-                    assumed_end_time = ref_time + pd.Timedelta(150, 'sec')
-
-            new_last = pd.DataFrame({
-                'LapStartTime': [drv_laps['Time'].iloc[-1]],
-                'Time': [assumed_end_time],
-                'Driver': [drv_laps['Driver'].iloc[-1]],
-                'DriverNumber': [drv_laps['DriverNumber'].iloc[-1]],
-                'Team': [drv_laps['Team'].iloc[-1]],
-                'LapNumber': [drv_laps['LapNumber'].iloc[-1] + 1],
-                'Stint': [drv_laps['Stint'].iloc[-1]],
-                'Compound': [drv_laps['Compound'].iloc[-1]],
-                'TyreLife': [drv_laps['TyreLife'].iloc[-1] + 1],
-                'FreshTyre': [drv_laps['FreshTyre'].iloc[-1]],
-                'FastF1Generated': [True],
-                'IsAccurate': [False]
-            })
-
-            # add generated laps at the end and fix sorting at the end
-            self._laps = pd.concat([self._laps, new_last])
-            any_new = True
-
-        if any_new:
-            # re-sort and re-index to restore correct order of the laps
-            self._laps = self._laps \
-                .sort_values(by=['DriverNumber', 'LapNumber']) \
-                .reset_index(drop=True)
-
-    def _set_laps_deleted_from_rcm(self):
-        # parse race control messages to find deleted lap times and
-        # set the 'Deleted' flag in self._laps
-
-        if ((not hasattr(self, '_laps'))
-                or (not hasattr(self, '_race_control_messages'))):
-            return
-
-        # set all to False, then selectively set to True if actually deleted
-        self._laps['Deleted'] = False
-
-        msg_pattern = re.compile(
-            r"CAR (\d{1,2}) .* TIME (\d:\d\d\.\d\d\d) DELETED - (.*)"
-        )
-        timestamp_pattern = re.compile(r"\d\d:\d\d:\d\d")
-
-        for _, row in self._race_control_messages.iterrows():
-            match = msg_pattern.match(row['Message'])
-            if match:
-                drv = match[1]
-                deleted_time = to_timedelta(match[2])
-                # remove timestamp from reasons because confusingly it is given
-                # as local time at the track
-                reason = timestamp_pattern.sub("", match[3])
-                self._laps.loc[
-                    (self._laps['DriverNumber'] == drv)
-                    & (self._laps['LapTime'] == deleted_time),
-                    ('Deleted', 'IsPersonalBest', 'DeletedReason')
-                ] = (True, False, reason)
 
     @soft_exceptions("lap timing data", _logger)
     def _load_laps_data(self, livedata=None):
@@ -1482,7 +1348,11 @@ class Session:
         self._add_track_status_to_laps(laps)
 
         laps = Laps(laps, session=self, force_default_cols=True)
-        # laps = self._check_lap_accuracy(laps)
+
+        laps = self._check_lap_accuracy(laps)
+        laps = self._set_laps_deleted_from_rcm(laps)
+        laps = self._fix_missing_laps_retired_on_track(laps)
+
         return laps
 
     laps: 'Laps' = _ApiData(_load_laps_data)
@@ -1578,6 +1448,141 @@ class Session:
             corrected[col_name] = corrected[col_name].astype(dtype)
 
         return corrected
+
+    def _fix_missing_laps_retired_on_track(self, laps):
+        # generate a last lap entry with assumed end time for cars that
+        # retired on track
+        any_new = False
+        for drv in laps['DriverNumber'].unique():
+            drv_laps = laps[laps['DriverNumber'] == drv]
+
+            if (len(drv_laps) == 1) and drv_laps['FastF1Generated'].iloc[0]:
+                # there is only one lap which was added by FastF1, don't
+                # generate a followup lap based on that
+                continue
+
+            # try to get a valid last timestamp for the last lap
+            ref_time = drv_laps['Time'].iloc[-1]
+            if pd.isna(ref_time):
+                ref_time = drv_laps['LapStartTime'].iloc[-1]
+            # split session status at reference timestamp
+            # if ref_time is still NaT, next/prev_statuses will be empty
+            # after comparison
+            next_statuses = self.session_status[
+                self.session_status['Time'] > ref_time
+                ]
+            prev_statuses = self.session_status[
+                self.session_status['Time'] <= ref_time
+                ]
+
+            if ((not prev_statuses.empty)
+                    and (prev_statuses['Status'] == 'Finished').any()):
+                # driver finished session correctly, nothing to do
+                continue
+
+            if (next_statuses.empty
+                    or (not (next_statuses['Status'] == 'Finished').any())):
+                # there are no next statuses or no status message indicates
+                # that the session finished after the current timestamp
+                # -> the data is inconclusive
+                continue
+
+            if not pd.isna(drv_laps['PitInTime'].iloc[-1]):
+                # last lap was an inlap
+                continue
+
+            if ((len(drv_laps) >= 2)
+                    and (not pd.isna(drv_laps['PitInTime'].iloc[-2]))
+                    and pd.isna(drv_laps['PitOutTime'].iloc[-1])):
+                # last lap was an inlap and a new lap was started in the pit
+                # lane but the car did not leave the pits again (happens if
+                # box comes after timing line in pits)
+                continue
+
+            next_status = next_statuses.iloc[0]
+
+            if next_status['Status'] == 'Aborted':
+                # the session was aborted, use the time when the session was
+                # aborted as the end time of the lap
+                assumed_end_time = next_status['Time']
+
+            else:
+                assumed_end_time = pd.NaT
+                if drv in (car_data := getattr(self, '_car_data', {})):
+                    # when car_data is available, get the first time at which
+                    # the car's speed becomes zero after the reference time and
+                    # add 5 seconds of margin
+                    try:
+                        next_zero_speed_time = car_data[drv].loc[
+                            ((car_data[drv]['SessionTime'] > ref_time)
+                             & (car_data[drv]['Speed'] == 0.0))
+                        ].iloc[0]['SessionTime']
+                    except (IndexError, KeyError):
+                        pass
+                    else:
+                        assumed_end_time = next_zero_speed_time
+
+                if pd.isna(assumed_end_time):
+                    # still no valid timestamp extracted
+                    # fallback: use an assumed lap time of 150 seconds;
+                    # this should cover all situations but most of the time
+                    # it will be much too long
+                    assumed_end_time = ref_time + pd.Timedelta(150, 'sec')
+
+            new_last = pd.DataFrame({
+                'LapStartTime': [drv_laps['Time'].iloc[-1]],
+                'Time': [assumed_end_time],
+                'Driver': [drv_laps['Driver'].iloc[-1]],
+                'DriverNumber': [drv_laps['DriverNumber'].iloc[-1]],
+                'Team': [drv_laps['Team'].iloc[-1]],
+                'LapNumber': [drv_laps['LapNumber'].iloc[-1] + 1],
+                'Stint': [drv_laps['Stint'].iloc[-1]],
+                'Compound': [drv_laps['Compound'].iloc[-1]],
+                'TyreLife': [drv_laps['TyreLife'].iloc[-1] + 1],
+                'FreshTyre': [drv_laps['FreshTyre'].iloc[-1]],
+                'FastF1Generated': [True],
+                'IsAccurate': [False]
+            })
+
+            # add generated laps at the end and fix sorting at the end
+            laps = pd.concat([laps, new_last])
+            any_new = True
+
+        if any_new:
+            # re-sort and re-index to restore correct order of the laps
+            laps = laps \
+                .sort_values(by=['DriverNumber', 'LapNumber']) \
+                .reset_index(drop=True)
+
+        return laps
+
+    def _set_laps_deleted_from_rcm(self, laps):
+        # parse race control messages to find deleted lap times and
+        # set the 'Deleted' flag in self._laps
+
+        # set all to False, then selectively set to True if actually deleted
+        laps['Deleted'] = False
+
+        msg_pattern = re.compile(
+            r"CAR (\d{1,2}) .* TIME (\d:\d\d\.\d\d\d) DELETED - (.*)"
+        )
+        timestamp_pattern = re.compile(r"\d\d:\d\d:\d\d")
+
+        for _, row in self.race_control_messages.iterrows():
+            match = msg_pattern.match(row['Message'])
+            if match:
+                drv = match[1]
+                deleted_time = to_timedelta(match[2])
+                # remove timestamp from reasons because confusingly it is given
+                # as local time at the track
+                reason = timestamp_pattern.sub("", match[3])
+                laps.loc[
+                    (laps['DriverNumber'] == drv)
+                    & (laps['LapTime'] == deleted_time),
+                    ('Deleted', 'IsPersonalBest', 'DeletedReason')
+                ] = (True, False, reason)
+
+        return laps
 
     def _check_lap_accuracy(self, laps):
         """Accuracy validation; simples yes/no validation
@@ -1948,7 +1953,9 @@ class Session:
             self._car_data[drv] = drv_car
             self._pos_data[drv] = drv_pos
 
-        self.laps['LapStartDate'] = self.laps['LapStartTime'] + self.t0_date
+        if hasattr(self, '_laps'):
+            self.laps['LapStartDate'] \
+                = self.laps['LapStartTime'] + self.t0_date
 
     def get_driver(self, identifier) -> "DriverResult":
         """

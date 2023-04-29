@@ -214,7 +214,7 @@ After this, we can actually plot the data.
 
  .. code-block:: none
 
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/events.py:676: FutureWarning: The `Weekend.name` property is deprecated and will beremoved in a future version.
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/events.py:677: FutureWarning: The `Weekend.name` property is deprecated and will beremoved in a future version.
     Use `Event['EventName']` or `Event.EventName` instead.
       warnings.warn(
 
@@ -224,7 +224,7 @@ After this, we can actually plot the data.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  42.052 seconds)
+   **Total running time of the script:** ( 0 minutes  33.639 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_speed_on_track.py:

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Event Schedule - fastf1.events &mdash; Fast F1 2.3.2 documentation</title>
+  <title>Event Schedule - fastf1.events &mdash; Fast F1 2.3.3 documentation</title>
   
 
   
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
             
           
@@ -263,6 +263,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-3-3">v2.3.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-3-2">v2.3.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-3-1">v2.3.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#v2-3-0">v2.3.0</a></li>
@@ -398,7 +399,7 @@ Usually, this is the same as the date of the last session.</p></li>
 The format of the event. One of ‘conventional’, ‘sprint’, ‘testing’.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Session*</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> |
 The name of the session. One of ‘Practice 1’, ‘Practice 2’, ‘Practice 3’,
-‘Qualifying’, ‘Sprint Qualifying’ or ‘Race’.
+‘Qualifying’, ‘Sprint Qualifying’, ‘Sprint Shootout’ or ‘Race’.
 Testing sessions are considered practice.
 <code class="docutils literal notranslate"><span class="pre">*</span></code> denotes the number of
 the session (1, 2, 3, 4, 5).</p></li>
@@ -447,11 +448,11 @@ This identifier can currently be one of the following:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>session name abbreviation: <code class="docutils literal notranslate"><span class="pre">'FP1',</span> <span class="pre">'FP2',</span> <span class="pre">'FP3',</span> <span class="pre">'Q',</span> <span class="pre">'S',</span>
-<span class="pre">'SQ',</span> <span class="pre">'R'</span></code></p></li>
+<span class="pre">'SQ',</span> <span class="pre">'SS',</span> <span class="pre">'R'</span></code></p></li>
 <li><p>full session name: <code class="docutils literal notranslate"><span class="pre">'Practice</span> <span class="pre">1',</span> <span class="pre">'Practice</span> <span class="pre">2',</span>
-<span class="pre">'Practice</span> <span class="pre">3',</span> <span class="pre">'Sprint</span> <span class="pre">Qualifying',</span> <span class="pre">'Sprint',</span> <span class="pre">'Qualifying',</span> <span class="pre">'Race'</span></code>;
-provided names will be normalized, so that the name is
-case-insensitive</p></li>
+<span class="pre">'Practice</span> <span class="pre">3',</span> <span class="pre">'Sprint</span> <span class="pre">Qualifying',</span> <span class="pre">'Sprint',</span> <span class="pre">'Sprint</span> <span class="pre">Shootout',</span>
+<span class="pre">'Qualifying',</span> <span class="pre">'Race'</span></code>;
+provided names will be normalized, so that the name is case-insensitive</p></li>
 <li><p>number of the session: <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5</span></code></p></li>
 </ul>
 </div></blockquote>
@@ -657,7 +658,10 @@ of event and depending on the event format.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#fastf1.events.Event.get_sprint" title="fastf1.events.Event.get_sprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sprint</span></code></a>()</p></td>
 <td><p>Return the sprint session.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#fastf1.events.Event.get_practice" title="fastf1.events.Event.get_practice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_practice</span></code></a>(number)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#fastf1.events.Event.get_sprint_shootout" title="fastf1.events.Event.get_sprint_shootout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sprint_shootout</span></code></a>()</p></td>
+<td><p>Return the sprint shootout session.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fastf1.events.Event.get_practice" title="fastf1.events.Event.get_practice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_practice</span></code></a>(number)</p></td>
 <td><p>Return the specified practice session.</p></td>
 </tr>
 </tbody>
@@ -787,8 +791,14 @@ of this event is or was held.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="fastf1.events.Event.get_sprint_shootout">
+<span class="sig-name descname"><span class="pre">get_sprint_shootout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.html#fastf1.core.Session" title="fastf1.core.Session"><span class="pre">fastf1.core.Session</span></a></span></span><a class="reference internal" href="_modules/fastf1/events.html#Event.get_sprint_shootout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.events.Event.get_sprint_shootout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sprint shootout session.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="fastf1.events.Event.get_practice">
-<span class="sig-name descname"><span class="pre">get_practice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/events.html#Event.get_practice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.events.Event.get_practice" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_practice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="core.html#fastf1.core.Session" title="fastf1.core.Session"><span class="pre">fastf1.core.Session</span></a></span></span><a class="reference internal" href="_modules/fastf1/events.html#Event.get_practice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.events.Event.get_practice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the specified practice session.
 :param number: 1, 2 or 3 - Free practice session number</p>
 <dl class="field-list simple">

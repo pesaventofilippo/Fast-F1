@@ -22,21 +22,20 @@ Overlaying speed traces of two laps
 
 Compare two fastest laps by overlaying their speed traces.
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-22
+.. GENERATED FROM PYTHON SOURCE LINES 6-21
 
 .. code-block:: default
 
 
 
     import matplotlib.pyplot as plt
+
     import fastf1.plotting
 
 
-    fastf1.Cache.enable_cache('../doc_cache')  # replace with your cache directory
-
     # enable some matplotlib patches for plotting timedelta values and load
     # FastF1's default color scheme
-    fastf1.plotting.setup_mpl()
+    fastf1.plotting.setup_mpl(misc_mpl_mods=False)
 
     # load a session and its telemetry data
     session = fastf1.get_session(2021, 'Spanish Grand Prix', 'Q')
@@ -46,67 +45,14 @@ Compare two fastest laps by overlaying their speed traces.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
-      for key, value in row.iteritems():
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
-      for key, value in row.iteritems():
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
-      for key, value in row.iteritems():
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
-      for key, value in row.iteritems():
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
-      for key, value in row.iteritems():
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-24
+.. GENERATED FROM PYTHON SOURCE LINES 22-23
 
 First, we select the two laps that we want to compare
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-28
+.. GENERATED FROM PYTHON SOURCE LINES 23-27
 
 .. code-block:: default
 
@@ -121,12 +67,12 @@ First, we select the two laps that we want to compare
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-31
+.. GENERATED FROM PYTHON SOURCE LINES 28-30
 
 Next we get the telemetry data for each lap. We also add a 'Distance' column
 to the telemetry dataframe as this makes it easier to compare the laps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-35
+.. GENERATED FROM PYTHON SOURCE LINES 30-34
 
 .. code-block:: default
 
@@ -141,12 +87,12 @@ to the telemetry dataframe as this makes it easier to compare the laps.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 Finally, we create a plot and plot both speed traces.
 We color the individual lines with the driver's team colors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-54
+.. GENERATED FROM PYTHON SOURCE LINES 37-53
 
 .. code-block:: default
 
@@ -181,7 +127,7 @@ We color the individual lines with the driver's team colors.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.929 seconds)
+   **Total running time of the script:** ( 0 minutes  2.289 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_speed_traces.py:

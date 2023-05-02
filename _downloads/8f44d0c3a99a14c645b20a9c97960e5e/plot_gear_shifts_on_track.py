@@ -3,7 +3,6 @@
 
 Plot which gear is being used at which point of the track
 """
-
 ##############################################################################
 # Import FastF1 and load the data
 
@@ -14,8 +13,6 @@ from matplotlib.collections import LineCollection
 from matplotlib import cm
 import numpy as np
 
-
-fastf1.Cache.enable_cache('../doc_cache')  # replace with your cache directory
 
 session = fastf1.get_session(2021, 'Austrian Grand Prix', 'Q')
 session.load()

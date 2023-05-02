@@ -1,377 +1,252 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Setting up FastF1 for development" href="devenv_setup.html" /><link rel="prev" title="Contributing" href="index.html" />
 
-
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Contributing &mdash; Fast F1 2.3.3 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+        <title>Contributing - FastF1 3.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
     
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setting up FastF1 for development" href="devenv_setup.html" />
-    <link rel="prev" title="Contributing" href="index.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
 
-          
-            <a href="../index.html" class="icon icon-home"> Fast F1
-          
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
 
-          
-          </a>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
-          
-            
-            
-              <div class="version">
-                2.3.3
-              </div>
-            
-          
 
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
 
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">FastF1 <small>3.0.0</small></div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">FastF1 <small>3.0.0</small></span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/theOehrly/Fast-F1">← Back to Github</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/basics.html">Getting started with the basics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/basics.html#loading-a-session-or-an-event">Loading a session or an event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/basics.html#loading-a-session-or-and-event-by-name">Loading a session or and event by name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/basics.html#working-with-the-event-schedule">Working with the event schedule</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/basics.html#displaying-driver-info-and-session-results">Displaying driver info and session results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/basics.html#working-with-laps-and-lap-times">Working with laps and lap times</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/basics.html">Getting started with the basics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#example-plot">Example Plot</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_gallery/index.html">Examples Gallery</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples_gallery/index.html">Examples Gallery</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/example_fastf1_signalrclient.html">Using the Fast-F1 signalr client?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_position_changes.html">Position changes during a race</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_results_tracker.html">Plot driver standings in a heatmap</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../fastf1.html">General Functions - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../fastf1.html#accessing-events-and-sessions">Accessing Events and Sessions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fastf1.html#caching">Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fastf1.html#general-functions-api-reference">General Functions - API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../fastf1.html#events-api">Events API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../fastf1.html#cache-api">Cache API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../core.html">Timing and Telemetry Data - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.core</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../core.html#data-objects">Data Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../core.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../core.html#api-reference">API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../core.html#id1">Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#get-session">get_session</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#get-round">get_round</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../core.html#id2">Data Objects</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#weekend">Weekend</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#session">Session</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#laps">Laps</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#lap">Lap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#telemetry">Telemetry</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../core.html#results">Results</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../core.html#exceptions">Exceptions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../events.html">Event Schedule - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.events</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../events.html#event-schedule-data">Event Schedule Data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../events.html#supported-seasons">Supported Seasons</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../events.html#event-schedule">Event Schedule</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../events.html#session-identifiers">Session identifiers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../events.html#functions-for-accessing-schedule-data">Functions for accessing schedule data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../events.html#data-objects">Data Objects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../events.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../events.html#api-reference">API Reference</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">Api Functions - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fastf1.html">General Functions - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Timing and Telemetry Data - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.core</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core.html#api-reference">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events.html">Event Schedule - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.events</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">F1 API - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.ergast</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils module - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.utils</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting.html">Plotting - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.plotting</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../livetiming.html">Live Timing Client - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.livetiming</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../livetiming.html#usage-example">Usage Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../livetiming.html#important-notes">Important Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../livetiming.html#command-line-interface">Command Line Interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../livetiming.html#save">Save</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../livetiming.html#extract">Extract</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../livetiming.html#module-fastf1.livetiming.client">Live Timing Client</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../livetiming.html#module-fastf1.livetiming.data">Live Timing Data Object</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../livetiming.html">Live Timing Client - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.livetiming</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logging.html">Logging - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.logger</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legacy.html">Legacy Functionality - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.legacy</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Information:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../time_explanation.html">Time, Date and Timing - Explanation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../time_explanation.html#points-in-time">Points in Time</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../time_explanation.html#lap-timing">Lap timing</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../howto_accurate_calculations.html">How to perform calculations accurately</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../howto_accurate_calculations.html#validating-results">Validating results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../howto_accurate_calculations.html#working-with-the-available-data">Working with the available data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../howto_accurate_calculations.html#slicing-data-by-lap-for-use-in-further-calculations">Slicing data by lap for use in further calculations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../howto_accurate_calculations.html#disclaimer">Disclaimer</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../time_explanation.html">Time, Date and Timing - Explanation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto_accurate_calculations.html">How to perform calculations accurately</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../known_bugs.html">Known bugs and caveats</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html#something-doesn-t-work">Something doesn’t work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Contributing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html">Setting up FastF1 for development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting_fastf1.html">Writing documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html">Pull request guidelines</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributing</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submitting-a-bug-report">Submitting a bug report</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#requesting-a-new-feature">Requesting a new feature</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#contributing-code">Contributing code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#contributing-pull-requests">Contributing pull requests</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#contributing-documentation">Contributing documentation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#contributing-examples-to-the-gallery">Contributing examples to the gallery</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#coding-guidelines">Coding guidelines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#api-changes">API changes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adding-new-api">Adding new API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#new-modules-and-files-installation">New modules and files: installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#using-logging-for-debug-messages">Using logging for debug messages</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html">Setting up FastF1 for development</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="devenv_setup.html#creating-a-dedicated-environment">Creating a dedicated environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="devenv_setup.html#retrieving-the-latest-version-of-the-code">Retrieving the latest version of the code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="devenv_setup.html#installing-fastf1-in-editable-mode">Installing FastF1 in editable mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="devenv_setup.html#installing-pre-commit-hooks">Installing pre-commit hooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="devenv_setup.html#installing-additional-dependencies-for-development">Installing additional dependencies for development</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="testing.html#requirements">Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="testing.html#running-the-tests">Running the tests</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="documenting_fastf1.html">Writing documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="documenting_fastf1.html#getting-started">Getting started</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="documenting_fastf1.html#general-file-structure">General file structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="documenting_fastf1.html#setting-up-the-doc-build">Setting up the doc build</a></li>
-<li class="toctree-l4"><a class="reference internal" href="documenting_fastf1.html#building-the-docs">Building the docs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="documenting_fastf1.html#id1">Writing documentation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="coding_guide.html">Pull request guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="coding_guide.html#summary-for-pr-authors">Summary for PR authors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coding_guide.html#detailed-guidelines">Detailed guidelines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="coding_guide.html#documentation">Documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="coding_guide.html#automated-tests">Automated tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-3-3">v2.3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-3-2">v2.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-3-1">v2.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-3-0">v2.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-9">v2.2.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-8">v2.2.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-7">v2.2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-6">v2.2.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-5">v2.2.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-4">v2.2.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-3">v2.2.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-2">v2.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-1">v2.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-2-0">v2.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-13-more-bug-fixes">v2.1.13 More Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-12-fixes-and-patches">v2.1.12 Fixes and Patches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-11-fixes-and-patches">v2.1.11 Fixes and Patches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-10-ergast-compatibility">v2.1.10 Ergast compatibility</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-9-general-maintenance">v2.1.9 General maintenance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-8-add-temporary-support-for-sprint-qualifying">v2.1.8 Add temporary support for sprint qualifying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-7-various-bug-fixes">v2.1.7 Various bug fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-6-added-weather-data-general-improvements-and-bug-fixes">v2.1.6 Added weather data, general improvements and bug fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-5-improved-robustness-and-minor-fixes">v2.1.5 Improved robustness and minor fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-4-bug-fixes-and-various-minor-improvements">v2.1.4 Bug fixes and various minor improvements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-3-improved-error-handling">v2.1.3 Improved error handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-2-hotfixes-for-loading-live-timing-data">v2.1.2 Hotfixes for loading live timing data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-1-add-support-for-recording-and-using-live-timing-data">v2.1.1 Add support for recording and using live timing data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-1-refactoring-accuracy-improvements-and-a-more-accessible-interface">v2.1: Refactoring, accuracy improvements and a more accessible interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-0-2-api-code-overhaul">v2.0.2: API code overhaul</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-0-1-integration-of-a-newer-version-of-ax6-s-old-repository">v2.0.1: Integration of a newer version of Ax6’s old repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v2-0-0-first-release-of-this-fork">v2.0.0: first release of this fork</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#v1-5-1-last-release-by-ax6">v1.5.1: last release by Ax6</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Release Notes</a></li>
 </ul>
 
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Fast F1</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="index.html">Contributing</a> &raquo;</li>
-        
-      <li>Contributing</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../_sources/contributing/contributing.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="contributing">
-<span id="id1"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="contributing">
+<span id="id1"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">#</a></h1>
 <p>The community around FastF1 is slowly building and everyone is welcome to
 contribute to the project.</p>
-<div class="section" id="submitting-a-bug-report">
-<h2>Submitting a bug report<a class="headerlink" href="#submitting-a-bug-report" title="Permalink to this headline">¶</a></h2>
+<section id="submitting-a-bug-report">
+<h2>Submitting a bug report<a class="headerlink" href="#submitting-a-bug-report" title="Permalink to this heading">#</a></h2>
 <p>If you find a bug in the code or documentation, do not hesitate to open a
 new issue in the <a class="reference external" href="https://github.com/theOehrly/Fast-F1/issues">issue section</a>
 on Github. You are also welcome to post feature requests or pull requests.</p>
@@ -403,18 +278,18 @@ You can grab the version with the following commands:</p>
 can use to organize this information.</p>
 <p>Thank you for your help in keeping bug reports complete, targeted and
 descriptive.</p>
-</div>
-<div class="section" id="requesting-a-new-feature">
-<h2>Requesting a new feature<a class="headerlink" href="#requesting-a-new-feature" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="requesting-a-new-feature">
+<h2>Requesting a new feature<a class="headerlink" href="#requesting-a-new-feature" title="Permalink to this heading">#</a></h2>
 <p>Please post feature requests in the
 <a class="reference external" href="https://github.com/theOehrly/Fast-F1/issues">issue section</a> on Github.</p>
 <p>Since FastF1 is an open source project with limited resources, you are
 encouraged to also participate in the implementation as much as you can.</p>
-</div>
-<div class="section" id="contributing-code">
-<span id="id3"></span><h2>Contributing code<a class="headerlink" href="#contributing-code" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="how-to-contribute">
-<span id="id4"></span><h3>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="contributing-code">
+<span id="id3"></span><h2>Contributing code<a class="headerlink" href="#contributing-code" title="Permalink to this heading">#</a></h2>
+<section id="how-to-contribute">
+<span id="id4"></span><h3>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this heading">#</a></h3>
 <p>The preferred way to contribute to FastF1 is to fork the <a class="reference external" href="https://github.com/theOehrly/Fast-F1/">main
 repository</a> on GitHub,
 then submit a “pull request” (PR).</p>
@@ -460,9 +335,9 @@ When you’re done editing e.g., <code class="docutils literal notranslate"><spa
 <li><p><a class="reference external" href="https://lab.github.com/githubtraining/introduction-to-github">Introduction to GitHub</a></p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="contributing-pull-requests">
-<h3>Contributing pull requests<a class="headerlink" href="#contributing-pull-requests" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="contributing-pull-requests">
+<h3>Contributing pull requests<a class="headerlink" href="#contributing-pull-requests" title="Permalink to this heading">#</a></h3>
 <p>It is recommended to check that your contribution complies with the following
 rules before submitting a pull request:</p>
 <ul>
@@ -481,7 +356,7 @@ You can check flake8 compliance from the command line with</p>
 <p>or your editor may provide integration with it. The above command will not
 flag lines that are too long!</p>
 <p>Flake8 will also be run before each commit if you have the pre-commit hooks
-installed (see <a class="reference internal" href="devenv_setup.html#install-pre-commit"><span class="std std-ref">Installing pre-commit hooks</span></a>). Contrary to the manual invocation of flake8, this will also flag
+installed (see <a class="reference internal" href="devenv_setup.html#install-pre-commit"><span class="std std-ref">Installing additional dependencies for development</span></a>). Contrary to the manual invocation of flake8, this will also flag
 lines which are too long!</p>
 </li>
 <li><p>Changes (both new features and bugfixes) should have good test coverage. See
@@ -514,10 +389,10 @@ line length limit.</p>
 <li><p><a class="reference internal" href="documenting_fastf1.html#documenting-fastf1"><span class="std std-ref">Writing documentation</span></a></p></li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="contributing-documentation">
-<span id="id5"></span><h2>Contributing documentation<a class="headerlink" href="#contributing-documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="contributing-documentation">
+<span id="id5"></span><h2>Contributing documentation<a class="headerlink" href="#contributing-documentation" title="Permalink to this heading">#</a></h2>
 <p>You as an end-user of FastF1 can make a valuable contribution because you
 more clearly see the potential for improvement than a core developer.
 For example, you can:</p>
@@ -537,8 +412,8 @@ describing the intended improvement.</p>
 <li><p><a class="reference internal" href="documenting_fastf1.html#documenting-fastf1"><span class="std std-ref">Writing documentation</span></a></p></li>
 </ul>
 </div>
-<div class="section" id="contributing-examples-to-the-gallery">
-<span id="contributing-gallery-examples"></span><h3>Contributing examples to the gallery<a class="headerlink" href="#contributing-examples-to-the-gallery" title="Permalink to this headline">¶</a></h3>
+<section id="contributing-examples-to-the-gallery">
+<span id="contributing-gallery-examples"></span><h3>Contributing examples to the gallery<a class="headerlink" href="#contributing-examples-to-the-gallery" title="Permalink to this heading">#</a></h3>
 <p>FastF1 uses <a class="reference external" href="https://sphinx-gallery.github.io/stable/index.html">Sphinx-Gallery</a>
 to generate a gallery of examples. The examples gallery is generated from the
 files located in the <code class="file docutils literal notranslate"><span class="pre">examples</span></code> folder. To add a new gallery example,
@@ -546,12 +421,28 @@ create a new python file in this directory. The file should contain all the
 code required to plot the examples. Check out the documentation of
 Sphinx-Gallery to find out how to format your example code to include headings,
 sections and explanatory text for your example.</p>
-</div>
-</div>
-<div class="section" id="coding-guidelines">
-<span id="id6"></span><h2>Coding guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="api-changes">
-<h3>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="coding-guidelines">
+<span id="id6"></span><h2>Coding guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this heading">#</a></h2>
+<section id="supported-versions-of-python-and-dependencies">
+<h3>Supported versions of Python and dependencies<a class="headerlink" href="#supported-versions-of-python-and-dependencies" title="Permalink to this heading">#</a></h3>
+<p>This project supports:</p>
+<ul class="simple">
+<li><p>All minor versions of Python released 42 months prior to the project, and at
+minimum the two latest minor versions.</p></li>
+<li><p>All minor versions of Numpy, Pandas and Matplotlib released in the 24 months
+prior to the project, and at minimum the last three minor versions.</p></li>
+<li><p>For other dependencies: As a guideline, this project will try to support all
+minor versions initially released in the 12 months prior to our planned
+release date or the oldest that supports our minimum Python. We will only
+bump these dependencies as we need new features or the old versions are no
+longer compatible with other minimum version requirements of this project.</p></li>
+</ul>
+<p>These guidelines are based on <a class="reference external" href="https://numpy.org/neps/nep-0029-deprecation_policy.html">NEP 29</a> .</p>
+</section>
+<section id="api-changes">
+<h3>API changes<a class="headerlink" href="#api-changes" title="Permalink to this heading">#</a></h3>
 <p>API consistency and stability are of great value. Therefore, API changes
 (e.g. signature changes, behavior changes, removals) will only be conducted
 if the added benefit is worth the user effort for adapting.</p>
@@ -566,8 +457,8 @@ keep up with these external changes, it can be necessary to make changes to
 FastF1 on short notice. In general, breaking changes and deprecations should
 be avoided if possible and users should be given prior warnings and as much time
 as possible to adapt.</p>
-<div class="section" id="rules">
-<h4>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h4>
+<section id="rules">
+<h4>Rules<a class="headerlink" href="#rules" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Deprecations are targeted at the next patch release (e.g. 2.3.x)</p></li>
 <li><p>Deprecated API is generally removed on the next point-releases (e.g. 2.x)
@@ -577,29 +468,29 @@ core developers on a case-by-case basis to give more time for the transition</p>
 <li><p>If alternatives to the deprecated API exist, they should be available
 during the deprecation period</p></li>
 </ul>
-</div>
-<div class="section" id="introducing">
-<h4>Introducing<a class="headerlink" href="#introducing" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="introducing">
+<h4>Introducing<a class="headerlink" href="#introducing" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Announce the deprecation in the changelog
 <code class="file docutils literal notranslate"><span class="pre">docs/changelog.rst</span></code> (reference your pull request as well)</p></li>
 <li><p>If possible, issue a warning when the deprecated
 API is used, using the python <cite>logging</cite> module.</p></li>
 </ol>
-</div>
-<div class="section" id="expiring">
-<h4>Expiring<a class="headerlink" href="#expiring" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="expiring">
+<h4>Expiring<a class="headerlink" href="#expiring" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
-<li><p>Announce the API changes in a new file
-<code class="file docutils literal notranslate"><span class="pre">docs/README.rst</span></code>  (reference your pull request as well).
+<li><p>Announce the deprecation in the changelog
+<code class="file docutils literal notranslate"><span class="pre">docs/changelog.rst</span></code> (reference your pull request as well)
 For the content, you can usually copy the deprecation notice
 and adapt it slightly.</p></li>
 <li><p>Change the code functionality and remove any related deprecation warnings.</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="adding-new-api">
-<h3>Adding new API<a class="headerlink" href="#adding-new-api" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="adding-new-api">
+<h3>Adding new API<a class="headerlink" href="#adding-new-api" title="Permalink to this heading">#</a></h3>
 <p>Every new function, parameter and attribute that is not explicitly marked as
 private (i.e., starts with an underscore) becomes part of FastF1’s public
 API. As discussed above, changing the existing API is cumbersome. Therefore,
@@ -614,99 +505,202 @@ FastF1 API.</p></li>
 <a class="reference external" href="https://emptysqua.re/blog/api-evolution-the-right-way/#adding-parameters">API Evolution the Right Way – Add Parameters Compatibly</a>.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="new-modules-and-files-installation">
-<h3>New modules and files: installation<a class="headerlink" href="#new-modules-and-files-installation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="new-modules-and-files-installation">
+<h3>New modules and files: installation<a class="headerlink" href="#new-modules-and-files-installation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>If you have added new files or directories, or reorganized existing
 ones, make sure the new files are included in the match patterns in
 in <em>packages</em> in <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="using-logging-for-debug-messages">
-<span id="using-logging"></span><h3>Using logging for debug messages<a class="headerlink" href="#using-logging-for-debug-messages" title="Permalink to this headline">¶</a></h3>
-<p>FastF1 uses the standard Python <cite>logging</cite> library to write verbose
-warnings, information, and debug messages. Please use it! In all those places
-you write <cite>print</cite> calls to do your debugging, try using <cite>logging.debug</cite>
-instead!</p>
-<p>To include <cite>logging</cite> in your module, at the top of the module, you need to
-<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">logging</span></code>.  Then calls in your code like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># code</span>
+</section>
+<section id="using-logging-for-debug-messages">
+<span id="using-logging"></span><h3>Using logging for debug messages<a class="headerlink" href="#using-logging-for-debug-messages" title="Permalink to this heading">#</a></h3>
+<p>FastF1 uses a logging system that is based on the standard Python <cite>logging</cite>
+library to write verbose warnings, information, and debug messages.
+Please use it! In all those places you write <cite>print</cite> calls to do your
+debugging, try using <cite>logger.debug</cite> instead!</p>
+<p>FastF1 creates one main logger and then uses child loggers for each module.</p>
+<p>To include logging in your module, at the top of the module, you need to add
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">fastf1.logger</span> <span class="pre">import</span> <span class="pre">get_logger</span></code>.  Then calls in your code like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up the logger once (!)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># code</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Here is some information&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Here is some more detailed information&#39;</span><span class="p">)</span>
 <span class="c1"># more code</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Here is some information&#39;</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Here is some more detailed information&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will log to a logger named <code class="docutils literal notranslate"><span class="pre">fastf1.yourmodulename</span></code>.</p>
-<div class="section" id="which-logging-level-to-use">
-<h4>Which logging level to use?<a class="headerlink" href="#which-logging-level-to-use" title="Permalink to this headline">¶</a></h4>
-<p>There are five levels at which you can emit messages.</p>
+<section id="which-logging-level-to-use">
+<h4>Which logging level to use?<a class="headerlink" href="#which-logging-level-to-use" title="Permalink to this heading">#</a></h4>
+<p>logger
+There are five levels at which you can emit messages.</p>
 <ul class="simple">
-<li><p><cite>logging.critical</cite> and <cite>logging.error</cite> are really only there for errors that
+<li><p><cite>logger.critical</cite> and <cite>logger.error</cite> are really only there for errors that
 will end the use of the library but not kill the interpreter.</p></li>
-<li><p><cite>logging.warning</cite> and <cite>._api.warn_external</cite> are used to warn the user,
-see below.</p></li>
-<li><p><cite>logging.info</cite> is for information that the user may want to know if the
+<li><p><cite>logger.warning</cite> are used to warn the user, see below.</p></li>
+<li><p><cite>logger.info</cite> is for information that the user may want to know if the
 program behaves oddly. For instance, if a driver did not participate in a
-session, some data can be loaded for this specific driver. But FastF1 can
+session, some data cannot be loaded for this specific driver. But FastF1 can
 still be used normally with data of all other drivers in this session.</p></li>
-<li><p><cite>logging.debug</cite> is the least likely to be displayed, and hence can be the
+<li><p><cite>logger.debug</cite> is the least likely to be displayed, and hence can be the
 most verbose. Information that is usually only required for development
 and debugging of FastF1 should be logged here.</p></li>
 </ul>
-<p>By default, in FastF1, <cite>logging</cite> displays all log messages at levels higher than
+<p>By default, in FastF1, logging displays all log messages at levels higher than
 <code class="docutils literal notranslate"><span class="pre">logging.INFO</span></code> to <cite>sys.stderr</cite>.</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+<section id="allowing-optional-functions-to-fail-gracefully">
+<h3>Allowing optional functions to fail gracefully<a class="headerlink" href="#allowing-optional-functions-to-fail-gracefully" title="Permalink to this heading">#</a></h3>
+<p>FastF1 processes lots of data that may change unexpectedly, contain unknown
+values or that is not always available. Of course, the best way to deal with
+this is to write code that is as robust as possible. But of course, it is not
+always possible to foresee what unexpected data your code might need to deal
+with. In some cases, FastF1 cannot work without some specific data being
+processed correctly. But in other cases, FastF1 can still be used with limited
+functionality if we prevent it from crashing when such an error is encountered.
+Examples for such cases are:</p>
+<ul class="simple">
+<li><p>loading optional data: weather data, telemetry, …</p></li>
+<li><p>doing additional (cross) validation of data</p></li>
+<li><p>applying corrections to improve the accuracy of data</p></li>
+<li><p>…</p></li>
+</ul>
+<p>If such a task fails, we want FastF1 to show a warning to the user. But
+especially if such an error is encountered during data loading, it should not
+crash FastF1 and make the whole session unavailable to the user. Loading
+incomplete data is always preferred over loading no data at all.</p>
+<p>To deal with this, FastF1 provides a special function decorator called
+<a class="reference internal" href="../logging.html#fastf1.logger.soft_exceptions" title="fastf1.logger.soft_exceptions"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.logger.soft_exceptions()</span></code></a> that can be used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastf1.logger</span> <span class="kn">import</span> <span class="n">soft_exceptions</span>
 
 
-           </div>
-           
+<span class="nd">@soft_exceptions</span><span class="p">(</span><span class="n">descr_name</span><span class="o">=</span><span class="s2">&quot;optional data processing&quot;</span><span class="p">,</span>
+                 <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Failed to do some optional data processing&quot;</span><span class="p">,</span>
+                 <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_optional_data_loading</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+<p>The basic functionality of this decorator is to wrap a one big
+<cite>try: … except Exception: …</cite> clause around the function call.
+But additionally, if the function call fails, the <cite>msg</cite> is shown to the user,
+using the logging level <cite>WARNING</cite>. The traceback is logged with the logging
+level <cite>DEBUG</cite> and prefaced with the line <cite>“Traceback for failure in
+{descr_name}”</cite>.
+You need to pass the <cite>logger</cite> for the current module as a third argument to the
+decorator.</p>
+<p>This catch-all exception handling makes development more difficult, because for
+example a debugger won’t be able to stop on an unhandled exception. Therefore,
+it is possible to easily disable the exception handling for all functions that
+are decorated in this way. This is described in detail here:
+<a class="reference internal" href="../logging.html#logging"><span class="std std-ref">Logging - fastf1.logger</span></a>.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="devenv_setup.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Setting up FastF1 for development</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Contributing</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, theOehrly
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="devenv_setup.html" class="btn btn-neutral float-right" title="Setting up FastF1 for development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#submitting-a-bug-report">Submitting a bug report</a></li>
+<li><a class="reference internal" href="#requesting-a-new-feature">Requesting a new feature</a></li>
+<li><a class="reference internal" href="#contributing-code">Contributing code</a><ul>
+<li><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
+<li><a class="reference internal" href="#contributing-pull-requests">Contributing pull requests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing-documentation">Contributing documentation</a><ul>
+<li><a class="reference internal" href="#contributing-examples-to-the-gallery">Contributing examples to the gallery</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#coding-guidelines">Coding guidelines</a><ul>
+<li><a class="reference internal" href="#supported-versions-of-python-and-dependencies">Supported versions of Python and dependencies</a></li>
+<li><a class="reference internal" href="#api-changes">API changes</a><ul>
+<li><a class="reference internal" href="#rules">Rules</a></li>
+<li><a class="reference internal" href="#introducing">Introducing</a></li>
+<li><a class="reference internal" href="#expiring">Expiring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-new-api">Adding new API</a></li>
+<li><a class="reference internal" href="#new-modules-and-files-installation">New modules and files: installation</a></li>
+<li><a class="reference internal" href="#using-logging-for-debug-messages">Using logging for debug messages</a><ul>
+<li><a class="reference internal" href="#which-logging-level-to-use">Which logging level to use?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#allowing-optional-functions-to-fail-gracefully">Allowing optional functions to fail gracefully</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, theOehrly.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
+          </div>
         </div>
       </div>
-
-    </section>
-
+      
+      
+    </aside>
   </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    </body>
 </html>

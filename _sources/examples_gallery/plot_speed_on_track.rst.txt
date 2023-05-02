@@ -22,10 +22,9 @@ Speed visualization on track map
 
 (Example provided by @JSEHV on Github)
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-17
+.. GENERATED FROM PYTHON SOURCE LINES 6-14
 
 .. code-block:: default
-
 
     import fastf1 as ff1
     import numpy as np
@@ -35,7 +34,6 @@ Speed visualization on track map
     from matplotlib.collections import LineCollection
 
 
-    ff1.Cache.enable_cache('../doc_cache')  # replace with your cache directory
 
 
 
@@ -43,13 +41,12 @@ Speed visualization on track map
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 18-20
+.. GENERATED FROM PYTHON SOURCE LINES 15-17
 
 First, we define some variables that allow us to conveniently control what
 we want to plot.
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-27
+.. GENERATED FROM PYTHON SOURCE LINES 17-24
 
 .. code-block:: default
 
@@ -67,11 +64,11 @@ we want to plot.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Next, we load the session and select the desired data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-40
+.. GENERATED FROM PYTHON SOURCE LINES 26-37
 
 .. code-block:: default
 
@@ -90,62 +87,17 @@ Next, we load the session and select the desired data.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1492: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
-      for key, value in row.iteritems():
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/core.py:1415: FutureWarning: In a future version, object-dtype columns with all-bool values will not be included in reductions with bool_only=True. Explicitly cast to bool dtype instead.
-      df = pd.concat([df, result], sort=False)
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 41-45
+.. GENERATED FROM PYTHON SOURCE LINES 38-42
 
 Now, we create a set of line segments so that we can color them
 individually. This creates the points as a N x 1 x 2 array so that we can
 stack points  together easily to get the segments. The segments array for
 line collection needs to be (numlines) x (points per line) x 2 (for x and y)
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-49
+.. GENERATED FROM PYTHON SOURCE LINES 42-46
 
 .. code-block:: default
 
@@ -160,11 +112,11 @@ line collection needs to be (numlines) x (points per line) x 2 (for x and y)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 47-48
 
 After this, we can actually plot the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-84
+.. GENERATED FROM PYTHON SOURCE LINES 48-81
 
 .. code-block:: default
 
@@ -205,18 +157,10 @@ After this, we can actually plot the data.
 
 
 .. image-sg:: /examples_gallery/images/sphx_glr_plot_speed_on_track_001.png
-   :alt: Austrian Grand Prix 2021 - RIC - Speed
+   :alt: 9 2021 - RIC - Speed
    :srcset: /examples_gallery/images/sphx_glr_plot_speed_on_track_001.png
    :class: sphx-glr-single-img
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/Fast-F1/Fast-F1/fastf1/events.py:677: FutureWarning: The `Weekend.name` property is deprecated and will beremoved in a future version.
-    Use `Event['EventName']` or `Event.EventName` instead.
-      warnings.warn(
 
 
 
@@ -224,7 +168,7 @@ After this, we can actually plot the data.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  33.639 seconds)
+   **Total running time of the script:** ( 0 minutes  4.399 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_speed_on_track.py:

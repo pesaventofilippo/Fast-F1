@@ -24,18 +24,15 @@ Calculates which drivers still has chance to win the WDC.
 Simplified since it doesn't compare positions if points are equal.
 
 This example implements 3 functions that it then uses to calculate
-it's result.
+its result.
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-17
+.. GENERATED FROM PYTHON SOURCE LINES 11-16
 
 .. code-block:: default
 
 
-    import requests
     import fastf1
-
-    fastf1.Cache.enable_cache("../doc_cache")  # replace with your cache directory
-
+    from fastf1.ergast import Ergast
 
 
 
@@ -44,22 +41,20 @@ it's result.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-21
 
-We need a function to get the current driver standings from
-Ergast and returns as list of drivers.
-Reference https://ergast.com/mrd/methods/standings/
+.. GENERATED FROM PYTHON SOURCE LINES 17-19
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-29
+Get the current driver standings from Ergast.
+Reference https://theoehrly.github.io/Fast-F1-Pre-Release-Documentation/ergast.html#fastf1.ergast.Ergast.get_driver_standings
+
+.. GENERATED FROM PYTHON SOURCE LINES 19-25
 
 .. code-block:: default
 
     def get_drivers_standings():
-        url = "https://ergast.com/api/f1/current/driverStandings.json"
-        response = requests.get(url)
-        data = response.json()
-        drivers_standings = data['MRData']['StandingsTable']['StandingsLists'][0]['DriverStandings']  # noqa: E501
-        return drivers_standings
+        ergast = Ergast()
+        standings = ergast.get_driver_standings(season=2023)
+        return standings.content[0]
 
 
 
@@ -69,13 +64,13 @@ Reference https://ergast.com/mrd/methods/standings/
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-33
+.. GENERATED FROM PYTHON SOURCE LINES 26-29
 
 We need a function to calculates the maximum amount of points possible if a
 driver wins everything left of the season.
 https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scoring_systems
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-51
+.. GENERATED FROM PYTHON SOURCE LINES 29-45
 
 .. code-block:: default
 
@@ -83,12 +78,10 @@ https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scor
         POINTS_FOR_SPRINT = 8 + 25 + 1  # Winning the sprint, race and fastest lap
         POINTS_FOR_CONVENTIONAL = 25 + 1  # Winning the race and fastest lap
 
-        events = fastf1.events.get_events_remaining()
+        events = fastf1.events.get_events_remaining(force_ergast=True)
         # Count how many sprints and conventional races are left
-        sprint_events = \
-            len(events.loc[events["EventFormat"] == "sprint"])
-        conventional_events = \
-            len(events.loc[events["EventFormat"] == "conventional"])
+        sprint_events = len(events.loc[events["EventFormat"] == "sprint"])
+        conventional_events = len(events.loc[events["EventFormat"] == "conventional"])
 
         # Calculate points for each
         sprint_points = sprint_events * POINTS_FOR_SPRINT
@@ -104,7 +97,7 @@ https://en.wikipedia.org/wiki/List_of_Formula_One_World_Championship_points_scor
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-58
+.. GENERATED FROM PYTHON SOURCE LINES 46-52
 
 For each driver we will see if there is a chance to get more points than
 the current leader. We assume the leader gets no more points and the
@@ -113,22 +106,22 @@ driver gets the theoretical maximum amount of points.
 We currently don't consider the case of two drivers getting equal points
 since its more complicated and would require comparing positions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-72
+.. GENERATED FROM PYTHON SOURCE LINES 52-66
 
 .. code-block:: default
 
     def calculate_who_can_win(driver_standings, max_points):
-        LEADER_POINTS = int(driver_standings[0]['points'])
+        LEADER_POINTS = int(driver_standings.loc[0]['points'])
 
-        for _, driver in enumerate(driver_standings):
+        for i, _ in enumerate(driver_standings.iterrows()):
+            driver = driver_standings.loc[i]
             driver_max_points = int(driver["points"]) + max_points
             can_win = 'No' if driver_max_points < LEADER_POINTS else 'Yes'
 
-            print(f"{driver['position']}: \
-    {driver['Driver']['code']}, \
-    Current points: {driver['points']}, \
-    Theoretical max points: {driver_max_points}, \
-    Can win: {can_win}")
+            print(f"{driver['position']}: {driver['givenName'] + ' ' + driver['familyName']}, "
+                  f"Current points: {driver['points']}, "
+                  f"Theoretical max points: {driver_max_points}, "
+                  f"Can win: {can_win}")
 
 
 
@@ -138,12 +131,12 @@ since its more complicated and would require comparing positions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-75
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
 Now using the 3 functions above we can use them to calculate who
 can still win.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-84
+.. GENERATED FROM PYTHON SOURCE LINES 69-78
 
 .. code-block:: default
 
@@ -164,26 +157,30 @@ can still win.
 
  .. code-block:: none
 
-    1: VER, Current points: 69, Theoretical max points: 603, Can win: Yes
-    2: PER, Current points: 54, Theoretical max points: 588, Can win: Yes
-    3: ALO, Current points: 45, Theoretical max points: 579, Can win: Yes
-    4: HAM, Current points: 38, Theoretical max points: 572, Can win: Yes
-    5: SAI, Current points: 20, Theoretical max points: 554, Can win: Yes
-    6: STR, Current points: 20, Theoretical max points: 554, Can win: Yes
-    7: RUS, Current points: 18, Theoretical max points: 552, Can win: Yes
-    8: NOR, Current points: 8, Theoretical max points: 542, Can win: Yes
-    9: HUL, Current points: 6, Theoretical max points: 540, Can win: Yes
-    10: LEC, Current points: 6, Theoretical max points: 540, Can win: Yes
-    11: BOT, Current points: 4, Theoretical max points: 538, Can win: Yes
-    12: OCO, Current points: 4, Theoretical max points: 538, Can win: Yes
-    13: PIA, Current points: 4, Theoretical max points: 538, Can win: Yes
-    14: GAS, Current points: 4, Theoretical max points: 538, Can win: Yes
-    15: ZHO, Current points: 2, Theoretical max points: 536, Can win: Yes
-    16: TSU, Current points: 1, Theoretical max points: 535, Can win: Yes
-    17: MAG, Current points: 1, Theoretical max points: 535, Can win: Yes
-    18: ALB, Current points: 1, Theoretical max points: 535, Can win: Yes
-    19: SAR, Current points: 0, Theoretical max points: 534, Can win: Yes
-    20: DEV, Current points: 0, Theoretical max points: 534, Can win: Yes
+    /home/runner/work/Fast-F1/Fast-F1/fastf1/events.py:457: UserWarning:
+
+    Option ``force_ergast`` has been deprecated, use``backend='ergast'`` instead
+
+    1: Max Verstappen, Current points: 93.0, Theoretical max points: 627, Can win: Yes
+    2: Sergio Pérez, Current points: 87.0, Theoretical max points: 621, Can win: Yes
+    3: Fernando Alonso, Current points: 60.0, Theoretical max points: 594, Can win: Yes
+    4: Lewis Hamilton, Current points: 48.0, Theoretical max points: 582, Can win: Yes
+    5: Carlos Sainz, Current points: 34.0, Theoretical max points: 568, Can win: Yes
+    6: Charles Leclerc, Current points: 28.0, Theoretical max points: 562, Can win: Yes
+    7: George Russell, Current points: 28.0, Theoretical max points: 562, Can win: Yes
+    8: Lance Stroll, Current points: 27.0, Theoretical max points: 561, Can win: Yes
+    9: Lando Norris, Current points: 10.0, Theoretical max points: 544, Can win: Yes
+    10: Nico Hülkenberg, Current points: 6.0, Theoretical max points: 540, Can win: Yes
+    11: Oscar Piastri, Current points: 4.0, Theoretical max points: 538, Can win: Yes
+    12: Valtteri Bottas, Current points: 4.0, Theoretical max points: 538, Can win: Yes
+    13: Esteban Ocon, Current points: 4.0, Theoretical max points: 538, Can win: Yes
+    14: Pierre Gasly, Current points: 4.0, Theoretical max points: 538, Can win: Yes
+    15: Guanyu Zhou, Current points: 2.0, Theoretical max points: 536, Can win: Yes
+    16: Yuki Tsunoda, Current points: 2.0, Theoretical max points: 536, Can win: Yes
+    17: Alexander Albon, Current points: 1.0, Theoretical max points: 535, Can win: Yes
+    18: Kevin Magnussen, Current points: 1.0, Theoretical max points: 535, Can win: Yes
+    19: Logan Sargeant, Current points: 0.0, Theoretical max points: 534, Can win: Yes
+    20: Nyck de Vries, Current points: 0.0, Theoretical max points: 534, Can win: Yes
 
 
 
@@ -191,7 +188,7 @@ can still win.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.243 seconds)
+   **Total running time of the script:** ( 0 minutes  0.086 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_who_can_still_win_wdc.py:

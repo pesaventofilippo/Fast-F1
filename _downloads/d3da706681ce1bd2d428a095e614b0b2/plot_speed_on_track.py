@@ -3,7 +3,6 @@
 
 (Example provided by @JSEHV on Github)
 """
-
 import fastf1 as ff1
 import numpy as np
 import matplotlib as mpl
@@ -11,8 +10,6 @@ import matplotlib as mpl
 from matplotlib import pyplot as plt
 from matplotlib.collections import LineCollection
 
-
-ff1.Cache.enable_cache('../doc_cache')  # replace with your cache directory
 
 ##############################################################################
 # First, we define some variables that allow us to conveniently control what

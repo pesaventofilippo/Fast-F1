@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Contributing" href="contributing.html" /><link rel="prev" title="Troubleshooting" href="../troubleshooting.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
-        <title>Contributing - FastF1 3.0.1</title>
+        <title>What’s new in v3.0.1 - FastF1 3.0.1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -140,7 +140,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -193,20 +193,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../legacy.html">Legacy Functionality - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.legacy</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Information:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../time_explanation.html">Time, Date and Timing - Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../howto_accurate_calculations.html">How to perform calculations accurately</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../known_bugs.html">Known bugs and caveats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Contributing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html">Setting up FastF1 for development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="documenting_fastf1.html">Writing documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_guide.html">Pull request guidelines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../contributing/index.html">Contributing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/devenv_setup.html">Setting up FastF1 for development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/documenting_fastf1.html">Writing documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/coding_guide.html">Pull request guidelines</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Release Notes</a></li>
 </ul>
 
 </div>
@@ -235,68 +235,22 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="contributing">
-<span id="developers-guide-index"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">#</a></h1>
-<p>Thank you for your interest in helping to improve FastF1! There are various
-ways to contribute to FastF1. All of them are super valuable but don’t
-necessarily require writing code at all. For example:</p>
+          <section id="what-s-new-in-v3-0-1">
+<h1>What’s new in v3.0.1<a class="headerlink" href="#what-s-new-in-v3-0-1" title="Permalink to this heading">#</a></h1>
+<p>(released 07/05/2023)</p>
+<section id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>contributing to the documentation</p></li>
-<li><p>opening new issues for bugs</p></li>
-<li><p>requesting new features</p></li>
-<li><p>asking for clarification on things you find unclear</p></li>
-<li><p>fixing bugs</p></li>
-<li><p>writing example scripts for the gallery</p></li>
+<li><p>fixed a bug that prevented the use of the livetiming client from the
+commandline</p></li>
 </ul>
-<div style="margin: 2em 0">
-  <a href="contributing.html#submitting-a-bug-report"><span class="ff1-button">Report a bug</span></a>
-  <a href="contributing.html#request-a-new-feature"><span class="ff1-button">Request a feature</span></a>
-  <a href="contributing.html#contributing-code"><span class="ff1-button">Contribute code</span></a>
-  <a href="contributing.html#contributing-documentation"><span class="ff1-button">Write documentation</span></a>
-</div><div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#submitting-a-bug-report">Submitting a bug report</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#requesting-a-new-feature">Requesting a new feature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-code">Contributing code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#contributing-documentation">Contributing documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#coding-guidelines">Coding guidelines</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devenv_setup.html">Setting up FastF1 for development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html#creating-a-dedicated-environment">Creating a dedicated environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html#retrieving-the-latest-version-of-the-code">Retrieving the latest version of the code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html#installing-fastf1-in-editable-mode">Installing FastF1 in editable mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html#installing-additional-dependencies-for-development">Installing additional dependencies for development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="devenv_setup.html#optional-installing-pre-commit-hooks">[Optional] Installing pre-commit hooks</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#running-the-tests">Running the tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="documenting_fastf1.html">Writing documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="documenting_fastf1.html#getting-started">Getting started</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="coding_guide.html">Pull request guidelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coding_guide.html#summary-for-pr-authors">Summary for PR authors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coding_guide.html#detailed-guidelines">Detailed guidelines</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p><strong>Acknowledgement</strong>: This contribution guide is heavily based on and in large
-parts copied over and adapted from Matplotlibs documentation. There’s no need
-to reinvent the wheel if others have done a great job of explaining things
-already.</p>
+</section>
 </section>
 
         </article>
@@ -304,26 +258,8 @@ already.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="contributing.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Contributing</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../troubleshooting.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Troubleshooting</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -342,8 +278,27 @@ already.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">What’s new in v3.0.1</a><ul>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

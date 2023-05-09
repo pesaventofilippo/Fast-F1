@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Event Schedule - fastf1.events" href="events.html" /><link rel="prev" title="General Functions - fastf1" href="fastf1.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
-        <title>Timing and Telemetry Data - fastf1.core - FastF1 3.0.1</title>
+        <title>Timing and Telemetry Data - fastf1.core - FastF1 3.0.2</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">FastF1 <small>3.0.1</small></div></a>
+      <a href="index.html"><div class="brand">FastF1 <small>3.0.2</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.0.1</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.0.2</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -745,8 +745,8 @@ explained in <a class="reference internal" href="api.html#fastf1.api.track_statu
 For filtering laps by track status, you may want to use
 <a class="reference internal" href="#fastf1.core.Laps.pick_track_status" title="fastf1.core.Laps.pick_track_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">Laps.pick_track_status()</span></code></a>.</p></li>
 <li><p><strong>Position</strong> (float): Position of the driver at the end of each lap.
-This value is NaN for FP1, FP2, FP3 and Qualifying as well as for
-crash laps.</p></li>
+This value is NaN for FP1, FP2, FP3, Sprint Shootout, and Qualifying
+as well as for crash laps.</p></li>
 <li><p><strong>Deleted</strong> (Optional[bool]): Indicates that a lap was deleted by
 the stewards, for example because of a track limits violation.
 This data is only available when race control messages are loaded.</p></li>
@@ -2110,7 +2110,8 @@ The URL to the driver’s headshot</p></li>
 The driver’s country code (e.g. “FRA”)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Position</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> |
 The drivers finishing position (values only given if session is
-‘Race’, ‘Qualifying’ or ‘Sprint Qualifying’).</p></li>
+‘Race’, ‘Qualifying’, ‘Sprint Shootout’, ‘Sprint’, or
+‘Sprint Qualifying’).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ClassifiedPosition</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> |
 The official classification result for each driver.
 This is either an integer value if the driver is
@@ -2119,25 +2120,26 @@ officially classified or one of “R” (retired), “D” (disqualified),
 “N” (not classified).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">GridPosition</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> |
 The drivers starting position (values only given if session is
-‘Race’ or ‘Sprint Qualifying’)</p></li>
+‘Race’, ‘Sprint’, or ‘Sprint Qualifying’)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Q1</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> |
 The drivers best Q1 time (values only given if session is
-‘Qualifying’)</p></li>
+‘Qualifying’ or ‘Sprint Shootout’)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Q2</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> |
 The drivers best Q2 time (values only given if session is
-‘Qualifying’)</p></li>
+‘Qualifying’ or ‘Sprint Shootout’)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Q3</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> |
 The drivers best Q3 time (values only given if session is
-‘Qualifying’)</p></li>
+‘Qualifying’ or ‘Sprint Shootout’)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Time</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> |
 The drivers total race time (values only given if session is
-‘Race’ or ‘Sprint Qualifying’ and the driver was not more than one
-lap behind the leader)</p></li>
+‘Race’, ‘Sprint’, or ‘Sprint Qualifying’ and the driver was not
+more than one lap behind the leader)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Status</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> |
 A status message to indicate if and how the driver finished the race
 or to indicate the cause of a DNF. Possible values include but are
 not limited to ‘Finished’, ‘+ 1 Lap’, ‘Crash’, ‘Gearbox’, …
-(values only given if session is ‘Race’ or ‘Sprint Qualifying’)</p></li>
+(values only given if session is ‘Race’, ‘Sprint’, or
+‘Sprint Qualifying’)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Points</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> |
 The number of points received by each driver for their finishing
 result.</p></li>

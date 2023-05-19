@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
-        <title>v2.1.9 - FastF1 3.0.3</title>
+        <title>What’s new in v3.0.3 - FastF1 3.0.3</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -140,7 +140,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -235,25 +235,25 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="v2-1-9">
-<h1>v2.1.9<a class="headerlink" href="#v2-1-9" title="Permalink to this heading">#</a></h1>
+          <section id="what-s-new-in-v3-0-3">
+<h1>What’s new in v3.0.3<a class="headerlink" href="#what-s-new-in-v3-0-3" title="Permalink to this heading">#</a></h1>
+<p>(released 19/05/2023)</p>
+<section id="bug-fixes-and-improvements">
+<h2>Bug Fixes and Improvements<a class="headerlink" href="#bug-fixes-and-improvements" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>switch renamed dependency ‘fuzzywuzzy’ to new name ‘thefuzz’</p></li>
-<li><p>add support for getting team colors from incomplete or partial team
-names or from team names containing typos or extra words</p></li>
-<li><p>make fuzzy string matching for event names case-insensitive</p></li>
-<li><p>set missing lap start times to pit out time where possible (fixes issue #29),</p></li>
-<li><p>add new api function <a class="reference internal" href="../api.html#fastf1.api.driver_info" title="fastf1.api.driver_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.api.driver_info()</span></code></a></p></li>
-<li><p>support incomplete laps (not timed) caused by drivers crashing/retiring
-during a lap: infer as much information as possible so that telemetry
-can be accessed easily (fixes issues #36 and #41)</p></li>
+<li><p>Fixed incorrectly formatted color codes for tyre compound colors.
+(by &#64;Casper-Guo)</p></li>
+<li><p>Fixed a bug that prevented the calculation of results for Qualifying-like
+sessions (for example Sprint Shootout) that only occurred on Pandas v1.5.3
+and older.</p></li>
 </ul>
+</section>
 </section>
 
         </article>
@@ -281,8 +281,27 @@ can be accessed easily (fixes issues #36 and #41)</p></li>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">What’s new in v3.0.3</a><ul>
+<li><a class="reference internal" href="#bug-fixes-and-improvements">Bug Fixes and Improvements</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

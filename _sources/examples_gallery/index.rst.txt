@@ -64,6 +64,23 @@ Examples Gallery
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot a driver&#x27;s lap times in a race, with color coding for the compounds.">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_driver_laptimes_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_gallery_plot_driver_laptimes.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Driver Laptimes Scatterplot</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Plot which gear is being used at which point of the track">
 
 .. only:: html
@@ -76,6 +93,23 @@ Examples Gallery
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Gear shifts on track</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot all drivers&#x27; tyre strategies during a race.">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_strategy_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_gallery_plot_strategy.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tyre strategies during a race</div>
     </div>
 
 
@@ -110,6 +144,23 @@ Examples Gallery
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Who can still win the drivers WDC?</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Driver Laptimes Distribution Visualization">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_laptimes_distribution_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_gallery_plot_laptimes_distribution.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Driver Laptimes Distribution Visualization</div>
     </div>
 
 
@@ -158,9 +209,12 @@ Examples Gallery
    /examples_gallery/example_fastf1_signalrclient
    /examples_gallery/plot_position_changes
    /examples_gallery/plot_speed_traces
+   /examples_gallery/plot_driver_laptimes
    /examples_gallery/plot_gear_shifts_on_track
+   /examples_gallery/plot_strategy
    /examples_gallery/plot_qualifying_results
    /examples_gallery/plot_who_can_still_win_wdc
+   /examples_gallery/plot_laptimes_distribution
    /examples_gallery/plot_speed_on_track
    /examples_gallery/plot_results_tracker
 

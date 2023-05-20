@@ -2,13 +2,13 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>Computation times - FastF1 3.0.3</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
@@ -165,17 +165,20 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting Started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/basics.html">Getting started with the basics</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Examples Gallery</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Examples Gallery</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Examples Gallery</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="example_fastf1_signalrclient.html">Using the Fast-F1 signalr client?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_position_changes.html">Position changes during a race</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_driver_laptimes.html">Driver Laptimes Scatterplot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_strategy.html">Tyre strategies during a race</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_qualifying_results.html">Qualifying results overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_laptimes_distribution.html">Driver Laptimes Distribution Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_speed_on_track.html">Speed visualization on track map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_results_tracker.html">Plot driver standings in a heatmap</a></li>
 </ul>
@@ -198,7 +201,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howto_accurate_calculations.html">How to perform calculations accurately</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../known_bugs.html">Known bugs and caveats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../contributing/index.html">Contributing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../contributing/index.html">Contributing</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Contributing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/contributing.html">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/devenv_setup.html">Setting up FastF1 for development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/testing.html">Testing</a></li>
@@ -243,39 +246,51 @@
         <article role="main">
           <section id="computation-times">
 <span id="sphx-glr-examples-gallery-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading">#</a></h1>
-<p><strong>00:33.939</strong> total execution time for <strong>examples_gallery</strong> files:</p>
+<p><strong>00:39.643</strong> total execution time for <strong>examples_gallery</strong> files:</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_results_tracker.html#sphx-glr-examples-gallery-plot-results-tracker-py"><span class="std std-ref">Plot driver standings in a heatmap</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_results_tracker.py</span></code>)</p></td>
-<td><p>00:11.624</p></td>
+<td><p>00:11.146</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_speed_on_track.html#sphx-glr-examples-gallery-plot-speed-on-track-py"><span class="std std-ref">Speed visualization on track map</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_speed_on_track.py</span></code>)</p></td>
-<td><p>00:06.940</p></td>
+<td><p>00:04.787</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_speed_traces.html#sphx-glr-examples-gallery-plot-speed-traces-py"><span class="std std-ref">Overlaying speed traces of two laps</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_speed_traces.py</span></code>)</p></td>
-<td><p>00:04.189</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_strategy.html#sphx-glr-examples-gallery-plot-strategy-py"><span class="std std-ref">Tyre strategies during a race</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_strategy.py</span></code>)</p></td>
+<td><p>00:04.339</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_driver_laptimes.html#sphx-glr-examples-gallery-plot-driver-laptimes-py"><span class="std std-ref">Driver Laptimes Scatterplot</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_driver_laptimes.py</span></code>)</p></td>
+<td><p>00:04.290</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_laptimes_distribution.html#sphx-glr-examples-gallery-plot-laptimes-distribution-py"><span class="std std-ref">Driver Laptimes Distribution Visualization</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_laptimes_distribution.py</span></code>)</p></td>
+<td><p>00:03.444</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_speed_traces.html#sphx-glr-examples-gallery-plot-speed-traces-py"><span class="std std-ref">Overlaying speed traces of two laps</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_speed_traces.py</span></code>)</p></td>
+<td><p>00:03.017</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="plot_position_changes.html#sphx-glr-examples-gallery-plot-position-changes-py"><span class="std std-ref">Position changes during a race</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_position_changes.py</span></code>)</p></td>
+<td><p>00:02.988</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot_gear_shifts_on_track.html#sphx-glr-examples-gallery-plot-gear-shifts-on-track-py"><span class="std std-ref">Gear shifts on track</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_gear_shifts_on_track.py</span></code>)</p></td>
-<td><p>00:04.109</p></td>
+<td><p>00:02.719</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot_qualifying_results.html#sphx-glr-examples-gallery-plot-qualifying-results-py"><span class="std std-ref">Qualifying results overview</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_qualifying_results.py</span></code>)</p></td>
-<td><p>00:03.243</p></td>
+<td><p>00:02.063</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="plot_position_changes.html#sphx-glr-examples-gallery-plot-position-changes-py"><span class="std std-ref">Position changes during a race</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_position_changes.py</span></code>)</p></td>
-<td><p>00:03.025</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="plot_who_can_still_win_wdc.html#sphx-glr-examples-gallery-plot-who-can-still-win-wdc-py"><span class="std std-ref">Who can still win the drivers WDC?</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_who_can_still_win_wdc.py</span></code>)</p></td>
+<td><p>00:00.851</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="plot_who_can_still_win_wdc.html#sphx-glr-examples-gallery-plot-who-can-still-win-wdc-py"><span class="std std-ref">Who can still win the drivers WDC?</span></a> (<code class="docutils literal notranslate"><span class="pre">plot_who_can_still_win_wdc.py</span></code>)</p></td>
-<td><p>00:00.809</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="example_fastf1_signalrclient.html#sphx-glr-examples-gallery-example-fastf1-signalrclient-py"><span class="std std-ref">Using the Fast-F1 signalr client?</span></a> (<code class="docutils literal notranslate"><span class="pre">example_fastf1_signalrclient.py</span></code>)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="example_fastf1_signalrclient.html#sphx-glr-examples-gallery-example-fastf1-signalrclient-py"><span class="std std-ref">Using the Fast-F1 signalr client?</span></a> (<code class="docutils literal notranslate"><span class="pre">example_fastf1_signalrclient.py</span></code>)</p></td>
 <td><p>00:00.000</p></td>
 <td><p>0.0 MB</p></td>
 </tr>

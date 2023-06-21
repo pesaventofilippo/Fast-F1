@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>What’s new in v3.0.4 - FastF1 3.0.4</title>
+        <title>What’s new in v3.0.5 - FastF1 3.0.5</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">FastF1 <small>3.0.4</small></div></a>
+      <a href="../index.html"><div class="brand">FastF1 <small>3.0.5</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.0.4</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.0.5</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -244,11 +244,24 @@
           </label>
         </div>
         <article role="main">
-          <section id="what-s-new-in-v3-0-4">
-<h1>What’s new in v3.0.4<a class="headerlink" href="#what-s-new-in-v3-0-4" title="Permalink to this heading">#</a></h1>
-<p>(released 03/06/2023)</p>
+          <section id="what-s-new-in-v3-0-5">
+<h1>What’s new in v3.0.5<a class="headerlink" href="#what-s-new-in-v3-0-5" title="Permalink to this heading">#</a></h1>
+<p>(released 21/06/2023)</p>
 <section id="bug-fixes-and-improvements">
 <h2>Bug Fixes and Improvements<a class="headerlink" href="#bug-fixes-and-improvements" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fixed an error when loading historic sessions (#400).</p></li>
+<li><p>Fixed an error where lap times are incorrectly not marked as ‘Personal Best’.
+This also caused <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_fastest" title="fastf1.core.Laps.pick_fastest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pick_fastest()</span></code></a> to return incorrect
+laps. (#403)</p></li>
+</ul>
+</section>
+</section>
+<section id="what-s-new-in-v3-0-4">
+<h1>What’s new in v3.0.4<a class="headerlink" href="#what-s-new-in-v3-0-4" title="Permalink to this heading">#</a></h1>
+<p>(released 03/06/2023)</p>
+<section id="id1">
+<h2>Bug Fixes and Improvements<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Added missing color for compound “TEST-UNKNOWN” (by &#64;Casper-Guo)</p></li>
 <li><p>Bumped minimum version requirement for dependency ‘timple’</p></li>
@@ -258,8 +271,8 @@
 <section id="what-s-new-in-v3-0-3">
 <h1>What’s new in v3.0.3<a class="headerlink" href="#what-s-new-in-v3-0-3" title="Permalink to this heading">#</a></h1>
 <p>(released 19/05/2023)</p>
-<section id="id1">
-<h2>Bug Fixes and Improvements<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h2>Bug Fixes and Improvements<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Fixed incorrectly formatted color codes for tyre compound colors.
 (by &#64;Casper-Guo)</p></li>
@@ -272,8 +285,8 @@ and older.</p></li>
 <section id="what-s-new-in-v3-0-2">
 <h1>What’s new in v3.0.2<a class="headerlink" href="#what-s-new-in-v3-0-2" title="Permalink to this heading">#</a></h1>
 <p>(released 09/05/2023)</p>
-<section id="id2">
-<h2>Bug Fixes and Improvements<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h2>Bug Fixes and Improvements<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Improved support for Sprint Shootout sessions and added session results for
 these. (by &#64;mdsakalu)</p></li>
@@ -389,8 +402,8 @@ a driver retired, was disqualified or similar. (#294)</p></li>
 are now <code class="docutils literal notranslate"><span class="pre">float</span></code> to support <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>Bug Fixes<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<section id="id4">
+<h2>Bug Fixes<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The API parser will now correctly detect when lap times were deleted and
 will not mark these lap times as personal best time anymore if the deleted
@@ -521,16 +534,20 @@ results.</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">What’s new in v3.0.4</a><ul>
+<li><a class="reference internal" href="#">What’s new in v3.0.5</a><ul>
 <li><a class="reference internal" href="#bug-fixes-and-improvements">Bug Fixes and Improvements</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-3">What’s new in v3.0.3</a><ul>
+<li><a class="reference internal" href="#what-s-new-in-v3-0-4">What’s new in v3.0.4</a><ul>
 <li><a class="reference internal" href="#id1">Bug Fixes and Improvements</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-2">What’s new in v3.0.2</a><ul>
+<li><a class="reference internal" href="#what-s-new-in-v3-0-3">What’s new in v3.0.3</a><ul>
 <li><a class="reference internal" href="#id2">Bug Fixes and Improvements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#what-s-new-in-v3-0-2">What’s new in v3.0.2</a><ul>
+<li><a class="reference internal" href="#id3">Bug Fixes and Improvements</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#what-s-new-in-v3-0-1">What’s new in v3.0.1</a><ul>
@@ -540,7 +557,7 @@ results.</p></li>
 <li><a class="reference internal" href="#what-s-new-in-v3-0-0">What’s new in v3.0.0</a><ul>
 <li><a class="reference internal" href="#new-features">New Features</a></li>
 <li><a class="reference internal" href="#other-changes">Other Changes</a></li>
-<li><a class="reference internal" href="#id3">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id4">Bug Fixes</a></li>
 <li><a class="reference internal" href="#backwards-incompatible-api-changes">Backwards Incompatible API Changes</a></li>
 <li><a class="reference internal" href="#removals">Removals</a></li>
 <li><a class="reference internal" href="#performance-improvements">Performance Improvements</a></li>

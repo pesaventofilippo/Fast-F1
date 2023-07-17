@@ -155,17 +155,17 @@ and 'LapTimeDelta' columns.
     4     OCO 0 days 00:01:17.580000 0 days 00:00:00.839000
     5     SAI 0 days 00:01:17.620000 0 days 00:00:00.879000
     6     RIC 0 days 00:01:17.622000 0 days 00:00:00.881000
-    7     PER 0 days 00:01:17.701000 0 days 00:00:00.960000
-    8     STR 0 days 00:01:17.974000 0 days 00:00:01.233000
-    9     GAS 0 days 00:01:17.982000 0 days 00:00:01.241000
-    10    NOR 0 days 00:01:18.010000 0 days 00:00:01.269000
-    11    VET 0 days 00:01:18.079000 0 days 00:00:01.338000
-    12    ALO 0 days 00:01:18.147000 0 days 00:00:01.406000
+    7     PER 0 days 00:01:17.669000 0 days 00:00:00.928000
+    8     NOR 0 days 00:01:17.696000 0 days 00:00:00.955000
+    9     ALO 0 days 00:01:17.966000 0 days 00:00:01.225000
+    10    STR 0 days 00:01:17.974000 0 days 00:00:01.233000
+    11    GAS 0 days 00:01:17.982000 0 days 00:00:01.241000
+    12    VET 0 days 00:01:18.079000 0 days 00:00:01.338000
     13    GIO 0 days 00:01:18.356000 0 days 00:00:01.615000
-    14    TSU 0 days 00:01:18.556000 0 days 00:00:01.815000
-    15    RAI 0 days 00:01:18.917000 0 days 00:00:02.176000
-    16    MSC 0 days 00:01:19.117000 0 days 00:00:02.376000
-    17    RUS 0 days 00:01:19.154000 0 days 00:00:02.413000
+    14    RUS 0 days 00:01:18.445000 0 days 00:00:01.704000
+    15    TSU 0 days 00:01:18.556000 0 days 00:00:01.815000
+    16    RAI 0 days 00:01:18.917000 0 days 00:00:02.176000
+    17    MSC 0 days 00:01:19.117000 0 days 00:00:02.376000
     18    LAT 0 days 00:01:19.219000 0 days 00:00:02.478000
     19    MAZ 0 days 00:01:19.807000 0 days 00:00:03.066000
 
@@ -252,7 +252,7 @@ Finally, give the plot a meaningful title
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.487 seconds)
+   **Total running time of the script:** ( 0 minutes  2.039 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_qualifying_results.py:

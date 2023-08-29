@@ -1,21 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Legacy Functionality - fastf1.legacy" href="legacy.html" /><link rel="prev" title="Live Timing Client - fastf1.livetiming" href="livetiming.html" />
 
-    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Logging - fastf1.logger - FastF1 3.0.7</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <!-- Generated with Sphinx 7.2.4 and Furo 2023.08.19 -->
+        <title>Logging - fastf1.logger - FastF1 3.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce641c91" />
     
     
 
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">FastF1 <small>3.0.7</small></div></a>
+      <a href="index.html"><div class="brand">FastF1 <small>3.1.0</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.0.7</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.1.0</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -175,11 +175,14 @@
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_driver_laptimes.html">Driver Laptimes Scatterplot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_team_pace_ranking.html">Team Pace Comparison</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_strategy.html">Tyre strategies during a race</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_annotate_speed_trace.html">Plot speed traces with corner annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_laptimes_distribution.html">Driver Laptimes Distribution Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_annotate_corners.html">Draw a track map with numbered corners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples_gallery/plot_results_tracker.html">Plot driver standings in a heatmap</a></li>
 </ul>
 </li>
@@ -188,7 +191,8 @@
 <li class="toctree-l1"><a class="reference internal" href="core.html#api-reference">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Event Schedule - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.events</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">F1 API - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ergast.html">Ergast API Interface - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.ergast</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ergast.html">Ergast API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuit_info.html">Circuit Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils module - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.utils</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.plotting</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="livetiming.html">Live Timing Client - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.livetiming</span></code></a></li>
@@ -244,8 +248,8 @@
           </label>
         </div>
         <article role="main">
-          <span class="target" id="module-fastf1.logger"></span><section id="logging-fastf1-logger">
-<span id="logging"></span><h1>Logging - <a class="reference internal" href="#module-fastf1.logger" title="fastf1.logger"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.logger</span></code></a><a class="headerlink" href="#logging-fastf1-logger" title="Permalink to this heading">#</a></h1>
+          <section id="logging-fastf1-logger">
+<span id="logging"></span><span id="module-fastf1.logger"></span><h1>Logging - <a class="reference internal" href="#module-fastf1.logger" title="fastf1.logger"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.logger</span></code></a><a class="headerlink" href="#logging-fastf1-logger" title="Link to this heading">#</a></h1>
 <p>FastF1 uses loggers for each submodule. All loggers are child loggers of
 FastF1’s base logger. The log level is usually configured equally for all parts
 of FastF1. The <a class="reference internal" href="#fastf1.logger.LoggingManager" title="fastf1.logger.LoggingManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggingManager</span></code></a> or the direct access
@@ -263,10 +267,10 @@ data loading:</p>
 <li><p>set the environment variable <cite>FASTF1_DEBUG=1</cite></p></li>
 </ul>
 <section id="logging-manager">
-<h2>Logging Manager<a class="headerlink" href="#logging-manager" title="Permalink to this heading">#</a></h2>
+<h2>Logging Manager<a class="headerlink" href="#logging-manager" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="fastf1.logger.LoggingManager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastf1.logger.</span></span><span class="sig-name descname"><span class="pre">LoggingManager</span></span><a class="reference internal" href="_modules/fastf1/logger.html#LoggingManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.logger.LoggingManager" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fastf1.logger.</span></span><span class="sig-name descname"><span class="pre">LoggingManager</span></span><a class="reference internal" href="_modules/fastf1/logger.html#LoggingManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.logger.LoggingManager" title="Link to this definition">#</a></dt>
 <dd><p>Interface for configuring logging in FastF1.</p>
 <p>All parts of FastF1 generally log at the log level ‘INFO’.
 The reason for this is that many data loading processes take multiple
@@ -277,14 +281,14 @@ This class acts as an interface to set the log level for FastF1 and get
 child loggers.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="fastf1.logger.LoggingManager.debug">
-<span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#fastf1.logger.LoggingManager.debug" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#fastf1.logger.LoggingManager.debug" title="Link to this definition">#</a></dt>
 <dd><p>Flag for enabling debug mode. This will disable catch-all error handling
 for data loading methods.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fastf1.logger.LoggingManager.get_child">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/logger.html#LoggingManager.get_child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.logger.LoggingManager.get_child" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/logger.html#LoggingManager.get_child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.logger.LoggingManager.get_child" title="Link to this definition">#</a></dt>
 <dd><p>Return a logger with the given name that is child of the base
 logger.</p>
 <dl class="field-list simple">
@@ -296,7 +300,7 @@ logger.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fastf1.logger.LoggingManager.set_level">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/logger.html#LoggingManager.set_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.logger.LoggingManager.set_level" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fastf1/logger.html#LoggingManager.set_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fastf1.logger.LoggingManager.set_level" title="Link to this definition">#</a></dt>
 <dd><p>Set the log level for FastF1.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -309,10 +313,10 @@ logger.</p>
 
 </section>
 <section id="functions-for-direct-access">
-<h2>Functions for direct access<a class="headerlink" href="#functions-for-direct-access" title="Permalink to this heading">#</a></h2>
+<h2>Functions for direct access<a class="headerlink" href="#functions-for-direct-access" title="Link to this heading">#</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="fastf1.logger.set_log_level">
-<span class="sig-prename descclassname"><span class="pre">logger.</span></span><span class="sig-name descname"><span class="pre">set_log_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fastf1.logger.set_log_level" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">logger.</span></span><span class="sig-name descname"><span class="pre">set_log_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fastf1.logger.set_log_level" title="Link to this definition">#</a></dt>
 <dd><p>Set the log level for all parts of FastF1.</p>
 <p>When setting the log level for FastF1, only messages with this level or
 with a higher level will be shown.</p>
@@ -326,14 +330,14 @@ or the level as a string (e.g. ‘WARNING’).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fastf1.logger.get_logger">
-<span class="sig-prename descclassname"><span class="pre">logger.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fastf1.logger.get_logger" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">logger.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fastf1.logger.get_logger" title="Link to this definition">#</a></dt>
 <dd><p>Return a logger with the given name that is a child of FastF1’s
 base logger.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="fastf1.logger.soft_exceptions">
-<span class="sig-prename descclassname"><span class="pre">logger.</span></span><span class="sig-name descname"><span class="pre">soft_exceptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fastf1.logger.soft_exceptions" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">logger.</span></span><span class="sig-name descname"><span class="pre">soft_exceptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fastf1.logger.soft_exceptions" title="Link to this definition">#</a></dt>
 <dd><p>Wrapper method for wrapping any function into catch-all error handling
 that can be disabled by setting <a class="reference internal" href="#fastf1.logger.LoggingManager.debug" title="fastf1.logger.LoggingManager.debug"><code class="xref py py-attr docutils literal notranslate"><span class="pre">debug</span></code></a>
 to <cite>True</cite>.</p>
@@ -343,7 +347,8 @@ to <cite>True</cite>.</p>
 <li><p><strong>descr_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – descriptive name for the type of data that should have
 been loaded by the wrapped function</p></li>
 <li><p><strong>msg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Short message that is shown as error message to users</p></li>
-<li><p><strong>logger</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code>) – the logger that should be used to log errors</p></li>
+<li><p><strong>logger</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code>) – the logger that should be used to log errors (a logger instance
+as returned by <a class="reference internal" href="#fastf1.logger.get_logger" title="fastf1.logger.get_logger"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_logger()</span></code></a>, for example).</p></li>
 </ul>
 </dd>
 </dl>
@@ -434,9 +439,9 @@ been loaded by the wrapped function</p></li>
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/furo.js"></script>
+</div><script src="_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
     </body>
 </html>

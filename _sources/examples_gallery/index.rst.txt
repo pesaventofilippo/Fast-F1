@@ -98,6 +98,23 @@ Examples Gallery
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Team Pace Comparison">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_team_pace_ranking_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_gallery_plot_team_pace_ranking.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Team Pace Comparison</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Plot all drivers&#x27; tyre strategies during a race.">
 
 .. only:: html
@@ -110,6 +127,23 @@ Examples Gallery
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Tyre strategies during a race</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot the speed over the course of a lap and add annotations to mark corners.">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_annotate_speed_trace_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_gallery_plot_annotate_speed_trace.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Plot speed traces with corner annotations</div>
     </div>
 
 
@@ -183,6 +217,23 @@ Examples Gallery
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Use the position data of a single lap to draw a track map. Then annotate the map with corner nu...">
+
+.. only:: html
+
+  .. image:: /examples_gallery/images/thumb/sphx_glr_plot_annotate_corners_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_gallery_plot_annotate_corners.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Draw a track map with numbered corners</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Plot the points for each driven in each race of a given season in a heatmap, as https://public....">
 
 .. only:: html
@@ -211,11 +262,14 @@ Examples Gallery
    /examples_gallery/plot_speed_traces
    /examples_gallery/plot_driver_laptimes
    /examples_gallery/plot_gear_shifts_on_track
+   /examples_gallery/plot_team_pace_ranking
    /examples_gallery/plot_strategy
+   /examples_gallery/plot_annotate_speed_trace
    /examples_gallery/plot_qualifying_results
    /examples_gallery/plot_who_can_still_win_wdc
    /examples_gallery/plot_laptimes_distribution
    /examples_gallery/plot_speed_on_track
+   /examples_gallery/plot_annotate_corners
    /examples_gallery/plot_results_tracker
 
 

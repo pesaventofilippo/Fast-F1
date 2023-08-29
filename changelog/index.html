@@ -1,21 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Pull request guidelines" href="../contributing/coding_guide.html" />
 
-    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Release Notes - FastF1 3.0.7</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <!-- Generated with Sphinx 7.2.4 and Furo 2023.08.19 -->
+        <title>Release Notes - FastF1 3.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ce641c91" />
     
     
 
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">FastF1 <small>3.0.7</small></div></a>
+      <a href="../index.html"><div class="brand">FastF1 <small>3.1.0</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.0.7</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.1.0</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -175,11 +175,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_driver_laptimes.html">Driver Laptimes Scatterplot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_team_pace_ranking.html">Team Pace Comparison</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_strategy.html">Tyre strategies during a race</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_annotate_speed_trace.html">Plot speed traces with corner annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_laptimes_distribution.html">Driver Laptimes Distribution Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_annotate_corners.html">Draw a track map with numbered corners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_results_tracker.html">Plot driver standings in a heatmap</a></li>
 </ul>
 </li>
@@ -188,7 +191,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../core.html#api-reference">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events.html">Event Schedule - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.events</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">F1 API - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.ergast</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circuit_info.html">Circuit Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils module - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.utils</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting.html">Plotting - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.plotting</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../livetiming.html">Live Timing Client - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.livetiming</span></code></a></li>
@@ -245,277 +249,87 @@
         </div>
         <article role="main">
           <section id="release-notes">
-<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">#</a></h1>
+<h1>Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading">#</a></h1>
 <p>Looking for <a class="reference internal" href="previous.html#previous-release-notes"><span class="std std-ref">Release Notes for Older Versions</span></a>?</p>
-<section id="what-s-new-in-v3-0-7">
-<h2>What’s new in v3.0.7<a class="headerlink" href="#what-s-new-in-v3-0-7" title="Permalink to this heading">#</a></h2>
-<p>(released 17/07/2023)</p>
-<section id="bug-fixes-and-improvements">
-<h3>Bug Fixes and Improvements<a class="headerlink" href="#bug-fixes-and-improvements" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Fixed an issue that prevented telemetry data from being loaded when position
-data is missing (and vice versa) (#412)</p></li>
-<li><p>Fixed loading of Sprint Shootout results
-(#413, regression introduced in v3.0.3)</p></li>
-<li><p>Added driver color for Ricciardo at AlphaTauri (by &#64;pesaventofilippo in #418)</p></li>
-</ul>
-</section>
-</section>
-<section id="what-s-new-in-v3-0-6">
-<h2>What’s new in v3.0.6<a class="headerlink" href="#what-s-new-in-v3-0-6" title="Permalink to this heading">#</a></h2>
-<p>(released 21/06/2023)</p>
-<p>Release forces a cache update after updating from v3.0.4 and lower. Else, the
-changes from v3.0.5 are not applied if the data is cached already.</p>
-</section>
-<section id="what-s-new-in-v3-0-5">
-<h2>What’s new in v3.0.5<a class="headerlink" href="#what-s-new-in-v3-0-5" title="Permalink to this heading">#</a></h2>
-<p>(released 21/06/2023)</p>
-<section id="id1">
-<h3>Bug Fixes and Improvements<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Fixed an error when loading historic sessions (#400).</p></li>
-<li><p>Fixed an error where lap times are incorrectly not marked as ‘Personal Best’.
-This also caused <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_fastest" title="fastf1.core.Laps.pick_fastest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pick_fastest()</span></code></a> to return incorrect
-laps. (#403)</p></li>
-</ul>
-</section>
-</section>
-<section id="what-s-new-in-v3-0-4">
-<h2>What’s new in v3.0.4<a class="headerlink" href="#what-s-new-in-v3-0-4" title="Permalink to this heading">#</a></h2>
-<p>(released 03/06/2023)</p>
-<section id="id2">
-<h3>Bug Fixes and Improvements<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Added missing color for compound “TEST-UNKNOWN” (by &#64;Casper-Guo)</p></li>
-<li><p>Bumped minimum version requirement for dependency ‘timple’</p></li>
-</ul>
-</section>
-</section>
-<section id="what-s-new-in-v3-0-3">
-<h2>What’s new in v3.0.3<a class="headerlink" href="#what-s-new-in-v3-0-3" title="Permalink to this heading">#</a></h2>
-<p>(released 19/05/2023)</p>
-<section id="id3">
-<h3>Bug Fixes and Improvements<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Fixed incorrectly formatted color codes for tyre compound colors.
-(by &#64;Casper-Guo)</p></li>
-<li><p>Fixed a bug that prevented the calculation of results for Qualifying-like
-sessions (for example Sprint Shootout) that only occurred on Pandas v1.5.3
-and older.</p></li>
-</ul>
-</section>
-</section>
-<section id="what-s-new-in-v3-0-2">
-<h2>What’s new in v3.0.2<a class="headerlink" href="#what-s-new-in-v3-0-2" title="Permalink to this heading">#</a></h2>
-<p>(released 09/05/2023)</p>
-<section id="id4">
-<h3>Bug Fixes and Improvements<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Improved support for Sprint Shootout sessions and added session results for
-these. (by &#64;mdsakalu)</p></li>
-<li><p>Improved exception handling on various internal functions</p></li>
-</ul>
-</section>
-</section>
-<section id="what-s-new-in-v3-0-1">
-<h2>What’s new in v3.0.1<a class="headerlink" href="#what-s-new-in-v3-0-1" title="Permalink to this heading">#</a></h2>
-<p>(released 07/05/2023)</p>
-<section id="bug-fixes">
-<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>fixed a bug that prevented the use of the livetiming client from the
-commandline</p></li>
-</ul>
-</section>
-</section>
-<section id="what-s-new-in-v3-0-0">
-<h2>What’s new in v3.0.0<a class="headerlink" href="#what-s-new-in-v3-0-0" title="Permalink to this heading">#</a></h2>
-<p>(released 02/05/2023)</p>
+<section id="what-s-new-in-v3-1-0">
+<h2>What’s new in v3.1.0<a class="headerlink" href="#what-s-new-in-v3-1-0" title="Link to this heading">#</a></h2>
+<p>(released 29/08/2023)</p>
 <section id="new-features">
-<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this heading">#</a></h3>
+<h3>New Features<a class="headerlink" href="#new-features" title="Link to this heading">#</a></h3>
 <ul>
-<li><p>Caching is now enabled by default and does not need to be manually configured
-anymore. The cache defaults to using operating system specific default
-locations that are intended for storing temporary files.
-The cache directory can either be changed from within a script or by setting
-and environemnt variable to define an alternative cache loaction.
-See: <a class="reference internal" href="../fastf1.html#fastf1.Cache" title="fastf1.Cache"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.Cache</span></code></a>
-(by &#64;oscr)</p></li>
-<li><p>Full support for the Ergast F1 API has now been added, replacing the very
-limited functionality that was previously available. Features of the new
-implementation:</p>
+<li><p>Added additional circuit information that includes the location of corners,
+marshal lights, marshal sectors and the rotation of the track map. This
+data is available through <a class="reference internal" href="../core.html#fastf1.core.Session.get_circuit_info" title="fastf1.core.Session.get_circuit_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Session.get_circuit_info()</span></code></a>. Also
+check out the new examples that show how to annotate your plots using this
+data.
+A huge thank you to &#64;multiviewer (<a class="reference external" href="https://multiviewer.app/">https://multiviewer.app/</a>) for providing
+this information through MultiViewer’s API.</p></li>
+<li><p>“SessionInfo” data from the F1 livetiming API is now available through
+<a class="reference internal" href="../core.html#fastf1.core.Session.session_info" title="fastf1.core.Session.session_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.Session.session_info</span></code></a></p></li>
+<li><p>Added driver colors for Shwartzman and Lawson (by &#64;pesaventofilippo) (#441)</p></li>
+<li><p>Various improvement to the <code class="docutils literal notranslate"><span class="pre">Laps.pick_*</span></code> methods to make it easier to select
+specific laps from <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">Laps</span></code></a> (by &#64;Casper-Guo) (#376).</p>
+<p><strong>New</strong> (no equivalent has existed before)</p>
 <ul class="simple">
-<li><p>all endpoints supported</p></li>
-<li><p>all query filters supported</p></li>
-<li><p>can return data as Pandas DataFrames or raw</p></li>
-<li><p>can do automatic type casting to the best suited data type</p></li>
-<li><p>uses caching</p></li>
-<li><p>supports result limits and pagination</p></li>
-<li><p>enforces rate limits defined by Ergast (with cached requests not counting
-towards the rate limits)</p></li>
+<li><p><a class="reference internal" href="../core.html#fastf1.core.Laps.pick_not_deleted" title="fastf1.core.Laps.pick_not_deleted"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_not_deleted()</span></code></a> for selecting all laps that
+haven’t been deleted</p></li>
 </ul>
-<p>See: <a class="reference internal" href="../ergast.html#ergast"><span class="std std-ref">Ergast API Interface - fastf1.ergast</span></a></p>
+<p><strong>New</strong> (these methods replace methods that only accepted single values; the
+new functions accept single values or lists of values)</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../core.html#fastf1.core.Laps.pick_laps" title="fastf1.core.Laps.pick_laps"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_laps()</span></code></a> for selecting one or multiple laps
+by their lap number; replaces <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_lap" title="fastf1.core.Laps.pick_lap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_lap()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../core.html#fastf1.core.Laps.pick_drivers" title="fastf1.core.Laps.pick_drivers"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_drivers()</span></code></a> for selecting laps from one or
+multiple drivers; replaces <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_driver" title="fastf1.core.Laps.pick_driver"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_driver()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../core.html#fastf1.core.Laps.pick_compounds" title="fastf1.core.Laps.pick_compounds"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_compounds()</span></code></a> for selecting laps driven on one or
+multiple compounds; replaces <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_tyre" title="fastf1.core.Laps.pick_tyre"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_tyre()</span></code></a></p></li>
+</ul>
+<p><strong>Improved</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../core.html#fastf1.core.Laps.pick_track_status" title="fastf1.core.Laps.pick_track_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_track_status()</span></code></a> now has additional options for
+the <code class="docutils literal notranslate"><span class="pre">how</span></code> argument to exclude laps with a specific track status or match
+or exclude laps with one of multiple track status values.</p></li>
+</ul>
 </li>
-<li><p>The livetiming client now supports all current versions of Python. The limit
-to version 3.9 and lower no longer exists for this feature. A big thank you
-to &#64;oscr for integrating the problematic python-signalr-client dependency
-into FastF1 and fixing the problems that existed with Python 3.10 and higher.</p></li>
-<li><p>The log level for all parts of FastF1 can now be easily configured using
-<a class="reference internal" href="../fastf1.html#fastf1.set_log_level" title="fastf1.set_log_level"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.set_log_level()</span></code></a>. The logging system in FastF1 has been
-reimplemented to make debugging easier. See <a class="reference internal" href="../logging.html#logging"><span class="std std-ref">Logging - fastf1.logger</span></a></p></li>
-<li><p>A partial last lap will now be added to <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Laps</span></code></a> when a
-driver retires on track. This especially will make it easier to plot
-telemetry data of such a lap as there is now a corresponding
-<a class="reference internal" href="../core.html#fastf1.core.Lap" title="fastf1.core.Lap"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Lap</span></code></a>.</p></li>
-<li><p>When loaded, race control messages will now be parsed to find which laps
-were deleted. The <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Laps</span></code></a> object gets two new columns
-‘Deleted’ and ‘DeletedReason’ that indicate that a lap was deleted and why
-it was deleted.</p></li>
-<li><p>The intended total lap count of a race or sprint session is now available
-through <a class="reference internal" href="../core.html#fastf1.core.Session.total_laps" title="fastf1.core.Session.total_laps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.Session.total_laps</span></code></a>.
-(by &#64;Toskosz)</p></li>
-<li><p>Added method <a class="reference internal" href="../core.html#fastf1.core.Laps.split_qualifying_sessions" title="fastf1.core.Laps.split_qualifying_sessions"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Laps.split_qualifying_sessions()</span></code></a> to split
-laps for a qualifying session into Q1, Q2 and Q3.</p></li>
-<li><p>The F1 timing data API has been added as an additional fallback backend for
-retrieving event schedule data (#260).</p></li>
-<li><p>In the event schedule, <code class="docutils literal notranslate"><span class="pre">Session*Date</span></code> will now be a timezone-aware local
-timestamp (previously: local, but not timezone-aware). Additionally, for each
-session there now exists a non-timezone aware UTC timestamp in
-<code class="docutils literal notranslate"><span class="pre">Session*DateUtc</span></code> (#253). Timezone information and UTC timestamps are only
-available when using one of <code class="docutils literal notranslate"><span class="pre">'fastf1'</span></code> or <code class="docutils literal notranslate"><span class="pre">'f1timing'</span></code> as backend.</p></li>
-<li><p>Added <code class="docutils literal notranslate"><span class="pre">strict_search</span></code> parameter to <a class="reference internal" href="../fastf1.html#fastf1.get_event" title="fastf1.get_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_event()</span></code></a> that disables
-fuzzy matching for exact matching of session names. (by &#64;Neron-png)</p></li>
-<li><p>Added track status data as <a class="reference internal" href="../core.html#fastf1.core.Session.track_status" title="fastf1.core.Session.track_status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.Session.track_status</span></code></a>.
-(by &#64;SpyrosKoun)</p></li>
-<li><p>Added function <a class="reference internal" href="../core.html#fastf1.core.Telemetry.add_track_status" title="fastf1.core.Telemetry.add_track_status"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Telemetry.add_track_status()</span></code></a> for adding
-track status information to telemetry data. (by &#64;SpyrosKoun))</p></li>
-<li><p>Added function <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_lap" title="fastf1.core.Laps.pick_lap"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Laps.pick_lap()</span></code></a> for conveniently selecting
-specific laps by their lap number. (by &#64;TracingInsights)</p></li>
-<li><p>Added a custom <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> to <a class="reference internal" href="../core.html#fastf1.core.Session" title="fastf1.core.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Session</span></code></a> for a more
-meaningful string representation of the object. Now, information about the
-year, round, event name and session name will be shown. (by &#64;Casper-Guo)</p></li>
-<li><p>FastF1 can now be installed using conda-forge. (by &#64;daylinmorgan)</p></li>
-<li><p>Added <code class="docutils literal notranslate"><span class="pre">HeadshotURL</span></code> and <code class="docutils literal notranslate"><span class="pre">CountryCode</span></code> to
-<a class="reference internal" href="../core.html#fastf1.core.SessionResults" title="fastf1.core.SessionResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.SessionResults</span></code></a> and <a class="reference internal" href="../core.html#fastf1.core.DriverResult" title="fastf1.core.DriverResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.DriverResult</span></code></a>.
-(by &#64;lmontrieux)</p></li>
-<li><p>Tyre compound colors are now available through
-<a class="reference internal" href="../plotting.html#fastf1.plotting.COMPOUND_COLORS" title="fastf1.plotting.COMPOUND_COLORS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.plotting.COMPOUND_COLORS</span></code></a>. (by &#64;Caspar-Guo)</p></li>
-<li><p>The cache now supports “offline mode” where only cached responses are
-returned and no actual requests are sent even if an internet connection
-is available. Offline mode can be enabled using
-<a class="reference internal" href="../fastf1.html#fastf1.Cache.offline_mode" title="fastf1.Cache.offline_mode"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.Cache.offline_mode()</span></code></a>.</p></li>
-<li><p>For race sessions, the previously missing first lap time is now automatically
-added from Ergast (#293).</p></li>
-<li><p>For race sessions, lap start and end times are now correctly aligned between
-drivers. Previously, there was a small difference in the order of a few tens
-of milliseconds.</p></li>
-<li><p>Add current <code class="docutils literal notranslate"><span class="pre">Position</span></code> at the end of each lap to <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Laps</span></code></a>
-and <a class="reference internal" href="../core.html#fastf1.core.Lap" title="fastf1.core.Lap"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Lap</span></code></a> (#295).</p></li>
-<li><p>Add official classification as <code class="docutils literal notranslate"><span class="pre">ClassifiedPosition</span></code> for Races and Sprints
-to <a class="reference internal" href="../core.html#fastf1.core.SessionResults" title="fastf1.core.SessionResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.SessionResults</span></code></a> and <a class="reference internal" href="../core.html#fastf1.core.DriverResult" title="fastf1.core.DriverResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.DriverResult</span></code></a>.
-The <code class="docutils literal notranslate"><span class="pre">ClassifiedPosition</span></code> lists the finishing position for drivers who are
-officially classified or a reason for not being classified, for example if
-a driver retired, was disqualified or similar. (#294)</p></li>
 </ul>
 </section>
-<section id="other-changes">
-<h3>Other Changes<a class="headerlink" href="#other-changes" title="Permalink to this heading">#</a></h3>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>All columns in <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Laps</span></code></a> that were previously of type <code class="docutils literal notranslate"><span class="pre">int</span></code>
-are now <code class="docutils literal notranslate"><span class="pre">float</span></code> to support <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p></li>
+<li><p>greatly improved speed when parsing car data and position data</p></li>
 </ul>
 </section>
-<section id="id5">
-<h3>Bug Fixes<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<section id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>The API parser will now correctly detect when lap times were deleted and
-will not mark these lap times as personal best time anymore if the deleted
-lap was a drivers fastest lap. (#165)</p></li>
-<li><p>Enforce creation of <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Laps</span></code></a> with default columns and
-default dtypes (when created through <a class="reference internal" href="../core.html#fastf1.core.Session.load" title="fastf1.core.Session.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Session.load()</span></code></a>)
-(#310).</p></li>
-<li><p>Fixed a bug where FastF1 Series-like objects where returned instead of a
-native pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> when getting a single column of a FastF1
-DataFrame-like object by slicing vertically.</p></li>
-<li><p>Improve loading of session results when F1 data is partially incomplete.</p></li>
-<li><p>Improved type hints throughout FastF1 (by &#64;transorsmth)</p></li>
-<li><p>Enforce default column dtypes when creating a new <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Laps</span></code></a>
-object. (#310)</p></li>
-<li><p>Fixed an issues were dtypes were always enforced when a new
-<a class="reference internal" href="../core.html#fastf1.core.SessionResults" title="fastf1.core.SessionResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.SessionResults</span></code></a> object was created, even if
-<code class="docutils literal notranslate"><span class="pre">force_default_cols=False</span></code>.</p></li>
-<li><p>Fixed incorrectly set <code class="docutils literal notranslate"><span class="pre">_internal_names</span></code> for objects inheriting from
-DataFrame or Series. This potentially caused incorrect warnings about
-incorrectly creating new columns.</p></li>
-<li><p>Added missing <code class="docutils literal notranslate"><span class="pre">__finalize__</span></code> calls for subclasses of DataFrames and Series
-that resulted in metadata being lost.</p></li>
-<li><p>Fixed incorrectly spelled driver name for Hulkenberg. (by &#64;lmontrieux)</p></li>
-<li><p>Documentation improvements. (by &#64;lmontrieux)</p></li>
-<li><p>Fixed a bug where specific temporary error responses from Ergast where
-cached. This then required the cache to be cleared so that the specific
-API request would work again.</p></li>
-<li><p>Fixed a bug where lap times and sector times were missing if the previous
-value was exactly equal</p></li>
-<li><p>Fixed a bug in the API parser that created ghost laps with no real data and
-no driver</p></li>
-</ul>
-</section>
-<section id="backwards-incompatible-api-changes">
-<h3>Backwards Incompatible API Changes<a class="headerlink" href="#backwards-incompatible-api-changes" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="../utils.html#fastf1.utils.to_datetime" title="fastf1.utils.to_datetime"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.utils.to_datetime()</span></code></a> and <a class="reference internal" href="../utils.html#fastf1.utils.to_timedelta" title="fastf1.utils.to_timedelta"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.utils.to_timedelta()</span></code></a> will
-now return <code class="docutils literal notranslate"><span class="pre">None</span></code> instead of raising an exception when a string cannot
-be parsed.</p></li>
-<li><p>The name of a Sprint session will now always be ‘Sprint’. Previously, it was
-‘Sprint Qualifying’ for the 2021 seasons and ‘Sprint’ for all subsequent
-seasons.</p></li>
-</ul>
-</section>
-<section id="removals">
-<h3>Removals<a class="headerlink" href="#removals" title="Permalink to this heading">#</a></h3>
-<p>The following deprecated API elements have been removed:</p>
-<ul class="simple">
-<li><p>Properties <code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.events.Event.name</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.events.Event.date</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.events.Event.gp</span></code></p></li>
-<li><p>Creating an <a class="reference internal" href="../events.html#fastf1.events.Event" title="fastf1.events.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.events.Event</span></code></a> object by not specifying a the
-<code class="docutils literal notranslate"><span class="pre">identifier</span></code> argument for <a class="reference internal" href="../fastf1.html#fastf1.get_session" title="fastf1.get_session"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_session()</span></code></a> and
-<code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.events.get_session()</span></code> is no longer supported.</p></li>
-<li><p>The argument <code class="docutils literal notranslate"><span class="pre">event</span></code> is no longer supported by
-<a class="reference internal" href="../fastf1.html#fastf1.get_session" title="fastf1.get_session"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_session()</span></code></a> and <code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.events.get_session()</span></code> and
-replaced by <code class="docutils literal notranslate"><span class="pre">identifier</span></code>.</p></li>
-<li><p>Functions <code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.get_session()</span></code> (use
-<a class="reference internal" href="../fastf1.html#fastf1.get_session" title="fastf1.get_session"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_session()</span></code></a>) and <code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.get_round()</span></code>
-(no replacement) have been removed.</p></li>
-<li><p>Methods <code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Session.load_laps()</span></code> and
-<code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Session.load_telemetry()</span></code> have been removed,</p></li>
-<li><p>Property <code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.Session.weekend</span></code> has been removed</p></li>
-<li><p>Properties <code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.DriverResult.name</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.DriverResult.familyname</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.DriverResult.grid</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.DriverResult.position</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">fastf1.core.DriverResult.team</span></code> have been removed</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Driver</span></code> has been removed</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Weekend</span></code> has been removed</p></li>
-<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.ergast.fetch_weekend()</span></code> has been removed</p></li>
-</ul>
-</section>
-<section id="performance-improvements">
-<h3>Performance Improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>performance improvement in :func:<code class="docutils literal notranslate"><span class="pre">fastf1.api.car_data</span></code>
-and :func:<code class="docutils literal notranslate"><span class="pre">fastf1.api.pos_data</span></code></p></li>
+<li><p>Fixed <a class="reference internal" href="../core.html#fastf1.core.Laps.split_qualifying_sessions" title="fastf1.core.Laps.split_qualifying_sessions"><code class="xref py py-func docutils literal notranslate"><span class="pre">split_qualifying_sessions()</span></code></a> returns
+incorrect result</p></li>
+<li><p>Fixed incorrect calculation of results for Qualifying-like sessions (#429)</p></li>
+<li><p>Fixed incorrect alignment of lap start/end times that causes shifted telemetry
+data when comparing laps and incorrect results for calculated grid positions
+(#440)</p></li>
+<li><p>Fixed an unhandled exception in the lap timing parser that made it impossible
+to load data for the 2020 Miami Qualifying (#431)</p></li>
+<li><p>Fixed incorrectly set lap start times after some red flag restarts</p></li>
+<li><p>Fixed a bug that could prevent data loading in case of partially missing data</p></li>
 </ul>
 </section>
 <section id="deprecations">
-<h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this heading">#</a></h3>
+<h3>Deprecations<a class="headerlink" href="#deprecations" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="../api.html#module-fastf1.api" title="fastf1.api"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a> will be considered private in future releases and may be
-removed or changed. Please do not use functionality from <a class="reference internal" href="../api.html#module-fastf1.api" title="fastf1.api"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a>.
-If you currently require functionality from there, please open an issue
-on Github with details about what you require and why.</p></li>
-<li><p><a class="reference internal" href="../utils.html#fastf1.utils.delta_time" title="fastf1.utils.delta_time"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.utils.delta_time</span></code></a> is considered deprecated and will be modified or
-removed in a future release because it has a tendency to give inaccurate
-results.</p></li>
+<li><p>Deprecated <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_lap" title="fastf1.core.Laps.pick_lap"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Laps.pick_lap()</span></code></a></p></li>
+<li><p>Deprecated <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_driver" title="fastf1.core.Laps.pick_driver"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Laps.pick_driver()</span></code></a></p></li>
+<li><p>Deprecated <a class="reference internal" href="../core.html#fastf1.core.Laps.pick_tyre" title="fastf1.core.Laps.pick_tyre"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.core.Laps.pick_tyre()</span></code></a></p></li>
+</ul>
+</section>
+<section id="other-changes">
+<h3>Other Changes<a class="headerlink" href="#other-changes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fixed some errors in the documentation (by &#64;dawiddzhafarov, &#64;RyanHaniff)
+(#439, #402)</p></li>
+<li><p>Fixed some examples to no longer use deprecated arguments (by &#64;wakamex) (#423)</p></li>
+<li><p>Fixed an error in the SignalRClient example (by &#64;erdieee) (#421)</p></li>
+<li><p>Added a new team pace ranking example (by &#64;Casper-Guo) (#420)</p></li>
 </ul>
 </section>
 </section>
@@ -569,39 +383,12 @@ results.</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Release Notes</a><ul>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-7">What’s new in v3.0.7</a><ul>
-<li><a class="reference internal" href="#bug-fixes-and-improvements">Bug Fixes and Improvements</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-6">What’s new in v3.0.6</a></li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-5">What’s new in v3.0.5</a><ul>
-<li><a class="reference internal" href="#id1">Bug Fixes and Improvements</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-4">What’s new in v3.0.4</a><ul>
-<li><a class="reference internal" href="#id2">Bug Fixes and Improvements</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-3">What’s new in v3.0.3</a><ul>
-<li><a class="reference internal" href="#id3">Bug Fixes and Improvements</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-2">What’s new in v3.0.2</a><ul>
-<li><a class="reference internal" href="#id4">Bug Fixes and Improvements</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-1">What’s new in v3.0.1</a><ul>
-<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#what-s-new-in-v3-0-0">What’s new in v3.0.0</a><ul>
+<li><a class="reference internal" href="#what-s-new-in-v3-1-0">What’s new in v3.1.0</a><ul>
 <li><a class="reference internal" href="#new-features">New Features</a></li>
-<li><a class="reference internal" href="#other-changes">Other Changes</a></li>
-<li><a class="reference internal" href="#id5">Bug Fixes</a></li>
-<li><a class="reference internal" href="#backwards-incompatible-api-changes">Backwards Incompatible API Changes</a></li>
-<li><a class="reference internal" href="#removals">Removals</a></li>
-<li><a class="reference internal" href="#performance-improvements">Performance Improvements</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
 <li><a class="reference internal" href="#deprecations">Deprecations</a></li>
+<li><a class="reference internal" href="#other-changes">Other Changes</a></li>
 </ul>
 </li>
 </ul>
@@ -615,9 +402,9 @@ results.</p></li>
       
     </aside>
   </div>
-</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/furo.js"></script>
+</div><script src="../_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     </body>
 </html>

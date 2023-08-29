@@ -1,21 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Examples Gallery" href="../examples_gallery/index.html" /><link rel="prev" title="Getting Started" href="index.html" />
 
-    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Getting started with the basics - FastF1 3.0.7</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <!-- Generated with Sphinx 7.2.4 and Furo 2023.08.19 -->
+        <title>Getting started with the basics - FastF1 3.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ce641c91" />
     
     
 
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">FastF1 <small>3.0.7</small></div></a>
+      <a href="../index.html"><div class="brand">FastF1 <small>3.1.0</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.0.7</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.1.0</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -175,11 +175,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_driver_laptimes.html">Driver Laptimes Scatterplot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_team_pace_ranking.html">Team Pace Comparison</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_strategy.html">Tyre strategies during a race</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_annotate_speed_trace.html">Plot speed traces with corner annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_laptimes_distribution.html">Driver Laptimes Distribution Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_annotate_corners.html">Draw a track map with numbered corners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_results_tracker.html">Plot driver standings in a heatmap</a></li>
 </ul>
 </li>
@@ -188,7 +191,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../core.html#api-reference">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events.html">Event Schedule - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.events</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">F1 API - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.ergast</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circuit_info.html">Circuit Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils module - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.utils</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting.html">Plotting - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.plotting</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../livetiming.html">Live Timing Client - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.livetiming</span></code></a></li>
@@ -245,17 +249,17 @@
         </div>
         <article role="main">
           <section id="getting-started-with-the-basics">
-<h1>Getting started with the basics<a class="headerlink" href="#getting-started-with-the-basics" title="Permalink to this heading">#</a></h1>
+<h1>Getting started with the basics<a class="headerlink" href="#getting-started-with-the-basics" title="Link to this heading">#</a></h1>
 <p>FastF1 is built mainly around Pandas DataFrame and Series objects.
 If you are familiar with Pandas you’ll immediately recognize this and working
-with the data will be fairly straight forward. (If you’re
+with the data will be fairly straightforward. (If you’re
 not familiar with Pandas at all, it might be helpful to check out a short
 tutorial.)</p>
 <section id="loading-a-session-or-an-event">
-<h2>Loading a session or an event<a class="headerlink" href="#loading-a-session-or-an-event" title="Permalink to this heading">#</a></h2>
+<h2>Loading a session or an event<a class="headerlink" href="#loading-a-session-or-an-event" title="Link to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../core.html#fastf1.core.Session" title="fastf1.core.Session"><code class="xref py py-class docutils literal notranslate"><span class="pre">fastf1.core.Session</span></code></a> object is an important starting point for
-everything you do with FastF1. Usually the first thing you want to do
-is loading a session. For this, you should use
+everything you do with FastF1. Usually, the first thing you want to do
+is load a session. For this, you should use
 <a class="reference internal" href="../fastf1.html#fastf1.get_session" title="fastf1.get_session"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_session()</span></code></a>.</p>
 <p>For example, let’s load the Qualifying of the 7th race of the 2021 season:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fastf1</span>
@@ -308,7 +312,7 @@ is common for pandas objects:</p>
 </pre></div>
 </div>
 <p>You can also load an event directly, by using the function
-<a class="reference internal" href="../fastf1.html#fastf1.get_session" title="fastf1.get_session"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_session()</span></code></a>. The <a class="reference internal" href="../events.html#fastf1.events.Event" title="fastf1.events.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a> object in turn
+<a class="reference internal" href="../fastf1.html#fastf1.get_event" title="fastf1.get_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">fastf1.get_event()</span></code></a>. The <a class="reference internal" href="../events.html#fastf1.events.Event" title="fastf1.events.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a> object in turn
 provides methods for accessing the individual associated sessions.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">event</span> <span class="o">=</span> <span class="n">fastf1</span><span class="o">.</span><span class="n">get_event</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">event</span>
@@ -342,8 +346,8 @@ provides methods for accessing the individual associated sessions.</p>
 </pre></div>
 </div>
 </section>
-<section id="loading-a-session-or-and-event-by-name">
-<h2>Loading a session or and event by name<a class="headerlink" href="#loading-a-session-or-and-event-by-name" title="Permalink to this heading">#</a></h2>
+<section id="loading-a-session-or-an-event-by-name">
+<h2>Loading a session or an event by name<a class="headerlink" href="#loading-a-session-or-an-event-by-name" title="Link to this heading">#</a></h2>
 <p>As an alternative to specifying an event number you can also load
 events by using a clearly identifying name.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">event</span> <span class="o">=</span> <span class="n">fastf1</span><span class="o">.</span><span class="n">get_event</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="s1">&#39;French Grand Prix&#39;</span><span class="p">)</span>
@@ -384,10 +388,12 @@ proper intelligent search engine. So check your results.</p>
 </div>
 </section>
 <section id="working-with-the-event-schedule">
-<h2>Working with the event schedule<a class="headerlink" href="#working-with-the-event-schedule" title="Permalink to this heading">#</a></h2>
+<h2>Working with the event schedule<a class="headerlink" href="#working-with-the-event-schedule" title="Link to this heading">#</a></h2>
 <p>Instead of loading a specific session or event, it is possible to load the
 full event schedule for a season. The <a class="reference internal" href="../events.html#fastf1.events.EventSchedule" title="fastf1.events.EventSchedule"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSchedule</span></code></a>
-is a subclass of a <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
+is a subclass of a <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>. Detailed information about
+the data that is available in the event schedule can be found in
+<a class="reference internal" href="../events.html#module-fastf1.events" title="fastf1.events"><code class="xref py py-mod docutils literal notranslate"><span class="pre">events</span></code></a>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">schedule</span> <span class="o">=</span> <span class="n">fastf1</span><span class="o">.</span><span class="n">get_event_schedule</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">schedule</span>
 <span class="go">    RoundNumber        Country  ...     Session5DateUtc F1ApiSupport</span>
@@ -437,14 +443,14 @@ is a subclass of a <code class="xref py py-class docutils literal notranslate"><
 </div>
 </section>
 <section id="displaying-driver-info-and-session-results">
-<h2>Displaying driver info and session results<a class="headerlink" href="#displaying-driver-info-and-session-results" title="Permalink to this heading">#</a></h2>
+<h2>Displaying driver info and session results<a class="headerlink" href="#displaying-driver-info-and-session-results" title="Link to this heading">#</a></h2>
 <p>We have created a session now but everything has been rather boring so far.
-So lets make it a bit more interesting by taking a look at the results of
+So let’s make it a bit more interesting by taking a look at the results of
 this session. For this, it is first necessary to call
 <a class="reference internal" href="../core.html#fastf1.core.Session.load" title="fastf1.core.Session.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">Session.load</span></code></a>. This will load all available data for the
 session from various APIs. Downloading and processing of the data may take a
-few seconds. It is highly recommended to utilize FastF1’s builtin caching
-functionality to speed up data loading and to prevent excessive API requests.</p>
+few seconds. It is highly recommended to utilize FastF1’s built-in caching
+functionality to speed up data loading and prevent excessive API requests.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">fastf1</span><span class="o">.</span><span class="n">get_session</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="s1">&#39;French Grand Prix&#39;</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">results</span>
@@ -484,7 +490,7 @@ there are:</p>
 <span class="go">      dtype=&#39;object&#39;)</span>
 </pre></div>
 </div>
-<p>As an example, lets display the top ten drivers and their
+<p>As an example, let’s display the top ten drivers and their
 respective Q3 times. The results are sorted by finishing position, therefore,
 this is easy.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;Abbreviation&#39;</span><span class="p">,</span> <span class="s1">&#39;Q3&#39;</span><span class="p">]]</span>
@@ -503,9 +509,9 @@ this is easy.</p>
 </div>
 </section>
 <section id="working-with-laps-and-lap-times">
-<h2>Working with laps and lap times<a class="headerlink" href="#working-with-laps-and-lap-times" title="Permalink to this heading">#</a></h2>
+<h2>Working with laps and lap times<a class="headerlink" href="#working-with-laps-and-lap-times" title="Link to this heading">#</a></h2>
 <p>All individual laps of a session can be accessed through the property
-<a class="reference internal" href="../core.html#fastf1.core.Session.laps" title="fastf1.core.Session.laps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Session.laps</span></code></a>. The laps are represented in
+<a class="reference internal" href="../core.html#fastf1.core.Session.laps" title="fastf1.core.Session.laps"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Session.laps</span></code></a>. The laps are represented
 as <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">Laps</span></code></a> object which again is a subclass of a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">fastf1</span><span class="o">.</span><span class="n">get_session</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="s1">&#39;French Grand Prix&#39;</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">)</span>
@@ -540,13 +546,13 @@ as <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fas
 <span class="go">      dtype=&#39;object&#39;)</span>
 </pre></div>
 </div>
-<p>The detailed explanation for all these columns can be found in the
+<p>A detailed explanation for all these columns can be found in the
 documentation of the <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">Laps</span></code></a> class.</p>
 <p>The <a class="reference internal" href="../core.html#fastf1.core.Laps" title="fastf1.core.Laps"><code class="xref py py-class docutils literal notranslate"><span class="pre">Laps</span></code></a> object is not a simple DataFrame though.
-Like FastF1’s other data objects it provides some more features specifically
+Like FastF1’s other data objects, it provides some more features specifically
 for working with Formula 1 data.</p>
 <p>One of these additional features are methods for selecting specific laps.
-So let’s see what the fastest laptime was and who is on pole.</p>
+So let’s see what the fastest lap time was and who is on pole.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fastest_lap</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">laps</span><span class="o">.</span><span class="n">pick_fastest</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fastest_lap</span><span class="p">[</span><span class="s1">&#39;LapTime&#39;</span><span class="p">]</span>
 <span class="go">Timedelta(&#39;0 days 00:01:29.990000&#39;)</span>
@@ -616,7 +622,7 @@ So let’s see what the fastest laptime was and who is on pole.</p>
             <ul>
 <li><a class="reference internal" href="#">Getting started with the basics</a><ul>
 <li><a class="reference internal" href="#loading-a-session-or-an-event">Loading a session or an event</a></li>
-<li><a class="reference internal" href="#loading-a-session-or-and-event-by-name">Loading a session or and event by name</a></li>
+<li><a class="reference internal" href="#loading-a-session-or-an-event-by-name">Loading a session or an event by name</a></li>
 <li><a class="reference internal" href="#working-with-the-event-schedule">Working with the event schedule</a></li>
 <li><a class="reference internal" href="#displaying-driver-info-and-session-results">Displaying driver info and session results</a></li>
 <li><a class="reference internal" href="#working-with-laps-and-lap-times">Working with laps and lap times</a></li>
@@ -631,9 +637,9 @@ So let’s see what the fastest laptime was and who is on pole.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/furo.js"></script>
+</div><script src="../_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     </body>
 </html>

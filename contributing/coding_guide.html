@@ -1,21 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Release Notes" href="../changelog/index.html" /><link rel="prev" title="Writing documentation" href="documenting_fastf1.html" />
 
-    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Pull request guidelines - FastF1 3.0.7</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <!-- Generated with Sphinx 7.2.4 and Furo 2023.08.19 -->
+        <title>Pull request guidelines - FastF1 3.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=ce641c91" />
     
     
 
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">FastF1 <small>3.0.7</small></div></a>
+      <a href="../index.html"><div class="brand">FastF1 <small>3.1.0</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.0.7</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.1.0</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -175,11 +175,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_traces.html">Overlaying speed traces of two laps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_driver_laptimes.html">Driver Laptimes Scatterplot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_gear_shifts_on_track.html">Gear shifts on track</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_team_pace_ranking.html">Team Pace Comparison</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_strategy.html">Tyre strategies during a race</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_annotate_speed_trace.html">Plot speed traces with corner annotations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_qualifying_results.html">Qualifying results overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_who_can_still_win_wdc.html">Who can still win the drivers WDC?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_laptimes_distribution.html">Driver Laptimes Distribution Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_speed_on_track.html">Speed visualization on track map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_annotate_corners.html">Draw a track map with numbered corners</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples_gallery/plot_results_tracker.html">Plot driver standings in a heatmap</a></li>
 </ul>
 </li>
@@ -188,7 +191,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../core.html#api-reference">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events.html">Event Schedule - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.events</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">F1 API - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.api</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.ergast</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ergast.html">Ergast API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circuit_info.html">Circuit Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils module - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.utils</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting.html">Plotting - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.plotting</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../livetiming.html">Live Timing Client - <code class="xref py py-mod docutils literal notranslate"><span class="pre">fastf1.livetiming</span></code></a></li>
@@ -245,11 +249,11 @@
         </div>
         <article role="main">
           <section id="pull-request-guidelines">
-<span id="pr-guidelines"></span><h1>Pull request guidelines<a class="headerlink" href="#pull-request-guidelines" title="Permalink to this heading">#</a></h1>
+<span id="pr-guidelines"></span><h1>Pull request guidelines<a class="headerlink" href="#pull-request-guidelines" title="Link to this heading">#</a></h1>
 <p>Pull requests (PRs) are the mechanism for contributing to FastF1s code and
 documentation.</p>
 <section id="summary-for-pr-authors">
-<h2>Summary for PR authors<a class="headerlink" href="#summary-for-pr-authors" title="Permalink to this heading">#</a></h2>
+<h2>Summary for PR authors<a class="headerlink" href="#summary-for-pr-authors" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -285,9 +289,9 @@ git<span class="w"> </span>push<span class="w"> </span><span class="o">[</span>y
 <p>See also <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing</span></a> for how to make a PR.</p>
 </section>
 <section id="detailed-guidelines">
-<span id="pr-guidelines-details"></span><h2>Detailed guidelines<a class="headerlink" href="#detailed-guidelines" title="Permalink to this heading">#</a></h2>
+<span id="pr-guidelines-details"></span><h2>Detailed guidelines<a class="headerlink" href="#detailed-guidelines" title="Link to this heading">#</a></h2>
 <section id="documentation">
-<span id="pr-documentation"></span><h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h3>
+<span id="pr-documentation"></span><h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Every new feature should be documented.  If it’s a new module, don’t
 forget to add a new rst file to the API docs.</p></li>
@@ -303,7 +307,7 @@ rendered to the examples gallery in the documentation.</p></li>
 </ul>
 </section>
 <section id="automated-tests">
-<span id="pr-automated-tests"></span><h3>Automated tests<a class="headerlink" href="#automated-tests" title="Permalink to this heading">#</a></h3>
+<span id="pr-automated-tests"></span><h3>Automated tests<a class="headerlink" href="#automated-tests" title="Link to this heading">#</a></h3>
 <p>Whenever a pull request is created or updated, various automated test tools
 will run on all supported platforms and versions of Python.</p>
 <p>Make sure that all test are passing. (All checks are listed at the bottom of
@@ -385,9 +389,9 @@ the GitHub page of your pull request)</p>
       
     </aside>
   </div>
-</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/scripts/furo.js"></script>
+</div><script src="../_static/documentation_options.js?v=dd1205ac"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     </body>
 </html>

@@ -22,25 +22,24 @@ Using the Fast-F1 signalr client?
 
 Demonstrates the usage of the SignalRClient
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-16
+.. GENERATED FROM PYTHON SOURCE LINES 6-15
 
 .. code-block:: default
 
     from fastf1.livetiming.client import SignalRClient
 
-    import asyncio
     import logging
 
     log = logging.getLogger()
     log.setLevel(logging.DEBUG)
 
     client = SignalRClient(filename="output.txt", debug=True)
-    asyncio.run(client.start())
+    client.start()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.000 seconds)
+   **Total running time of the script:** (0 minutes 0.000 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_example_fastf1_signalrclient.py:

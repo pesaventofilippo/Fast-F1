@@ -5,8 +5,8 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Overlaying speed traces of two laps" href="plot_speed_traces.html" /><link rel="prev" title="Using the Fast-F1 signalr client?" href="example_fastf1_signalrclient.html" />
 
-    <!-- Generated with Sphinx 7.2.4 and Furo 2023.08.19 -->
-        <title>Position changes during a race - FastF1 3.1.0</title>
+    <!-- Generated with Sphinx 7.2.5 and Furo 2023.08.19 -->
+        <title>Position changes during a race - FastF1 3.1.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
@@ -129,7 +129,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">FastF1 <small>3.1.0</small></div></a>
+      <a href="../index.html"><div class="brand">FastF1 <small>3.1.2</small></div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">FastF1 <small>3.1.0</small></span>
+  <span class="sidebar-brand-text">FastF1 <small>3.1.2</small></span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -270,120 +270,6 @@ to download the full example code</p>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Request for URL https://ergast.com/api/f1/2023/1/results.json failed; using cached response
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 1092, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py&quot;, line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py&quot;, line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py&quot;, line 469, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py&quot;, line 513, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py&quot;, line 501, in wrap_socket
-    return self.sslsocket_class._create(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py&quot;, line 1041, in _create
-    self.do_handshake()
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py&quot;, line 1310, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;ergast.com&#39;, port=443): Max retries exceeded with url: /api/f1/2023/1/results.json (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)&#39;)))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py&quot;, line 255, in _resend
-    response = self._send_and_cache(request, actions, cached_response, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py&quot;, line 229, in _send_and_cache
-    response = super().send(request, **kwargs)
-  File &quot;/home/runner/work/Fast-F1/Fast-F1/fastf1/req.py&quot;, line 124, in send
-    return super().send(request, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py&quot;, line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host=&#39;ergast.com&#39;, port=443): Max retries exceeded with url: /api/f1/2023/1/results.json (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)&#39;)))
-Request for URL https://ergast.com/api/f1/2023/1/laps/1.json failed; using cached response
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 1092, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py&quot;, line 642, in connect
-    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py&quot;, line 783, in _ssl_wrap_socket_and_match_hostname
-    ssl_sock = ssl_wrap_socket(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py&quot;, line 469, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py&quot;, line 513, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py&quot;, line 501, in wrap_socket
-    return self.sslsocket_class._create(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py&quot;, line 1041, in _create
-    self.do_handshake()
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py&quot;, line 1310, in do_handshake
-    self._sslobj.do_handshake()
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;ergast.com&#39;, port=443): Max retries exceeded with url: /api/f1/2023/1/laps/1.json (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)&#39;)))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py&quot;, line 255, in _resend
-    response = self._send_and_cache(request, actions, cached_response, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py&quot;, line 229, in _send_and_cache
-    response = super().send(request, **kwargs)
-  File &quot;/home/runner/work/Fast-F1/Fast-F1/fastf1/req.py&quot;, line 124, in send
-    return super().send(request, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-  File &quot;/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py&quot;, line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: HTTPSConnectionPool(host=&#39;ergast.com&#39;, port=443): Max retries exceeded with url: /api/f1/2023/1/laps/1.json (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)&#39;)))
-</pre></div>
-</div>
 <p>For each driver, get their three letter abbreviation (e.g. ‘HAM’) by simply
 using the value of the first lap, get their color and then plot their
 position over the number of laps.</p>
@@ -415,7 +301,7 @@ one is at the top, set custom tick positions and axis labels.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_position_changes_001.png" srcset="../_images/sphx_glr_plot_position_changes_001.png" alt="plot position changes" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.076 seconds)</p>
+<img src="../_images/sphx_glr_plot_position_changes_001.png" srcset="../_images/sphx_glr_plot_position_changes_001.png" alt="plot position changes" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.092 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-plot-position-changes-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/95a45a3e597e20cf26621cbace221cb6/plot_position_changes.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_position_changes.py</span></code></a></p>
@@ -476,7 +362,7 @@ one is at the top, set custom tick positions and axis labels.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=dd1205ac"></script>
+</div><script src="../_static/documentation_options.js?v=4e920bdf"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>

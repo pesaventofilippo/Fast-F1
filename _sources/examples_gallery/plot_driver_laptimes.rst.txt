@@ -58,123 +58,6 @@ Load the race session.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    Request for URL https://ergast.com/api/f1/2023/4/results.json failed; using cached response
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 467, in _make_request
-        self._validate_conn(conn)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
-        conn.connect()
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py", line 642, in connect
-        sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-        ssl_sock = ssl_wrap_socket(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 469, in ssl_wrap_socket
-        ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 513, in _ssl_wrap_socket_impl
-        return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py", line 501, in wrap_socket
-        return self.sslsocket_class._create(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py", line 1041, in _create
-        self.do_handshake()
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py", line 1310, in do_handshake
-        self._sslobj.do_handshake()
-    ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-    During handling of the above exception, another exception occurred:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
-        response = self._make_request(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 491, in _make_request
-        raise new_e
-    urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-    The above exception was the direct cause of the following exception:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
-        resp = conn.urlopen(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 844, in urlopen
-        retries = retries.increment(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/retry.py", line 515, in increment
-        raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ergast.com', port=443): Max retries exceeded with url: /api/f1/2023/4/results.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)')))
-
-    During handling of the above exception, another exception occurred:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py", line 255, in _resend
-        response = self._send_and_cache(request, actions, cached_response, **kwargs)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py", line 229, in _send_and_cache
-        response = super().send(request, **kwargs)
-      File "/home/runner/work/Fast-F1/Fast-F1/fastf1/req.py", line 124, in send
-        return super().send(request, **kwargs)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
-        r = adapter.send(request, **kwargs)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py", line 517, in send
-        raise SSLError(e, request=request)
-    requests.exceptions.SSLError: HTTPSConnectionPool(host='ergast.com', port=443): Max retries exceeded with url: /api/f1/2023/4/results.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)')))
-    Request for URL https://ergast.com/api/f1/2023/4/laps/1.json failed; using cached response
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 467, in _make_request
-        self._validate_conn(conn)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1092, in _validate_conn
-        conn.connect()
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py", line 642, in connect
-        sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
-        ssl_sock = ssl_wrap_socket(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 469, in ssl_wrap_socket
-        ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 513, in _ssl_wrap_socket_impl
-        return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py", line 501, in wrap_socket
-        return self.sslsocket_class._create(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py", line 1041, in _create
-        self.do_handshake()
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/ssl.py", line 1310, in do_handshake
-        self._sslobj.do_handshake()
-    ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-    During handling of the above exception, another exception occurred:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 790, in urlopen
-        response = self._make_request(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 491, in _make_request
-        raise new_e
-    urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)
-
-    The above exception was the direct cause of the following exception:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py", line 486, in send
-        resp = conn.urlopen(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/connectionpool.py", line 844, in urlopen
-        retries = retries.increment(
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/urllib3/util/retry.py", line 515, in increment
-        raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ergast.com', port=443): Max retries exceeded with url: /api/f1/2023/4/laps/1.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)')))
-
-    During handling of the above exception, another exception occurred:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py", line 255, in _resend
-        response = self._send_and_cache(request, actions, cached_response, **kwargs)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests_cache/session.py", line 229, in _send_and_cache
-        response = super().send(request, **kwargs)
-      File "/home/runner/work/Fast-F1/Fast-F1/fastf1/req.py", line 124, in send
-        return super().send(request, **kwargs)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/sessions.py", line 703, in send
-        r = adapter.send(request, **kwargs)
-      File "/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/requests/adapters.py", line 517, in send
-        raise SSLError(e, request=request)
-    requests.exceptions.SSLError: HTTPSConnectionPool(host='ergast.com', port=443): Max retries exceeded with url: /api/f1/2023/4/laps/1.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)')))
-
 
 
 
@@ -271,7 +154,7 @@ Make the plot more aesthetic.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.661 seconds)
+   **Total running time of the script:** (0 minutes 5.308 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_plot_driver_laptimes.py:

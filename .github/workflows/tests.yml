@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ '3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.11']
     name: Tests on ${{ matrix.python-version }}
     steps:
       - name: Setup python
@@ -52,6 +52,21 @@ jobs:
           key: fastf1-${{ matrix.python-version }}-${{ hashFiles('*.*') }}
           restore-keys: |
             fastf1-${{ matrix.python-version }}
+
+      - name: Cache multiple paths
+        uses: whywaita/actions-cache-s3@v2
+        with:
+          path: ./test_cache
+          key: fastf1-${{ matrix.python-version }}-${{ hashFiles('*.*') }}
+          restore-keys: |
+            fastf1-${{ matrix.python-version }}
+          aws-s3-bucket: ${{ secrets.CLOUDFLARE_R2_BUCKET_NAME }}
+          aws-access-key-id: ${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}
+          aws-region: auto                      # Optional
+          aws-endpoint: https://b9261d7f75d36ec3c0ae559737628538.eu.r2.cloudflarestorage.com          # Optional
+          aws-s3-bucket-endpoint: false              # Optional
+          aws-s3-force-path-style: true              # Optional
 
       - name: Run tests
         run: |
